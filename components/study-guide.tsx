@@ -4704,16 +4704,570 @@ const modules: Module[] = [
       { term: "Haec Sancta", definition: "1415 decree of Constance asserting council authority over popes; later rejected by popes" },
       { term: "Frequens", definition: "Constance decree requiring regular councils; largely ignored by later popes" }
     ]
+  },
+  {
+    id: 44,
+    title: "John Wycliffe",
+    videoTitle: "John Wycliffe",
+    duration: "~25 min",
+    objective: "This module examines John Wycliffe, the English reformer whose radical critique of papal authority and church wealth foreshadowed the Protestant Reformation.",
+    notes: {
+      sections: [
+        {
+          title: "Life and Background",
+          points: [
+            "**John Wycliffe** (c. 1330-1384) was born in Yorkshire, England",
+            "Studied and taught at **Oxford University** - one of England's leading theologians",
+            "Became known for his **radical critiques** of papal authority and ecclesiastical wealth",
+            "Served as a **diplomat** for King Edward III and later Richard II",
+            "His criticisms were tolerated partly because they served the English crown's interests against Rome"
+          ]
+        },
+        {
+          title: "Critique of Papal Authority",
+          points: [
+            "Wycliffe argued that the pope had **no scriptural basis** for supreme authority",
+            "The **Bible** should be the ultimate authority, not tradition or papal pronouncements",
+            "Popes could be **judged by Scripture**; an ungodly pope loses his authority",
+            "The church did not need **wealth** or **temporal power** to fulfill its mission",
+            "These ideas were revolutionary and threatened both ecclesiastical and secular powers"
+          ]
+        },
+        {
+          title: "The Bible in English",
+          points: [
+            "Wycliffe championed the translation of the **Bible into English**",
+            "Previously, Bibles were only in **Latin**, accessible only to clergy and scholars",
+            "An **English Bible** would make Scripture available to **ordinary people**",
+            "This threatened clerical monopoly on biblical interpretation",
+            "The Wycliffite Bible was completed (likely by followers) - first complete English translation",
+            "The church condemned English Bibles as heretical"
+          ]
+        },
+        {
+          title: "Eucharistic Theology",
+          points: [
+            "Wycliffe rejected the doctrine of **transubstantiation**",
+            "He taught **remanence**: the bread remains bread even after consecration; Christ is present spiritually",
+            "This was seen as radical - transubstantiation was defined doctrine since the Fourth Lateran Council",
+            "Wycliffe's view challenged the priest's power to perform 'magic' at the altar",
+            "This became one of the primary charges against him"
+          ]
+        },
+        {
+          title: "The Lollards",
+          points: [
+            "Wycliffe's followers were called **Lollards** (possibly from 'lollen' = to mumble)",
+            "They preached in **English** rather than Latin",
+            "Called for **voluntary poverty** and rejected clergy who held wealth and property",
+            "Organized lay communities; some priests left official church to join them",
+            "The movement spread rapidly among **common people** - craftsmen, merchants, peasants"
+          ]
+        },
+        {
+          title: "Persecution and Legacy",
+          points: [
+            "Wycliffe died in 1384; the church could not touch him",
+            "The **Council of Constance** (1415) posthumously condemned him and ordered his **bones exhumed and burned**",
+            "His ashes were **scattered in the River Swift** - symbolic rejection",
+            "Lollardry was **persecuted** under Henry IV and subsequent monarchs",
+            "Yet Lollard ideas **survived underground**, influencing later reformers like Jan Hus",
+            "His vision of an **English Bible** was eventually realized under Henry VIII"
+          ]
+        }
+      ]
+    },
+    quiz: [
+      {
+        question: "What was Wycliffe's fundamental challenge to papal authority?",
+        type: "short",
+        answer: "Wycliffe argued that the pope had no scriptural basis for supreme authority. The Bible, not papal pronouncements or tradition, should be the ultimate authority for Christians. Popes could be judged by Scripture, and an ungodly pope lost his authority.",
+        explanation: "This challenged the entire foundation of late medieval papal claims."
+      },
+      {
+        question: "Why was Wycliffe's championing of an English Bible revolutionary?",
+        type: "mc",
+        options: ["A) It was linguistically impossible", "B) It would make Scripture available to ordinary people, threatening clerical monopoly on interpretation", "C) The pope had forbidden all translations", "D) English was not yet a developed language"],
+        answer: "B) It would make Scripture available to ordinary people, threatening clerical monopoly on interpretation",
+        explanation: "An English Bible would democratize biblical knowledge, undermining the clergy's exclusive control."
+      },
+      {
+        question: "What was Wycliffe's position on transubstantiation?",
+        type: "mc",
+        options: ["A) He fully supported it", "B) He believed the bread becomes Christ's body literally", "C) He taught remanence: bread remains bread; Christ is spiritually present", "D) He rejected all real presence"],
+        answer: "C) He taught remanence: bread remains bread; Christ is spiritually present",
+        explanation: "Wycliffe's remanence theory challenged the priest's supposed power to transform bread into flesh."
+      },
+      {
+        question: "What happened to Wycliffe after his death?",
+        type: "short",
+        answer: "The Council of Constance posthumously condemned him in 1415. His bones were exhumed and burned, then scattered in the River Swift. Yet his ideas influenced Jan Hus and eventually contributed to the Protestant Reformation.",
+        explanation: "Even in death, the church punished Wycliffe, but his legacy endured."
+      }
+    ],
+    keyTerms: [
+      { term: "Lollards", definition: "Wycliffe's followers who preached in English and called for voluntary poverty and biblical reform" },
+      { term: "Remanence", definition: "Wycliffe's eucharistic theory: bread remains bread after consecration; Christ is spiritually present" },
+      { term: "Wycliffite Bible", definition: "First complete English translation of the Bible, completed by Wycliffe's followers" },
+      { term: "Sola Scriptura", definition: "Principle that Scripture alone is the ultimate authority; central to Wycliffe's thought and later Protestantism" },
+      { term: "Clerical Wealth", definition: "Wycliffe's target: he argued the church did not need temporal property to fulfill its mission" },
+      { term: "English Reformation", definition: "Later 16th-century religious change in England; Wycliffe's ideas about English Bibles influenced it" }
+    ]
+  },
+  {
+    id: 45,
+    title: "Jan Hus",
+    videoTitle: "Jan Hus",
+    duration: "~30 min",
+    objective: "This module examines Jan Hus, the Bohemian reformer inspired by Wycliffe, whose martyrdom sparked the Hussite movement and anticipated Protestant concerns.",
+    notes: {
+      sections: [
+        {
+          title: "Life and Influences",
+          points: [
+            "**Jan Hus** (c. 1372-1415) was born in Bohemia (modern Czech Republic)",
+            "Studied at the **University of Prague**; became a prominent theologian and preacher",
+            "Influenced by **John Wycliffe's** writings and ideas about scriptural authority",
+            "Became popular preacher at the **Bethlehem Chapel** in Prague - preached in Czech, not Latin",
+            "Served as **Rector of Prague University**; gained political influence with King Wenceslaus IV"
+          ]
+        },
+        {
+          title: "Religious Reforms",
+          points: [
+            "Called for the **laity to receive communion in both kinds** (bread and wine)",
+            "Currently, laypeople received only bread; priests received both",
+            "This inequality symbolized clerical privilege; Hus saw it as unscriptural",
+            "Attacked **clerical corruption** and called for voluntary poverty",
+            "Challenged the **sale of indulgences** - papal fundraising through forgiveness",
+            "Defended **national language** in worship - preaching and worship in Czech"
+          ]
+        },
+        {
+          title: "Theological Positions",
+          points: [
+            "Like Wycliffe, Hus emphasized **Scripture as supreme authority**",
+            "The **Pope could err**; ultimate authority lay in the Bible",
+            "Church authority must be **exercised according to Christ's example** of humility and service",
+            "Reject **papal claims** to temporal power",
+            "The **true church** consists of the predestined elect, known only to God"
+          ]
+        },
+        {
+          title: "Political Entanglement",
+          points: [
+            "Czech nationalism and religious reform became intertwined",
+            "Hus became a **symbol of Czech identity** against German dominance",
+            "German clergy opposed him; Czech clergy supported him",
+            "The **Pope and the Archbishop of Prague** condemned Hus",
+            "King Wenceslaus was protective but politically weakened",
+            "Powerful German princes and church leaders feared Hus's influence"
+          ]
+        },
+        {
+          title: "The Council of Constance and Trial",
+          points: [
+            "Hus was summoned to the **Council of Constance** (1414-1415) to defend his views",
+            "Given a **safe conduct** by the Holy Roman Emperor Sigismund",
+            "Despite the safe conduct, he was **arrested** and tried for heresy",
+            "The council found him **guilty** of spreading Wycliffe's heresies",
+            "Offered a chance to recant; Hus **refused to deny his convictions**",
+            "Condemned to **death by burning** on July 6, 1415"
+          ]
+        },
+        {
+          title: "Legacy: The Hussite Movement",
+          points: [
+            "Hus's martyrdom sparked the **Hussite Wars** (1419-1434) - religious and political conflict",
+            "Bohemian forces fought Catholic crusades sent by the pope",
+            "Hussites were divided: **Utraquists** (moderate, accepting communion in both kinds) and **Taborites** (radical)",
+            "The **Hussite churches** survived and influenced the later Reformation",
+            "Hus's ideas spread through **Central Europe** and influenced Martin Luther",
+            "He is revered in Czech national identity as a martyr for freedom and reform"
+          ]
+        }
+      ]
+    },
+    quiz: [
+      {
+        question: "What did Hus mean by calling for 'communion in both kinds'?",
+        type: "short",
+        answer: "Hus demanded that laypeople receive both bread and wine in communion, as clergy did. At the time, laypeople received only bread while priests received both. Hus saw this inequality as unscriptural and as a symbol of unjust clerical privilege.",
+        explanation: "This became a defining demand of the Hussite movement and represented the democratization of worship."
+      },
+      {
+        question: "What languages did Hus champion in worship?",
+        type: "mc",
+        options: ["A) Only Latin", "B) Latin and Greek", "C) Czech and other national languages", "D) He had no preference"],
+        answer: "C) Czech and other national languages",
+        explanation: "Hus preached in Czech and advocated for worship in the people's native language, not just Latin."
+      },
+      {
+        question: "What was violated when Hus was arrested at Constance?",
+        type: "mc",
+        options: ["A) His property rights", "B) The safe conduct given by Emperor Sigismund", "C) University regulations", "D) Nothing - his arrest was proper"],
+        answer: "B) The safe conduct given by Emperor Sigismund",
+        explanation: "Despite receiving a safe conduct from the emperor, Hus was arrested anyway - a serious breach of faith."
+      },
+      {
+        question: "What divided the Hussite movement after Hus's death?",
+        type: "short",
+        answer: "The Hussite movement split into Utraquists (moderates who accepted communion in both kinds and sought accommodation with Rome) and Taborites (radicals who wanted more thorough reform and rejected Catholic claims). This division reflected different visions of how far reform should go.",
+        explanation: "This pattern of radical vs. moderate reformers would repeat during the Protestant Reformation."
+      }
+    ],
+    keyTerms: [
+      { term: "Communion in Both Kinds", definition: "Hus's demand that laypeople receive both bread and wine in the Eucharist, not just bread" },
+      { term: "Utraquists", definition: "Moderate Hussite faction accepting communion in both kinds; sought compromise with Rome" },
+      { term: "Taborites", definition: "Radical Hussite faction demanding thorough reformation; rejected Catholic hierarchy" },
+      { term: "Hussite Wars", definition: "1419-1434 religious wars in Bohemia between Hussite forces and papal crusaders" },
+      { term: "Safe Conduct", definition: "Emperor Sigismund's promise of protection for Hus; violated when Hus was arrested at Constance" },
+      { term: "National Language Worship", definition: "Hus's insistence on preaching and worship in Czech, not just Latin" }
+    ]
+  },
+  {
+    id: 46,
+    title: "The Renaissance Papacy",
+    videoTitle: "The Renaissance Papacy",
+    duration: "~30 min",
+    objective: "This module examines the Renaissance popes (1417-1521) who focused on art, politics, and power while church corruption deepened, setting the stage for the Reformation.",
+    notes: {
+      sections: [
+        {
+          title: "Context: The Papacy Restored",
+          points: [
+            "After the **Council of Constance** (1417), the papacy was restored but weakened",
+            "Popes reasserted authority against **conciliarism** and conciliar councils",
+            "The **Italian Renaissance** was flourishing; popes became major **patrons of art**",
+            "Popes were also **Italian princes** controlling the Papal States",
+            "This mixture of spiritual authority, art patronage, and worldly power defined the period"
+          ]
+        },
+        {
+          title: "The Age of Art and Architecture",
+          points: [
+            "**Pope Nicholas V** (1447-1455) began the **renovation of St. Peter's Basilica**",
+            "Popes employed the greatest artists: **Raphael, Michelangelo, Botticelli, Brunelleschi**",
+            "The Vatican became a showcase of **Renaissance beauty and grandeur**",
+            "Michelangelo painted the **Sistine Chapel ceiling** under Pope Julius II",
+            "The **cost** of this artistic splendor was enormous",
+            "Art and architecture were justified as glorifying God; critics saw worldly excess"
+          ]
+        },
+        {
+          title: "Political Power and Intrigue",
+          points: [
+            "Popes acted as **Italian princes**, making alliances and war",
+            "**Pope Julius II** (1503-1513) was called the 'Warrior Pope' - led armies in battle",
+            "Popes made appointments based on **family interests**, not merit - **nepotism** was rampant",
+            "The **Borgia family** produced several popes; they were notorious for corruption",
+            "**Pope Alexander VI** (a Borgia) fathered several children while pope",
+            "Spiritual leadership was often secondary to political ambition"
+          ]
+        },
+        {
+          title: "Church Corruption",
+          points: [
+            "The **sale of indulgences** became a major papal fundraising mechanism",
+            "**Indulgences** were supposed to reduce penance; they became commodities for money",
+            "The wealthy could buy their way to forgiveness; the poor could not",
+            "**Simony** (buying church offices) was widespread - priests bought their positions",
+            "Clergy were often **ignorant, worldly, and immoral**",
+            "Reformist critics like **Savonarola** called out clerical corruption from within"
+          ]
+        },
+        {
+          title: "Worldly Splendor vs. Spiritual Crisis",
+          points: [
+            "The contrast between **papal grandeur** and **evangelical poverty** was stark",
+            "Medieval ideals of asceticism and service were abandoned",
+            "The **Bible** was ignored in favor of **tradition** and **power**",
+            "Educated people (especially humanists) began to **criticize the church**",
+            "Yet most people still saw the pope as the **spiritual head of Christendom**",
+            "Few imagined the church's monopoly on Christian practice would soon shatter"
+          ]
+        },
+        {
+          title: "The Indulgence Crisis",
+          points: [
+            "Pope **Leo X** (1513-1521) needed funds for **St. Peter's completion**",
+            "He authorized the **sale of indulgences** on a massive scale",
+            "**Johann Tetzel** was sent to Germany as the papal indulgence salesman",
+            "Tetzel's aggressive marketing offended many faithful Christians",
+            "**Martin Luther's** protest against the indulgence system would trigger the Reformation",
+            "The Renaissance papacy's financial needs directly caused the Reformation crisis"
+          ]
+        }
+      ]
+    },
+    quiz: [
+      {
+        question: "How did Renaissance popes justify their patronage of art and architecture?",
+        type: "short",
+        answer: "Renaissance popes argued that beautiful art and architecture glorified God and enhanced the splendor of the church. However, critics pointed out that the enormous cost of these projects (especially St. Peter's Basilica) represented worldly excess that contradicted Christ's example of poverty.",
+        explanation: "This tension between theological justification and practical criticism characterized the era."
+      },
+      {
+        question: "Who was Pope Julius II and why is he notable?",
+        type: "mc",
+        options: ["A) He was a pacifist pope", "B) He was the 'Warrior Pope' who led armies in battle and employed Michelangelo", "C) He abolished papal armies", "D) He rejected Renaissance art"],
+        answer: "B) He was the 'Warrior Pope' who led armies in battle and employed Michelangelo",
+        explanation: "Julius II exemplified the warrior-prince pope who combined political power with artistic patronage."
+      },
+      {
+        question: "What is simony in the context of Renaissance church corruption?",
+        type: "mc",
+        options: ["A) The sale of relics", "B) The purchase of church offices", "C) The use of indulgences", "D) The marriage of priests"],
+        answer: "B) The purchase of church offices",
+        explanation: "Simony meant that priests could buy their positions rather than earning them through merit or calling."
+      },
+      {
+        question: "How did the need to fund St. Peter's Basilica lead to the Reformation?",
+        type: "short",
+        answer: "Pope Leo X authorized massive sales of indulgences to fund St. Peter's completion. Johann Tetzel aggressively marketed these indulgences in Germany. Martin Luther's protest against this system in 1517 triggered the Protestant Reformation.",
+        explanation: "Financial need and aggressive salesmanship created the spark that ignited religious revolution."
+      }
+    ],
+    keyTerms: [
+      { term: "Indulgence Sale", definition: "Papal practice of selling remission of penance/punishment; major fundraising mechanism and corruption symbol" },
+      { term: "Nepotism", definition: "Practice of appointing family members to church positions; rampant among Renaissance popes" },
+      { term: "Simony", definition: "Practice of buying and selling church offices; widespread corruption in Renaissance church" },
+      { term: "Julius II", definition: "'Warrior Pope' who ruled 1503-1513; commissioned Sistine Chapel ceiling from Michelangelo" },
+      { term: "St. Peter's Basilica", definition: "Great church built in Rome; its cost funded by indulgence sales, triggering Reformation protest" },
+      { term: "Renaissance Patronage", definition: "Popes employing artists like Raphael and Michelangelo; created magnificent art at enormous expense" }
+    ]
+  },
+  {
+    id: 47,
+    title: "Erasmus",
+    videoTitle: "Erasmus",
+    duration: "~25 min",
+    objective: "This module examines Desiderius Erasmus, the great Christian humanist scholar whose biblical studies and criticism of church corruption influenced the Reformation.",
+    notes: {
+      sections: [
+        {
+          title: "Life and Education",
+          points: [
+            "**Desiderius Erasmus** (1466-1536) was born in Rotterdam, Netherlands",
+            "Educated by the **Brethren of the Common Life**, a reform-minded religious community",
+            "Became a **priest and monk**, though he preferred scholarly life to monastic routine",
+            "Studied **classics** (Greek and Latin) - unusual for clergy of his time",
+            "Traveled throughout **Europe**: France, Italy, England, Germany, Switzerland",
+            "Became the foremost **Christian humanist** scholar of his age"
+          ]
+        },
+        {
+          title: "Textual Scholarship and Biblical Studies",
+          points: [
+            "Erasmus pioneered **critical biblical scholarship**",
+            "Studied the **Greek New Testament** and compared it with the **Latin Vulgate**",
+            "Found that the Vulgate contained **errors and additions** not in original Greek",
+            "Published the **Novum Instrumentum** (1516): Greek New Testament with Latin translation",
+            "This established the **textual basis** for biblical criticism",
+            "Martin Luther used Erasmus's Greek NT for his German translation"
+          ]
+        },
+        {
+          title: "Critique of Church Corruption",
+          points: [
+            "Through satire and writing, Erasmus attacked **clerical ignorance and hypocrisy**",
+            "His 'Praise of Folly' (Moriae Encomium) mocked **monastic excess and superstition**",
+            "Criticized the **cult of saints** and **relic worship** as distortions of true piety",
+            "Attacked the sale of **indulgences** as fraudulent",
+            "Yet he was **witty and urbane** rather than strident - humor was his weapon",
+            "He remained a **Catholic** and wanted reform within the church, not schism"
+          ]
+        },
+        {
+          title: "Vision of Christian Humanism",
+          points: [
+            "Erasmus called for **'philosophy of Christ'** - returning to Christ's simple teachings",
+            "Christianity should be **ethical and spiritual**, not mechanical and superstitious",
+            "Education in **Greek and Latin classics** alongside Scripture was essential",
+            "The **laity** should read Scripture directly, not rely solely on clergy",
+            "Church should be **reformed** through scholarship and moral persuasion",
+            "He valued **reason alongside faith** - not opposed to each other"
+          ]
+        },
+        {
+          title: "The Printing Press and Influence",
+          points: [
+            "Erasmus's works were among the first widely **printed books**",
+            "His **Greek New Testament** and other editions spread rapidly",
+            "His writings reached an **unprecedented audience** - thousands of copies circulated",
+            "He corresponded with rulers, bishops, and scholars across Europe",
+            "His ideas about biblical criticism and church reform were **widely discussed**",
+            "Yet he remained personally **independent**, taking few official positions"
+          ]
+        },
+        {
+          title: "Limitations and Silence on the Reformation",
+          points: [
+            "Erasmus wanted **gradual, internal reform**, not the rupture that came",
+            "When **Martin Luther** emerged, Erasmus was initially cautious",
+            "He published **'On Free Will'** (1524) opposing Luther's **total depravity doctrine**",
+            "Luther attacked Erasmus in response - a painful conflict",
+            "Erasmus lived into the Reformation but never fully embraced Protestant churches",
+            "Remained a **Catholic** intellectual uncomfortable with both extremes",
+            "His moderate humanist vision was overshadowed by the Reformation's intensity"
+          ]
+        }
+      ]
+    },
+    quiz: [
+      {
+        question: "What was Erasmus's major contribution to biblical scholarship?",
+        type: "short",
+        answer: "Erasmus published the first printed edition of the Greek New Testament (Novum Instrumentum, 1516) with his own Latin translation. By comparing Greek texts with the Latin Vulgate, he discovered errors and additions in the Vulgate, establishing textual criticism as an essential tool for understanding Scripture.",
+        explanation: "This work became foundational for all subsequent biblical scholarship and translation work."
+      },
+      {
+        question: "What was Erasmus's 'Praise of Folly' satirizing?",
+        type: "mc",
+        options: ["A) Secular learning", "B) Political rulers", "C) Clerical ignorance, hypocrisy, and superstition", "D) Greek philosophy"],
+        answer: "C) Clerical ignorance, hypocrisy, and superstition",
+        explanation: "Through witty satire, Erasmus mocked monastic excess, relic worship, and the corruption he saw in the church."
+      },
+      {
+        question: "What did Erasmus mean by the 'philosophy of Christ'?",
+        type: "short",
+        answer: "Erasmus called for returning to Christ's simple, ethical, and spiritual teachings rather than the mechanical, superstitious practices he saw in contemporary Christianity. Christianity should emphasize moral behavior and direct engagement with Scripture, not dependence on clergy and rituals.",
+        explanation: "This vision anticipated Protestant concerns but with a humanist rather than theological focus."
+      },
+      {
+        question: "Why did Erasmus and Luther come into conflict?",
+        type: "mc",
+        options: ["A) Erasmus opposed all church reform", "B) Luther rejected biblical scholarship", "C) Erasmus published 'On Free Will' opposing Luther's doctrine of total depravity", "D) They disagreed on Greek language"],
+        answer: "C) Erasmus published 'On Free Will' opposing Luther's doctrine of total depravity",
+        explanation: "Their dispute over human freedom and divine grace revealed fundamental theological differences despite shared initial concerns about church corruption."
+      }
+    ],
+    keyTerms: [
+      { term: "Christian Humanism", definition: "Movement combining Renaissance learning (classics) with Christian faith; Erasmus was its greatest figure" },
+      { term: "Novum Instrumentum", definition: "Erasmus's 1516 edition of Greek New Testament with Latin translation; pioneered biblical textual criticism" },
+      { term: "Textual Criticism", definition: "Method of comparing ancient manuscripts to establish accurate biblical text; Erasmus pioneered this approach" },
+      { term: "Philosophy of Christ", definition: "Erasmus's vision of Christianity as ethical and spiritual, returning to Christ's simple teachings" },
+      { term: "Praise of Folly", definition: "Erasmus's satirical work mocking clerical corruption, superstition, and hypocrisy" },
+      { term: "Free Will", definition: "Theological doctrine Erasmus defended against Luther's claim that human will is bound by sin" }
+    ]
+  },
+  {
+    id: 48,
+    title: "On the Eve of the Reformation",
+    videoTitle: "On the Eve of the Reformation",
+    duration: "~30 min",
+    objective: "This module examines the religious, intellectual, and social conditions of late medieval Christendom that made the Reformation both possible and inevitable.",
+    notes: {
+      sections: [
+        {
+          title: "Institutional Crisis and Loss of Credibility",
+          points: [
+            "The **Great Schism** (1378-1417) had shattered confidence in papal leadership",
+            "The **Avignon Papacy** had shown papal dependence on secular powers",
+            "Councils like **Constance** had challenged papal supremacy but then popes reasserted it",
+            "The **sale of indulgences** and simony revealed systematic corruption",
+            "Yet most people still **believed in the church** and wanted it reformed, not destroyed",
+            "The institution had lost moral authority even as its claims remained unchanged"
+          ]
+        },
+        {
+          title: "Intellectual Ferment: Humanism and Scholasticism",
+          points: [
+            "**Renaissance humanism** valued Greek and Latin texts, emphasizing human dignity and reason",
+            "Medieval **scholasticism** still dominated universities but seemed increasingly sterile",
+            "The **printing press** (c. 1450) made books and ideas spread rapidly",
+            "**Erasmus, Valla, and other humanists** questioned church traditions through textual criticism",
+            "The **Bible** was being translated into **vernacular languages** despite church opposition",
+            "Educated people, especially humanists, were asking hard questions about church authority"
+          ]
+        },
+        {
+          title: "Lay Piety and Mysticism",
+          points: [
+            "A growing movement of **lay piety** emphasized personal devotion over institutional mediation",
+            "The **Devotio Moderna** (Modern Devotion) stressed personal prayer and Bible reading",
+            "**Mystics** claimed direct encounter with God without priestly intermediary",
+            "The **imitation of Christ** through ascetic practice appealed to reformers",
+            "Yet **indulgences and masses** for the dead remained pervasive",
+            "A gap was opening between **popular piety** and **official church practice**"
+          ]
+        },
+        {
+          title: "Rising National Monarchies and Criticism of Papal Power",
+          points: [
+            "**National kings** (France, Spain, England, Germany) were increasingly powerful",
+            "Kings resisted **papal taxation** and claims to appoint bishops",
+            "The concept of **Christendom** (unified Christian empire) was breaking down",
+            "**Gallicanism** (French church independence), **Erastianism** (state control of church), emerged",
+            "Yet national rulers also wanted **religious legitimacy** from the church",
+            "This created tension: monarchs wanted reform that increased their power"
+          ]
+        },
+        {
+          title: "Heretical Movements and Reform Impulses",
+          points: [
+            "**Wycliffe's Lollards** continued underground in England",
+            "**Hussite churches** thrived in Bohemia and influenced Central Europe",
+            "Radical groups like the **Brethren of the Common Life** advocated internal reform",
+            "Many wanted to **return to apostolic poverty** and biblical Christianity",
+            "The church condemned these movements as **heretical**",
+            "Yet their existence showed that **alternatives** to official Catholicism were imaginable"
+          ]
+        },
+        {
+          title: "The Crisis Awaiting Resolution",
+          points: [
+            "By 1500, **no one expected schism**; everyone assumed the church was eternal",
+            "Yet the combination of factors made **reform inevitable**:",
+            "**Institutional corruption** demanded purification",
+            "**Intellectual criticism** questioned traditional authorities",
+            "**Lay piety** wanted direct access to Scripture and God",
+            "**Political powers** resisted papal supremacy",
+            "All it needed was a **catalyst** - which came when **Martin Luther** posted his theses in 1517"
+          ]
+        }
+      ]
+    },
+    quiz: [
+      {
+        question: "How did the Great Schism and Avignon Papacy undermine the church's credibility before the Reformation?",
+        type: "short",
+        answer: "The Great Schism (1378-1417) with multiple rival popes showed that papal leadership was broken. The Avignon Papacy demonstrated papal dependence on secular rulers. Though councils like Constance temporarily restored order, popes quickly reasserted supremacy. This pattern of crisis and reasserted authority eroded confidence in the institution's spiritual leadership.",
+        explanation: "Loss of institutional credibility made people receptive to fundamental questioning of the church's authority."
+      },
+      {
+        question: "How did the printing press contribute to conditions favoring reformation?",
+        type: "mc",
+        options: ["A) It increased papal authority", "B) It spread books, ideas, and criticism rapidly to a wider audience", "C) It had no significant impact", "D) It strengthened scholastic theology"],
+        answer: "B) It spread books, ideas, and criticism rapidly to a wider audience",
+        explanation: "The printing press democratized knowledge, allowing humanist critiques and biblical translations to reach far more people than manuscripts could."
+      },
+      {
+        question: "What was the Devotio Moderna and how did it contrast with official church practice?",
+        type: "short",
+        answer: "The Devotio Moderna emphasized personal prayer, Bible reading, and direct devotion to God without dependence on priestly mediation. Yet the official church still centered on indulgences, masses for the dead, and clerical authority. This gap between popular piety seeking direct access to God and official practice emphasized clerical power created tension.",
+        explanation: "Lay people were increasingly unwilling to accept that they needed priests as intermediaries for spiritual experience."
+      },
+      {
+        question: "Why did national monarchies support some church criticism?",
+        type: "short",
+        answer: "National kings resisted papal taxation and claims to appoint bishops. They wanted to increase their own control over the church within their realms. While they still wanted religious legitimacy from the church, they supported criticism that weakened papal supremacy over secular rulers.",
+        explanation: "Political interests aligned with reformist goals, creating unlikely allies against papal claims."
+      }
+    ],
+    keyTerms: [
+      { term: "Institutional Crisis", definition: "Loss of credibility of the papal church through schism, corruption, and failed reform attempts" },
+      { term: "Devotio Moderna", definition: "Movement emphasizing personal piety, Bible reading, and direct devotion to God without priestly mediation" },
+      { term: "Christian Humanism", definition: "Intellectual movement combining classical learning with Christian faith; criticized church traditions" },
+      { term: "Textual Criticism", definition: "Method of analyzing ancient texts; humanists used it to challenge church traditions" },
+      { term: "Gallicanism", definition: "French church's assertion of independence from papal authority" },
+      { term: "Erastianism", definition: "Theory that the state should control the church rather than the reverse" },
+      { term: "Catalyst of Reform", definition: "The specific event (like Luther's theses) that triggers revolutionary change in a system already in crisis" }
+    ]
   }
 ]
 
-const remainingVideos = [
-  "John Wycliffe",
-  "Jan Hus",
-  "The Renaissance Papacy",
-  "Erasmus",
-  "On the Eve of the Reformation"
-]
+const remainingVideos = []
 
 function SpoilerAnswer({ answer, explanation }: { answer: string; explanation: string }) {
   const [revealed, setRevealed] = useState(false)
