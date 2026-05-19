@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronRight, BookOpen, FileText, Brain, Key, GraduationCap } from "lucide-react"
+import { ChevronRight, BookOpen, FileText, Brain, Key, GraduationCap, Youtube } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -19,6 +19,7 @@ interface QuizQuestion {
 
 interface Module {
   id: number
+  videoId: string
   title: string
   videoTitle: string
   duration: string
@@ -34,8 +35,9 @@ interface Module {
 }
 
 const modules: Module[] = [
-  {
+{
     id: 1,
+    videoId: "qzStS_NSs-s",
     title: "The Ancient Greek World",
     videoTitle: "The Ancient Greek World",
     duration: "~25 min",
@@ -122,8 +124,9 @@ const modules: Module[] = [
       { term: "Mystery Religions", definition: "Secret cults offering initiates personal salvation and special knowledge about the afterlife" }
     ]
   },
-  {
+{
     id: 2,
+    videoId: "Sa_E9QBHe30",
     title: "The Ancient Roman World",
     videoTitle: "The Ancient Roman World",
     duration: "~30 min",
@@ -212,8 +215,9 @@ const modules: Module[] = [
       { term: "Client King", definition: "A local ruler who maintained power with Roman approval and support (e.g., Herod the Great)" }
     ]
   },
-  {
+{
     id: 3,
+    videoId: "Qw3CjmoB3oY",
     title: "Roman Pagan Life and Worship",
     videoTitle: "Roman Pagan Life and Worship",
     duration: "~25 min",
@@ -303,8 +307,9 @@ const modules: Module[] = [
       { term: "Lararium", definition: "A small household shrine where Romans made daily offerings to household gods and ancestors" }
     ]
   },
-  {
+{
     id: 4,
+    videoId: "a5_V00sevog",
     title: "Plato, Aristotle, and Stoicism",
     videoTitle: "Plato, Aristotle, and Stoicism",
     duration: "~30 min",
@@ -399,8 +404,9 @@ const modules: Module[] = [
       { term: "Natural Law", definition: "Stoic concept that universal moral principles are accessible to all humans through reason, as all share in the Logos" }
     ]
   },
-  {
+{
     id: 5,
+    videoId: "hJR0A9phBc8",
     title: "Early Christian Persecution",
     videoTitle: "Early Christian Persecution",
     duration: "~35 min",
@@ -491,10 +497,11 @@ const modules: Module[] = [
       { term: "Martyr", definition: "Greek for 'witness'; one who dies rather than deny Christ; martyrdom was considered the highest Christian testimony" }
     ]
   },
-  {
+{
     id: 6,
-    title: "The Apostolic Fathers",
-    videoTitle: "The Apostolic Fathers",
+    videoId: "az4sztb0Tlc",
+    title: "Apostolic Fathers",
+    videoTitle: "Apostolic Fathers",
     duration: "~30 min",
     objective: "This lecture introduces the earliest Christian writings outside the New Testament - works from leaders who knew the apostles or their immediate disciples. Students will understand the historical value, theological emphases, and ecclesial concerns of these foundational texts.",
     notes: {
@@ -593,10 +600,11 @@ const modules: Module[] = [
       { term: "Catholic Church", definition: "Term first used by Ignatius meaning the universal, worldwide church in contrast to local or heretical groups" }
     ]
   },
-  {
+{
     id: 7,
-    title: "Early Christian Apologists",
-    videoTitle: "Early Christian Apologists",
+    videoId: "vXJIbvsb00s",
+    title: "Christian Apologists and Early Heresies",
+    videoTitle: "Christian Apologists and Early Heresies",
     duration: "~30 min",
     objective: "This module examines the second-century Christian intellectuals who defended the faith against pagan criticism and Jewish objections, articulating Christianity in philosophical terms that educated Romans could understand.",
     notes: {
@@ -693,10 +701,11 @@ const modules: Module[] = [
       { term: "Apologia", definition: "Greek word meaning 'defense' or 'speech in defense'; root of the word 'apologetics'" }
     ]
   },
-  {
+{
     id: 8,
-    title: "Gnosticism",
-    videoTitle: "Gnosticism",
+    videoId: "GXc-vvCivp4",
+    title: "Gnosticism and the Early Church",
+    videoTitle: "Gnosticism and the Early Church",
     duration: "~35 min",
     objective: "This module explores the diverse Gnostic movements that challenged orthodox Christianity in the second and third centuries, examining their distinctive beliefs about matter, salvation, and secret knowledge.",
     notes: {
@@ -805,10 +814,11 @@ const modules: Module[] = [
       { term: "Docetism", definition: "Belief that Christ only 'seemed' to have a physical body; common in Gnostic Christology" }
     ]
   },
-  {
+{
     id: 9,
-    title: "Introduction to Monasticism",
-    videoTitle: "Introduction to Monasticism",
+    videoId: "Aotkle8uCdI",
+    title: "Monasticism in Early Church",
+    videoTitle: "Monasticism in Early Church",
     duration: "~30 min",
     objective: "This module traces the origins of Christian monasticism from the Egyptian desert, examining why believers withdrew from society and how monastic life shaped Christian spirituality and institutions.",
     notes: {
@@ -918,10 +928,11 @@ const modules: Module[] = [
       { term: "Divine Office", definition: "The cycle of daily prayers at set hours developed in monasteries; also called Liturgy of the Hours" }
     ]
   },
-  {
+{
     id: 10,
-    title: "Roman Crisis of the Third Century",
-    videoTitle: "Roman Crisis of the Third Century",
+    videoId: "AQhTqHOKBs4",
+    title: "Rome and the Third Century Crisis",
+    videoTitle: "Rome and the Third Century Crisis",
     duration: "~25 min",
     objective: "This module examines the political, economic, and military chaos that nearly destroyed the Roman Empire in the third century and how this crisis shaped the context for both persecution and eventual Christian triumph.",
     notes: {
@@ -1027,10 +1038,11 @@ const modules: Module[] = [
       { term: "Tetrarchy", definition: "System of rule by four emperors established by Diocletian in 284 AD to end the crisis" }
     ]
   },
-  {
+{
     id: 11,
-    title: "Diocletian and the Great Persecution",
-    videoTitle: "Diocletian",
+    videoId: "8HSncAKHW3c",
+    title: "Diocletian and the Tetrarchy",
+    videoTitle: "Diocletian and the Tetrarchy",
     duration: "~30 min",
     objective: "This module examines the reign of Diocletian, his restructuring of the Roman Empire, and the Great Persecution (303-311 AD) - the most systematic and severe attempt to destroy Christianity.",
     notes: {
@@ -1139,10 +1151,11 @@ const modules: Module[] = [
       { term: "Confessor", definition: "A Christian who suffered for the faith during persecution but was not killed (distinguished from martyrs)" }
     ]
   },
-  {
+{
     id: 12,
-    title: "Constantine",
-    videoTitle: "Constantine",
+    videoId: "W0GCJfhjEYw",
+    title: "Constantine the Great",
+    videoTitle: "Constantine the Great",
     duration: "~35 min",
     objective: "This module examines Constantine's rise to power, his conversion to Christianity, the Edict of Milan, and the profound transformation of Christianity from persecuted sect to imperial religion.",
     notes: {
@@ -1263,10 +1276,11 @@ const modules: Module[] = [
       { term: "Episcopalis Audientia", definition: "Judicial authority granted to bishops to hear civil cases, giving church leaders legal power" }
     ]
   },
-  {
+{
     id: 13,
-    title: "The Byzantine Empire",
-    videoTitle: "The Byzantine Empire",
+    videoId: "GQowJ4sKsFw",
+    title: "The Byzantine Christian Empire (Part 1)",
+    videoTitle: "The Byzantine Christian Empire (Part 1)",
     duration: "~30 min",
     objective: "This module introduces the Eastern Roman (Byzantine) Empire, its distinctive Christian culture, and how the division between East and West shaped Christianity for a millennium.",
     notes: {
@@ -1375,8 +1389,88 @@ const modules: Module[] = [
   },
   {
     id: 14,
-    title: "Creeds and Councils",
-    videoTitle: "Creeds and Councils",
+    videoId: "L6qMvsv0O8c",
+    title: "The Byzantine Christian Empire (Part 2)",
+    videoTitle: "The Byzantine Christian Empire (Part 2)",
+    duration: "~30 min",
+    objective: "This lecture continues the story of the Eastern Roman (Byzantine) Empire after Justinian, tracing its struggles with Islam, the iconoclastic controversy, and its enduring shaping of Eastern Orthodox Christianity.",
+    notes: {
+      sections: [
+        {
+          title: "After Justinian",
+          points: [
+            "Plague, war with Persia, and exhausted treasury weakened the empire",
+            "Emperor **Heraclius (610-641)** defeated Persia but soon faced a new threat from Arab armies",
+            "Loss of Syria, Egypt, and North Africa to **Islamic conquests** (632-720)",
+            "Empire shrank to Anatolia and the Balkans, becoming distinctly Greek and Orthodox",
+          ]
+        },
+        {
+          title: "The Iconoclastic Controversy (726-843)",
+          points: [
+            "Emperor **Leo III** banned the veneration of icons in 726, believing them idolatrous",
+            "**Iconoclasts** ('image-breakers') destroyed religious images across the empire",
+            "**John of Damascus** defended icons: matter became holy through the incarnation",
+            "**Second Council of Nicaea (787)** restored icon veneration, distinguishing it from worship",
+            "Final 'Triumph of Orthodoxy' in 843 — still celebrated annually in the Orthodox Church",
+          ]
+        },
+        {
+          title: "Byzantine Christianity",
+          points: [
+            "Caesaropapism: emperor as protector and guide of the church",
+            "Rich liturgical and mystical tradition (Hesychasm, Divine Liturgy)",
+            "Missionary expansion to the Slavs through **Cyril and Methodius**",
+            "Created the **Cyrillic alphabet** for Slavic peoples",
+            "Set the stage for the Christianization of Russia under Vladimir (988)",
+          ]
+        },
+        {
+          title: "Long Decline and Legacy",
+          points: [
+            "Repeated wars with Muslim powers, Bulgars, and later the Crusaders",
+            "Sack of Constantinople in **1204** by Fourth Crusade gravely weakened the empire",
+            "Final fall to the Ottoman Turks in **1453**",
+            "Byzantine theology, liturgy, and art remain foundational for Eastern Orthodoxy",
+          ]
+        },
+      ]
+    },
+    quiz: [
+      {
+        question: "What was the central issue in the iconoclastic controversy?",
+        type: "short",
+        answer: "Whether religious images (icons) of Christ, Mary, and the saints could be venerated, or whether their use violated the second commandment against idolatry.",
+        explanation: "Icon defenders argued the incarnation made matter a fit medium for grace; iconoclasts feared a return to pagan image-worship."
+      },
+      {
+        question: "Which council restored icon veneration?",
+        type: "mc",
+        options: ["A) Council of Chalcedon (451)", "B) Second Council of Nicaea (787)", "C) Council of Constance (1414)", "D) Lateran IV (1215)"],
+        answer: "B) Second Council of Nicaea (787)",
+        explanation: "Nicaea II distinguished veneration (dulia) from worship (latria), permitting honor to icons as windows to their prototypes."
+      },
+      {
+        question: "Why was 1453 a turning point?",
+        type: "short",
+        answer: "The Ottoman conquest of Constantinople ended the Byzantine Empire, transferring leadership of Eastern Orthodoxy to other centers — most importantly Moscow, which began to see itself as a 'Third Rome.'",
+        explanation: "It closed a thousand-year chapter of Christian empire in the East and reshaped the religious map of the Mediterranean."
+      },
+    ],
+    keyTerms: [
+      { term: "Iconoclasm", definition: "Movement to destroy religious images, official imperial policy 726-843" },
+      { term: "John of Damascus", definition: "Eighth-century theologian whose treatises defended icons on incarnational grounds" },
+      { term: "Second Council of Nicaea (787)", definition: "Seventh ecumenical council; affirmed icon veneration" },
+      { term: "Cyril and Methodius", definition: "Ninth-century missionaries to the Slavs; created the Cyrillic alphabet" },
+      { term: "Caesaropapism", definition: "System in which the emperor exercises authority over the church" },
+      { term: "Hesychasm", definition: "Byzantine contemplative tradition focused on the Jesus Prayer and inner stillness" },
+    ]
+  },
+{
+    id: 15,
+    videoId: "xMz5MiM4iww",
+    title: "Creeds and Councils: What are they?",
+    videoTitle: "Creeds and Councils: What are they?",
     duration: "~25 min",
     objective: "This module explains the development of Christian creeds and the function of ecumenical councils in defining orthodoxy and responding to theological controversies.",
     notes: {
@@ -1488,9 +1582,86 @@ const modules: Module[] = [
     ]
   },
   {
-    id: 15,
-    title: "Nicaea: The Arian Controversy",
-    videoTitle: "Nicaea: The Arian Controversy",
+    id: 16,
+    videoId: "IlzM7LogGRU",
+    title: "Early Church and Trinity: Father and Son",
+    videoTitle: "Early Church and Trinity: Father and Son",
+    duration: "~30 min",
+    objective: "Before Nicaea, the church wrestled to articulate how the Father and the Son are related. This lecture surveys the early attempts (and dead ends) that set up the great Trinitarian debates of the fourth century.",
+    notes: {
+      sections: [
+        {
+          title: "The Problem",
+          points: [
+            "Christians worshipped Jesus as God but insisted that there is one God",
+            "How can the Son be truly God and yet not a second God?",
+            "Jewish monotheism made any compromise unthinkable",
+            "Greek philosophical categories (substance, person) entered the discussion",
+          ]
+        },
+        {
+          title: "Early (Inadequate) Models",
+          points: [
+            "**Modalism / Sabellianism**: Father, Son, and Spirit are three modes of one God",
+            "**Adoptionism**: Jesus was a man adopted as Son of God at his baptism",
+            "**Subordinationism**: the Son is divine but lesser than the Father",
+            "Each preserved monotheism but failed to capture the New Testament witness",
+          ]
+        },
+        {
+          title: "Key Voices Before Nicaea",
+          points: [
+            "**Tertullian** coined *trinitas*: 'three persons, one substance'",
+            "**Origen** spoke of the eternal generation of the Son but slid toward subordinationism",
+            "**Irenaeus** stressed the unity of the Father working through Son and Spirit",
+            "Rule of Faith and baptismal formulas (Matthew 28:19) shaped worship and belief",
+          ]
+        },
+        {
+          title: "Setting the Stage for Nicaea",
+          points: [
+            "By 300, the church needed precise language for the Father-Son relationship",
+            "Arius pushed subordinationism to a breaking point",
+            "The stage was set for the controversy that would define orthodox Trinitarian faith",
+          ]
+        },
+      ]
+    },
+    quiz: [
+      {
+        question: "What does modalism teach?",
+        type: "short",
+        answer: "That God is one person who appears in three successive modes — Father, Son, Spirit — rather than three distinct persons. Also called Sabellianism.",
+        explanation: "It safeguarded monotheism but denied real distinction between the persons."
+      },
+      {
+        question: "Who coined the Latin term *trinitas*?",
+        type: "mc",
+        options: ["A) Origen", "B) Tertullian", "C) Athanasius", "D) Augustine"],
+        answer: "B) Tertullian",
+        explanation: "Tertullian's formula 'three persons, one substance' became foundational vocabulary for Western Trinitarian theology."
+      },
+      {
+        question: "Why was subordinationism attractive — and dangerous?",
+        type: "short",
+        answer: "It seemed to preserve the oneness of God by ranking the Son beneath the Father. But it threatened to make Christ a creature, undermining salvation, which requires that the one who saves be truly God.",
+        explanation: "The Nicene response insisted the Son is 'of one substance' (homoousios) with the Father."
+      },
+    ],
+    keyTerms: [
+      { term: "Modalism", definition: "View that Father, Son, and Spirit are three modes of one divine person" },
+      { term: "Adoptionism", definition: "Heresy that Jesus was a mere man adopted as Son of God" },
+      { term: "Subordinationism", definition: "View that the Son is divine but lesser than the Father" },
+      { term: "Trinitas", definition: "Latin term coined by Tertullian for the triune God" },
+      { term: "Eternal Generation", definition: "Doctrine that the Son is eternally begotten of the Father, not made" },
+      { term: "Rule of Faith", definition: "Early summary of apostolic teaching used to test orthodoxy" },
+    ]
+  },
+{
+    id: 17,
+    videoId: "Nduka-QqXbQ",
+    title: "Arius and Nicea",
+    videoTitle: "Arius and Nicea",
     duration: "~35 min",
     objective: "This module examines the Arian controversy that prompted the Council of Nicaea (325 AD), the council's deliberations, and the Nicene definition of Christ's full divinity.",
     notes: {
@@ -1599,10 +1770,11 @@ const modules: Module[] = [
       { term: "Begotten Not Made", definition: "Nicene phrase distinguishing Christ's eternal generation from the Father from being a created being" }
     ]
   },
-  {
-    id: 16,
-    title: "Athanasius",
-    videoTitle: "Athanasius",
+{
+    id: 18,
+    videoId: "CfP7DNG_ZbM",
+    title: "After Nicea",
+    videoTitle: "After Nicea",
     duration: "~30 min",
     objective: "This module examines the life and theology of Athanasius, the tireless champion of Nicene orthodoxy who was exiled five times for defending Christ's full divinity against Arianism.",
     notes: {
@@ -1712,10 +1884,11 @@ const modules: Module[] = [
       { term: "Pneumatomachians", definition: "'Spirit-fighters' - those who denied the full divinity of the Holy Spirit; Athanasius opposed them" }
     ]
   },
-  {
-    id: 17,
-    title: "The Cappadocian Fathers",
-    videoTitle: "The Cappadocian Fathers",
+{
+    id: 19,
+    videoId: "WrlR1aFODDI",
+    title: "Council of Constantinople",
+    videoTitle: "Council of Constantinople",
     duration: "~30 min",
     objective: "This module examines the three Cappadocian Fathers - Basil the Great, Gregory of Nazianzus, and Gregory of Nyssa - who refined Trinitarian theology and secured the victory of Nicene orthodoxy.",
     notes: {
@@ -1826,9 +1999,85 @@ const modules: Module[] = [
     ]
   },
   {
-    id: 18,
-    title: "Ephesus and Chalcedon",
-    videoTitle: "Ephesus and Chalcedon",
+    id: 20,
+    videoId: "8o4j5xrlJLM",
+    title: "Disputes on Christ: Nestorius and Cyril",
+    videoTitle: "Disputes on Christ: Nestorius and Cyril",
+    duration: "~30 min",
+    objective: "After Nicaea settled who Jesus is in relation to the Father, a new question arose: how do divinity and humanity coexist in the one Christ? This lecture traces the bitter dispute between Nestorius of Constantinople and Cyril of Alexandria.",
+    notes: {
+      sections: [
+        {
+          title: "The Question After Nicaea",
+          points: [
+            "If the Son is fully God and Jesus is fully man, how are the two natures related?",
+            "**Antiochene school**: emphasized the distinction of the two natures",
+            "**Alexandrian school**: emphasized the unity of the one Christ",
+          ]
+        },
+        {
+          title: "Nestorius",
+          points: [
+            "Antiochene monk, made Patriarch of Constantinople in 428",
+            "Objected to calling Mary *Theotokos* ('God-bearer'); preferred *Christotokos* ('Christ-bearer')",
+            "Critics charged him with teaching two persons in Christ rather than two natures in one person",
+          ]
+        },
+        {
+          title: "Cyril of Alexandria",
+          points: [
+            "Brilliant, combative defender of Alexandrian Christology",
+            "Wrote his **Twelve Anathemas** against Nestorius",
+            "Insisted on *Theotokos* to safeguard the unity of Christ's person",
+            "Famous formula: 'one incarnate nature of the divine Word' (later misread by monophysites)",
+          ]
+        },
+        {
+          title: "Council of Ephesus (431)",
+          points: [
+            "Convened by Emperor Theodosius II to settle the dispute",
+            "Cyril opened the council before Nestorius's allies arrived; condemned Nestorius",
+            "Affirmed Mary as Theotokos and the single personhood of Christ",
+            "Tensions remained — setting the stage for Chalcedon twenty years later",
+          ]
+        },
+      ]
+    },
+    quiz: [
+      {
+        question: "What was the *Theotokos* controversy really about?",
+        type: "short",
+        answer: "Whether Mary could be called 'God-bearer.' The title was less about Mary than about Christ: if she bore God, then the one she bore is a single person with two natures, not two persons.",
+        explanation: "Nestorius's refusal seemed to imply two separate persons in Christ — divine and human — loosely joined."
+      },
+      {
+        question: "Where was Nestorius condemned?",
+        type: "mc",
+        options: ["A) Nicaea (325)", "B) Constantinople (381)", "C) Ephesus (431)", "D) Chalcedon (451)"],
+        answer: "C) Ephesus (431)",
+        explanation: "Cyril's allies pushed through condemnation before the Antiochene bishops arrived."
+      },
+      {
+        question: "What did Cyril want to safeguard?",
+        type: "short",
+        answer: "The unity of the one person of Christ. He feared that Nestorius's language divided Christ into two acting subjects, undermining the incarnation.",
+        explanation: "This pastoral concern lay beneath his sometimes excessive rhetoric and political maneuvering."
+      },
+    ],
+    keyTerms: [
+      { term: "Theotokos", definition: "'God-bearer'; title for Mary affirming the single personhood of Christ" },
+      { term: "Christotokos", definition: "'Christ-bearer'; Nestorius's preferred term, rejected at Ephesus" },
+      { term: "Antiochene School", definition: "Christological tradition emphasizing the distinction of Christ's two natures" },
+      { term: "Alexandrian School", definition: "Christological tradition emphasizing the unity of Christ's person" },
+      { term: "Twelve Anathemas", definition: "Cyril's polemical statements against Nestorius" },
+      { term: "Council of Ephesus (431)", definition: "Third ecumenical council; condemned Nestorius" },
+    ]
+  },
+{
+    id: 21,
+    videoId: "tFfNFJOppsM",
+    title: "Council of Chalcedon",
+    videoTitle: "Council of Chalcedon",
     duration: "~35 min",
     objective: "This module examines the Christological controversies of the fifth century, culminating in the Councils of Ephesus (431) and Chalcedon (451), which defined how Christ's divine and human natures relate.",
     notes: {
@@ -1939,233 +2188,87 @@ const modules: Module[] = [
     ]
   },
   {
-    id: 19,
-    title: "Ambrose of Milan",
-    videoTitle: "Ambrose",
-    duration: "~25 min",
-    objective: "This module examines Ambrose of Milan, the influential bishop who shaped Western Christianity through his preaching, hymns, defense of orthodoxy, and bold confrontations with emperors.",
-    notes: {
-      sections: [
-        {
-          title: "Background and Election",
-          points: [
-            "**Ambrose** (c. 340-397) was born into a Roman senatorial family in Trier",
-            "Father was **Praetorian Prefect of Gaul** - one of the highest imperial offices",
-            "Trained in **law and rhetoric**; became governor of Aemilia-Liguria based in Milan",
-            "In 374, went to the cathedral to **keep peace** during a contentious episcopal election",
-            "A voice (possibly a child's) cried 'Ambrose for bishop!' - the crowd took it up",
-            "Though only a **catechumen** (unbaptized), he was baptized, ordained, and consecrated within a week"
-          ]
-        },
-        {
-          title: "Milan: The Imperial Capital",
-          points: [
-            "Milan was the **Western imperial capital** in the late fourth century, not Rome",
-            "Ambrose thus had direct **access to emperors** and the imperial court",
-            "This made the bishop of Milan extraordinarily influential in politics and church affairs",
-            "Ambrose used this position to defend **Nicene orthodoxy** against Arianism",
-            "His episcopate coincided with emperors **Valentinian I, Gratian, Valentinian II, and Theodosius I**"
-          ]
-        },
-        {
-          title: "Defense Against Arianism",
-          points: [
-            "**Empress Justina** (Valentinian II's mother) demanded churches for Arian worship",
-            "Ambrose refused: '**The emperor is within the church, not above it**'",
-            "Occupied the basilica with his congregation; troops surrounded but did not attack",
-            "Wrote **hymns** to be sung during the siege - introducing congregational hymn-singing to the West",
-            "Successfully resisted; **Nicene orthodoxy** prevailed in the Western church",
-            "His hymns became foundational for Western **liturgical music**"
-          ]
-        },
-        {
-          title: "Confrontations with Emperors",
-          points: [
-            "Ambrose embodied the principle that **moral law binds even emperors**",
-            "Refused Emperor **Theodosius I** communion after the Massacre of Thessalonica (390)",
-            "Theodosius had ordered the massacre of 7,000 citizens in retaliation for a riot",
-            "Ambrose required the emperor to do **public penance** before being restored",
-            "Theodosius complied - a dramatic assertion of **church authority over state**",
-            "Established precedent: the church has **moral authority** even over the highest powers"
-          ]
-        },
-        {
-          title: "Influence on Augustine",
-          points: [
-            "**Augustine** came to Milan as a rhetoric professor in 384, still not a Christian",
-            "Augustine initially came to observe Ambrose's famous **oratorical skill**",
-            "Ambrose's **allegorical interpretation** of the Old Testament resolved Augustine's intellectual objections",
-            "Augustine was baptized by Ambrose at the **Easter Vigil of 387**",
-            "Augustine later credited Ambrose as key to his conversion",
-            "This connection links Ambrose to the most influential theologian in Western history"
-          ]
-        },
-        {
-          title: "Legacy and Contributions",
-          points: [
-            "One of the original four **Doctors of the Western Church** (with Augustine, Jerome, Gregory)",
-            "Pioneer of Western **hymnody** - 'Ambrosian hymns' shaped church music for centuries",
-            "Developed Western **Mariology** and defense of Mary's perpetual virginity",
-            "Advocated strongly for **clerical celibacy**",
-            "His **moral theology** influenced medieval ethics",
-            "The **Ambrosian Rite** (liturgy of Milan) still exists as a distinct Western liturgical tradition"
-          ]
-        }
-      ]
-    },
-    quiz: [
-      {
-        question: "How did Ambrose become bishop of Milan despite not yet being baptized?",
-        type: "short",
-        answer: "While serving as governor, Ambrose went to the cathedral to keep peace during a contentious election. A voice cried 'Ambrose for bishop!' and the crowd took it up. Though only a catechumen, he was baptized, ordained, and consecrated within a week.",
-        explanation: "This dramatic election reflected both Ambrose's administrative reputation and the congregation's desire for a unifying figure."
-      },
-      {
-        question: "What principle did Ambrose assert when he refused to give churches to the Arian Empress Justina?",
-        type: "mc",
-        options: ["A) 'The church belongs to the highest bidder'", "B) 'The emperor is within the church, not above it'", "C) 'All churches belong to the state'", "D) 'Bishops outrank emperors in all matters'"],
-        answer: "B) 'The emperor is within the church, not above it'",
-        explanation: "Ambrose established that even emperors are subject to the church's spiritual authority and cannot command the church against its faith."
-      },
-      {
-        question: "What did Ambrose require of Emperor Theodosius after the Massacre of Thessalonica?",
-        type: "short",
-        answer: "Ambrose refused Theodosius communion and required him to do public penance before being restored to fellowship. The emperor complied, dramatically demonstrating that moral law binds even emperors.",
-        explanation: "This set a powerful precedent for church authority over the moral conduct of secular rulers."
-      },
-      {
-        question: "How did Ambrose influence Augustine's conversion to Christianity?",
-        type: "mc",
-        options: ["A) He debated Augustine publicly and won", "B) His allegorical interpretation of Scripture resolved Augustine's intellectual objections", "C) He performed a miracle that Augustine witnessed", "D) He threatened Augustine with excommunication"],
-        answer: "B) His allegorical interpretation of Scripture resolved Augustine's intellectual objections",
-        explanation: "Augustine's Manichaean objections to the Old Testament were answered by Ambrose's spiritual/allegorical reading, opening him to embrace Christianity."
-      }
-    ],
-    keyTerms: [
-      { term: "Ambrosian Hymns", definition: "Hymns composed by Ambrose for congregational singing; foundational for Western church music" },
-      { term: "Massacre of Thessalonica", definition: "390 AD killing of 7,000 citizens ordered by Theodosius; led to Ambrose requiring the emperor's public penance" },
-      { term: "Doctors of the Church", definition: "Title for teachers of outstanding merit; Ambrose is one of the four original Western Doctors" },
-      { term: "Ambrosian Rite", definition: "The distinctive liturgy of Milan, still practiced today as an alternative to the Roman Rite" },
-      { term: "Catechumen", definition: "A person receiving instruction before baptism; Ambrose was elected bishop while still a catechumen" },
-      { term: "Allegorical Interpretation", definition: "Reading Scripture for spiritual meanings beyond the literal; Ambrose's method influenced Augustine" }
-    ]
-  },
-  {
-    id: 20,
-    title: "Jerome",
-    videoTitle: "Jerome",
+    id: 22,
+    videoId: "6FVTeFkEpmo",
+    title: "Ambrose and Jerome",
+    videoTitle: "Ambrose and Jerome",
     duration: "~30 min",
-    objective: "This module examines Jerome, the irascible scholar whose Latin Vulgate translation became the Bible of Western Christianity for over a millennium and whose biblical scholarship set standards for centuries.",
+    objective: "Two giants of the late fourth century shaped Western Christianity in different ways: Ambrose as the bold bishop who confronted emperors, and Jerome as the scholar who gave the West its Bible.",
     notes: {
       sections: [
         {
-          title: "Life and Education",
+          title: "Ambrose of Milan (c. 339-397)",
           points: [
-            "**Jerome** (c. 347-420) was born in Stridon (modern Croatia/Slovenia border)",
-            "Received excellent **classical education** in Rome; studied grammar and rhetoric",
-            "Baptized in Rome as a young man; became committed to **ascetic life**",
-            "Had a famous **dream** where Christ accused him: 'You are a Ciceronian, not a Christian'",
-            "This dream turned him from classical literature to **Scripture study**",
-            "Traveled extensively: Gaul, Antioch, the Syrian desert, Constantinople, Rome, Bethlehem"
+            "Roman aristocrat and provincial governor acclaimed bishop while still a catechumen",
+            "Defended Nicene orthodoxy against Arian imperial pressure",
+            "Confronted Emperor **Theodosius** after the massacre at Thessalonica; required public penance",
+            "Established the principle that the emperor is *within* the church, not above it",
+            "Composed hymns and shaped Latin liturgy",
           ]
         },
         {
-          title: "Scholar of Scripture",
+          title: "Jerome (c. 347-420)",
           points: [
-            "Learned **Hebrew** from Jewish teachers - extremely rare for a Christian scholar",
-            "Also mastered **Greek** along with his native Latin - a trilingual scholar",
-            "Studied under **Gregory of Nazianzus** in Constantinople",
-            "Served as secretary to **Pope Damasus I** in Rome (382-385)",
-            "Damasus commissioned him to revise the **Latin Bible** translations",
-            "After Damasus's death, controversies drove him to settle in **Bethlehem** (386)"
+            "Brilliant, cantankerous scholar trained in classical Latin",
+            "Friend then secretary of Pope Damasus in Rome",
+            "Moved to Bethlehem and lived as an ascetic for the rest of his life",
+            "Tutored noble Roman women in Scripture and Hebrew",
           ]
         },
         {
-          title: "The Vulgate Translation",
+          title: "The Vulgate",
           points: [
-            "Jerome produced the **Vulgate** - Latin translation that became the Western church's Bible",
-            "Revised the Gospels based on better **Greek manuscripts**",
-            "For the Old Testament, controversially translated from the **Hebrew** rather than the Greek Septuagint",
-            "Defended the 'Hebraica veritas' ('**Hebrew truth**') as the authentic Old Testament text",
-            "Identified the **deuterocanonical books** (Apocrypha) as secondary, though he translated them",
-            "The Vulgate remained the standard Western Bible until the **Reformation** (and beyond in Catholicism)"
+            "Pope Damasus commissioned Jerome to revise the Latin Bible",
+            "Jerome translated the Old Testament directly from the **Hebrew** rather than the Greek Septuagint",
+            "Result: the **Vulgate**, the standard Bible of the Latin West for over a thousand years",
+            "Set new standards for biblical scholarship and textual criticism",
           ]
         },
         {
-          title: "Biblical Commentaries",
+          title: "Two Models of Christian Leadership",
           points: [
-            "Wrote commentaries on most books of the Bible - an enormous scholarly output",
-            "Combined **literal/historical** and **allegorical/spiritual** interpretation",
-            "Drew on **Origen's** scholarship while critiquing his controversial theology",
-            "His commentaries remained standard reference works throughout the **Middle Ages**",
-            "Also translated **Origen's homilies** and **Eusebius's Chronicle** into Latin"
+            "Ambrose: pastor-statesman engaged with empire",
+            "Jerome: monk-scholar withdrawn for study and devotion",
+            "Together they shaped what 'Christian learning' would mean in the medieval West",
           ]
         },
-        {
-          title: "The Bethlehem Community",
-          points: [
-            "Settled in **Bethlehem in 386** with wealthy Roman widow **Paula** and her daughter Eustochium",
-            "Paula funded **monasteries** (one for men, three for women) and a hospice for pilgrims",
-            "Jerome led the men's monastery and devoted himself to **scholarship**",
-            "Established a **scriptorium** for copying and translating texts",
-            "The community became a center for **biblical study and pilgrimage**",
-            "Jerome remained there until his death in **420 AD**"
-          ]
-        },
-        {
-          title: "Controversies and Character",
-          points: [
-            "Jerome was **brilliant but irascible** - famous for savage attacks on opponents",
-            "Quarreled with former friend **Rufinus** over Origen's orthodoxy",
-            "Attacked **Jovinian** who questioned the superiority of virginity over marriage",
-            "Controversially defended **asceticism and virginity** as the highest Christian calling",
-            "His letters and polemics provide vivid pictures of **fourth-century church life**",
-            "One of the four original **Doctors of the Western Church**"
-          ]
-        }
       ]
     },
     quiz: [
       {
-        question: "Why was Jerome's decision to translate the Old Testament from Hebrew controversial?",
+        question: "How did Ambrose confront Theodosius?",
         type: "short",
-        answer: "The church had traditionally used the Greek Septuagint (LXX) as its Old Testament text. By translating from the Hebrew, Jerome departed from apostolic practice and the text quoted in the New Testament, though he argued the Hebrew was the authentic original.",
-        explanation: "Augustine and others objected, but Jerome's 'Hebrew truth' approach eventually won acceptance in the West."
+        answer: "After Theodosius ordered the massacre of thousands at Thessalonica in 390, Ambrose excommunicated him and required public penance before he could receive communion again. Theodosius submitted.",
+        explanation: "It set a precedent for the church's moral authority over Christian rulers in the West."
       },
       {
-        question: "What is the 'Vulgate' and why is it significant?",
+        question: "What is the Vulgate?",
         type: "mc",
-        options: ["A) A Greek philosophical treatise", "B) Jerome's Latin translation that became the Western church's standard Bible", "C) An early church council document", "D) A Gnostic gospel discovered in Egypt"],
-        answer: "B) Jerome's Latin translation that became the Western church's standard Bible",
-        explanation: "The Vulgate ('common' translation) was the standard Western Bible for over 1,000 years and remains the official Latin Bible of the Catholic Church."
+        options: ["A) A Greek translation of the Old Testament", "B) Jerome's Latin Bible", "C) Augustine's commentary on Genesis", "D) A liturgical book of the Eastern Church"],
+        answer: "B) Jerome's Latin Bible",
+        explanation: "Translated largely from Hebrew and Greek originals, the Vulgate became the West's standard Bible until the Reformation."
       },
       {
-        question: "What did Jerome's famous dream accuse him of being?",
-        type: "mc",
-        options: ["A) A heretic", "B) A Ciceronian, not a Christian", "C) An Arian sympathizer", "D) A false prophet"],
-        answer: "B) A Ciceronian, not a Christian",
-        explanation: "The dream warned Jerome that his devotion to classical literature (Cicero) was displacing Scripture, prompting his turn to biblical scholarship."
-      },
-      {
-        question: "What was Jerome's position on the deuterocanonical books (Apocrypha)?",
+        question: "Why was Jerome's use of Hebrew controversial?",
         type: "short",
-        answer: "Jerome considered them secondary to the Hebrew canon and not fully authoritative Scripture. He translated them but distinguished them from the books found in the Hebrew Bible, calling them useful for edification but not for doctrine.",
-        explanation: "This distinction later influenced Protestant rejection of these books as canonical."
-      }
+        answer: "Many Christians, including Augustine, trusted the Greek Septuagint as the Bible of the apostles. Jerome's preference for Hebrew sources challenged that tradition and produced different readings in some passages.",
+        explanation: "Time vindicated Jerome's scholarly judgment; his methods became foundational for biblical studies."
+      },
     ],
     keyTerms: [
-      { term: "Vulgate", definition: "Jerome's Latin translation of the Bible; the standard Western text for over 1,000 years" },
-      { term: "Hebraica Veritas", definition: "'Hebrew truth' - Jerome's principle that the Hebrew text is the authentic Old Testament" },
-      { term: "Septuagint (LXX)", definition: "Greek translation of the Old Testament; Jerome controversially bypassed it for the Hebrew" },
-      { term: "Deuterocanonical Books", definition: "Books in the Septuagint but not Hebrew canon (Tobit, Judith, Maccabees, etc.); Jerome considered them secondary" },
-      { term: "Scriptorium", definition: "A room for copying manuscripts; Jerome established one in Bethlehem" },
-      { term: "Doctors of the Church", definition: "Teachers of outstanding merit; Jerome is one of the four original Western Doctors" }
+      { term: "Ambrose", definition: "Bishop of Milan; defended Nicene faith and confronted emperors" },
+      { term: "Theodosius I", definition: "Emperor (379-395) made to do public penance by Ambrose" },
+      { term: "Jerome", definition: "Scholar-monk who produced the Latin Vulgate Bible" },
+      { term: "Vulgate", definition: "Jerome's Latin translation; standard Bible of the medieval West" },
+      { term: "Septuagint (LXX)", definition: "Greek translation of the Hebrew OT; used by the early church" },
+      { term: "Asceticism", definition: "Disciplined spiritual life of self-denial, embraced by Jerome and his circle" },
     ]
   },
-  {
-    id: 21,
-    title: "Augustine: Life and Conversion",
-    videoTitle: "Augustine",
+{
+    id: 23,
+    videoId: "5XplwbTqzSc",
+    title: "Saint Augustine: The Restless Heart & The Road to Grace",
+    videoTitle: "Saint Augustine: The Restless Heart & The Road to Grace",
     duration: "~35 min",
     objective: "This module examines the life of Augustine of Hippo, the most influential theologian in Western Christianity, tracing his journey from Manichaean seeker to Christian bishop.",
     notes: {
@@ -2275,10 +2378,11 @@ const modules: Module[] = [
       { term: "Privation of Good", definition: "Neoplatonic/Augustinian concept that evil is not a substance but absence or corruption of good" }
     ]
   },
-  {
-    id: 22,
-    title: "Augustine's Controversies",
-    videoTitle: "Augustine's Controversies",
+{
+    id: 24,
+    videoId: "cI-DYrWLVsg",
+    title: "Augustine (Part 2)",
+    videoTitle: "Augustine (Part 2)",
     duration: "~35 min",
     objective: "This module examines Augustine's major theological controversies - against Manichaeism, Donatism, and Pelagianism - which shaped Western Christian doctrine on evil, the church, and grace.",
     notes: {
@@ -2388,121 +2492,11 @@ const modules: Module[] = [
       { term: "Predestination", definition: "God's unconditional choice of whom to save, prior to any human merit or decision" }
     ]
   },
-  {
-    id: 23,
-    title: "Augustine's City of God",
-    videoTitle: "Augustine's City of God",
-    duration: "~30 min",
-    objective: "This module examines Augustine's magnum opus, 'The City of God,' written in response to Rome's fall and developing a Christian philosophy of history and the relationship between church and state.",
-    notes: {
-      sections: [
-        {
-          title: "The Occasion: Rome's Fall (410 AD)",
-          points: [
-            "In **410 AD**, the Visigoth king **Alaric** sacked Rome for the first time in 800 years",
-            "Pagans blamed Christianity: abandoning the old gods brought Rome's fall",
-            "Refugees flooded North Africa, including to Hippo, bringing this accusation",
-            "Augustine began **'The City of God'** (413-426) as a response - his longest and most ambitious work",
-            "The work grew from defense against pagans to a complete **Christian philosophy of history**"
-          ]
-        },
-        {
-          title: "Structure of the Work",
-          points: [
-            "**22 books** written over 13 years - massive in scope",
-            "Books 1-10: **Refutation of paganism** - Rome's gods never protected her",
-            "Books 11-22: **Exposition of the two cities** - City of God vs. City of Man",
-            "Augustine reframes the question: Rome's fate is not the real issue",
-            "The real story of history is the conflict between **two spiritual communities**"
-          ]
-        },
-        {
-          title: "The Two Cities",
-          points: [
-            "**City of God** (civitas Dei): community of those who love God supremely",
-            "**City of Man** (civitas terrena): community of those who love self supremely",
-            "Two loves: '**Self-love to the contempt of God**' vs. '**Love of God to the contempt of self**'",
-            "The cities are **intermingled** in this world; only God knows who belongs to which",
-            "All earthly states are 'cities of man' - including Christian Rome",
-            "The City of God **transcends** all earthly political arrangements"
-          ]
-        },
-        {
-          title: "Augustine's View of History",
-          points: [
-            "History is **linear**, moving toward God's purposes (against cyclical pagan views)",
-            "Divided into **six ages** corresponding to the six days of creation, plus eternal rest",
-            "We live in the **sixth age** - from Christ's first coming to his return",
-            "History is **providential** - God governs all events for his purposes",
-            "Earthly empires rise and fall by God's permission; none is ultimate",
-            "The meaning of history is found in **salvation history**, not political history"
-          ]
-        },
-        {
-          title: "Church and State",
-          points: [
-            "The church is **not identical** with the City of God (the church contains both cities)",
-            "The state is part of God's providence but not sacred or ultimate",
-            "Christians can serve in government and military but with **limited expectations**",
-            "The state can provide **peace and order** - 'peace of Babylon' is still peace",
-            "But the state cannot save souls or build the heavenly city",
-            "Augustine **desacralizes** political power while allowing cooperation"
-          ]
-        },
-        {
-          title: "Lasting Influence",
-          points: [
-            "Shaped **medieval political theory** - the two swords, church and state",
-            "Influenced views on **just war** - criteria for legitimate warfare",
-            "Provided framework for understanding the **fall of civilizations**",
-            "Both **Catholics and Protestants** have claimed Augustine's political legacy",
-            "The **Reformers** emphasized the distinction between the two kingdoms",
-            "Remains foundational for **Christian political thought** today"
-          ]
-        }
-      ]
-    },
-    quiz: [
-      {
-        question: "What prompted Augustine to write 'The City of God'?",
-        type: "mc",
-        options: ["A) The Council of Nicaea", "B) The Visigothic sack of Rome in 410 AD", "C) The Pelagian controversy", "D) Constantine's conversion"],
-        answer: "B) The Visigothic sack of Rome in 410 AD",
-        explanation: "Pagans blamed Christianity for Rome's unprecedented fall, and Augustine wrote to refute this accusation and offer a Christian interpretation of history."
-      },
-      {
-        question: "What distinguishes the City of God from the City of Man according to Augustine?",
-        type: "short",
-        answer: "The two cities are distinguished by their loves: the City of God is the community of those who love God supremely, even to the contempt of self. The City of Man is the community of those who love self supremely, even to the contempt of God.",
-        explanation: "This is fundamentally a spiritual/moral distinction, not a political one."
-      },
-      {
-        question: "Is the visible church identical with the City of God for Augustine?",
-        type: "mc",
-        options: ["A) Yes, completely identical", "B) No, the church contains members of both cities", "C) Only the Roman church is the City of God", "D) The City of God is identical with the Roman Empire"],
-        answer: "B) No, the church contains members of both cities",
-        explanation: "Augustine taught that the visible church is a 'mixed body' containing both wheat and tares; only God knows the true citizens of the heavenly city."
-      },
-      {
-        question: "How does Augustine's view of history differ from pagan cyclical views?",
-        type: "short",
-        answer: "Augustine taught that history is linear and purposeful, moving toward God's purposes and Christ's return. Pagan views saw history as cyclical repetition without ultimate meaning. For Augustine, history has a beginning (creation), a center (Christ), and an end (final judgment).",
-        explanation: "This linear, providential view became foundational to Western historical consciousness."
-      }
-    ],
-    keyTerms: [
-      { term: "City of God (Civitas Dei)", definition: "The spiritual community of those who love God supremely; pilgrims in this world awaiting the heavenly city" },
-      { term: "City of Man (Civitas Terrena)", definition: "The earthly city; community of those who love self supremely; all purely political arrangements" },
-      { term: "Two Loves", definition: "Augustine's distinction: love of God to contempt of self vs. love of self to contempt of God" },
-      { term: "Linear History", definition: "Augustine's view that history moves purposefully toward God's goals, against cyclical pagan views" },
-      { term: "Six Ages", definition: "Augustine's division of history into six ages from creation to Christ's return, followed by eternal rest" },
-      { term: "Peace of Babylon", definition: "The imperfect but valuable peace earthly states can provide; Christians may benefit from it without idolizing it" }
-    ]
-  },
-  {
-    id: 24,
-    title: "Leo the Great",
-    videoTitle: "Leo the Great",
+{
+    id: 25,
+    videoId: "JXhqnVesCf4",
+    title: "The Story of Pope Leo the Great",
+    videoTitle: "The Story of Pope Leo the Great",
     duration: "~25 min",
     objective: "This module examines Pope Leo I (the Great), who strengthened papal authority, defended Rome against barbarian invasions, and authored the christological definition adopted at Chalcedon.",
     notes: {
@@ -2612,229 +2606,160 @@ const modules: Module[] = [
     ]
   },
   {
-    id: 25,
-    title: "Gregory the Great",
-    videoTitle: "Gregory the Great",
-    duration: "~30 min",
-    objective: "This module examines Pope Gregory I (the Great), the last of the original four Latin Doctors, who shaped medieval Christianity through his pastoral theology, missions, liturgy, and practical administration.",
-    notes: {
-      sections: [
-        {
-          title: "From Roman Aristocrat to Monk to Pope",
-          points: [
-            "**Gregory I** (c. 540-604) was born into a wealthy Roman senatorial family",
-            "Served as **Prefect of Rome** (573) - the highest civil office in the city",
-            "After his father's death, converted his family estate into a **monastery** and became a monk",
-            "Reluctantly served as papal **ambassador (apocrisiarius)** to Constantinople (579-585)",
-            "Elected **Pope in 590** during plague, famine, and Lombard invasions - he resisted but accepted",
-            "One of only two popes called 'the Great' (with Leo I)"
-          ]
-        },
-        {
-          title: "Pastor and Administrator",
-          points: [
-            "Wrote **'Pastoral Care'** (Regula Pastoralis) - the handbook for bishops throughout the Middle Ages",
-            "Described the bishop as a '**physician of souls**' who must adapt to each person's condition",
-            "Emphasized that clergy must **teach by example** as well as words",
-            "Administered **papal estates** (Patrimony of Peter) efficiently to feed Rome's poor",
-            "Negotiated with the **Lombards** when the imperial government failed to defend Italy",
-            "Effective administrator who used limited resources to maximum effect"
-          ]
-        },
-        {
-          title: "Mission to the Anglo-Saxons",
-          points: [
-            "Sent the monk **Augustine (of Canterbury)** with 40 monks to convert England (596)",
-            "Famous story: saw English slaves in Rome, said they were '**not Angles but angels**'",
-            "Augustine became first **Archbishop of Canterbury** (597)",
-            "Gregory advised **gradual conversion** - adapt pagan customs to Christian purposes",
-            "Recommended converting temples to churches rather than destroying them",
-            "The English mission was extraordinarily successful and shaped English Christianity"
-          ]
-        },
-        {
-          title: "Liturgy and Music",
-          points: [
-            "Reformed the **Roman liturgy**; standardized prayers and practices",
-            "Associated with **Gregorian Chant** - though the connection is debated by scholars",
-            "The chant tradition named after him became the foundation of Western sacred music",
-            "Promoted the **liturgical calendar** and observance of saints' days",
-            "His liturgical reforms spread throughout Western Europe over subsequent centuries"
-          ]
-        },
-        {
-          title: "Theology and Writings",
-          points: [
-            "Wrote **'Moralia in Job'** - massive allegorical commentary used throughout the Middle Ages",
-            "His **'Dialogues'** contain lives of Italian saints, including Benedict of Nursia",
-            "Promoted veneration of **relics and saints** as intercessors",
-            "Developed the doctrine of **purgatory** more than any predecessor",
-            "His theology was **practical and pastoral** rather than speculative",
-            "Transmitted Augustinian theology in accessible, moralistic form"
-          ]
-        },
-        {
-          title: "Legacy: 'The Last of the Romans'",
-          points: [
-            "Called himself '**Servant of the Servants of God**' (servus servorum Dei) - still a papal title",
-            "Sometimes called the '**last of the Romans, first of the medievals**'",
-            "Stood at the transition between **ancient and medieval** worlds",
-            "The original four **Doctors of the Western Church**: Ambrose, Jerome, Augustine, Gregory",
-            "His practical, pastoral approach shaped the medieval church more than theoretical theologians",
-            "The papacy he strengthened would dominate medieval Europe"
-          ]
-        }
-      ]
-    },
-    quiz: [
-      {
-        question: "What was Gregory's most influential book for training bishops in the Middle Ages?",
-        type: "mc",
-        options: ["A) The City of God", "B) Pastoral Care (Regula Pastoralis)", "C) Confessions", "D) On the Incarnation"],
-        answer: "B) Pastoral Care (Regula Pastoralis)",
-        explanation: "Gregory's Pastoral Care became the standard handbook for bishops throughout the medieval period, emphasizing practical wisdom and adaptation to each person's needs."
-      },
-      {
-        question: "What mission did Gregory send that shaped English Christianity?",
-        type: "short",
-        answer: "Gregory sent Augustine (of Canterbury) and 40 monks to convert the Anglo-Saxons of England in 596 AD. Augustine became the first Archbishop of Canterbury in 597, and the mission successfully Christianized England.",
-        explanation: "Gregory's practical advice for gradual conversion and adaptation of pagan customs was key to the mission's success."
-      },
-      {
-        question: "What papal title did Gregory create that is still used today?",
-        type: "mc",
-        options: ["A) Vicar of Christ", "B) Supreme Pontiff", "C) Servant of the Servants of God", "D) Bishop of Rome"],
-        answer: "C) Servant of the Servants of God",
-        explanation: "Gregory's humble self-designation 'servus servorum Dei' reflected his monastic spirituality and remains an official papal title."
-      },
-      {
-        question: "Why is Gregory sometimes called 'the last of the Romans, first of the medievals'?",
-        type: "short",
-        answer: "Gregory lived at the transition between the ancient Roman world and the medieval period. He came from the Roman senatorial class and held Roman offices, but his papacy faced the new realities of barbarian kingdoms, and his practical, pastoral approach shaped medieval Christianity more than ancient theology.",
-        explanation: "He bridged two worlds, preserving classical heritage while adapting to new circumstances."
-      }
-    ],
-    keyTerms: [
-      { term: "Pastoral Care", definition: "Gregory's handbook for bishops on the cure of souls; standard medieval text for clergy" },
-      { term: "Servus Servorum Dei", definition: "'Servant of the Servants of God' - Gregory's humble papal title, still used" },
-      { term: "Augustine of Canterbury", definition: "Monk sent by Gregory to convert England; first Archbishop of Canterbury (597)" },
-      { term: "Gregorian Chant", definition: "Medieval plainsong tradition associated with Gregory, foundational for Western sacred music" },
-      { term: "Dialogues", definition: "Gregory's work containing lives of Italian saints, including the only early source for Benedict of Nursia" },
-      { term: "Doctors of the Church (Western)", definition: "The four original Latin Doctors: Ambrose, Jerome, Augustine, and Gregory the Great" }
-    ]
-  },
-  {
     id: 26,
-    title: "Boniface and the Christianization of Germany",
-    videoTitle: "Boniface",
+    videoId: "G4P_ls7G5tc",
+    title: "Medieval Overview",
+    videoTitle: "Medieval Overview",
     duration: "~25 min",
-    objective: "This module examines Boniface, the 'Apostle to the Germans,' whose missionary work and organizational reforms established Christianity in central Europe and linked the Germanic churches to Rome.",
+    objective: "A bird's-eye view of the period from the fall of Rome (c. 476) to the eve of the Reformation (c. 1500). This lecture orients students to the periods, peoples, and themes of the medieval church.",
     notes: {
       sections: [
         {
-          title: "Background and Call",
+          title: "Periodization",
           points: [
-            "**Boniface** (c. 675-754) was born Wynfrith in Wessex, England",
-            "Educated in Benedictine monasteries; became a respected **monk and scholar**",
-            "At about age 40, left a promising career to become a **missionary** to the pagan Germans",
-            "First mission (716) to Frisia failed due to warfare; returned to England",
-            "Second mission (718) succeeded with **papal authorization** from Gregory II"
+            "**Early Middle Ages (c. 500-1000)**: barbarian kingdoms, monastic preservation of learning",
+            "**High Middle Ages (c. 1000-1300)**: papal monarchy, crusades, universities, scholasticism",
+            "**Late Middle Ages (c. 1300-1500)**: plague, schism, dissent, calls for reform",
           ]
         },
         {
-          title: "Mission to Germany",
+          title: "Peoples and Politics",
           points: [
-            "Worked in **Hesse, Thuringia, and Bavaria** - areas with nominal or no Christianity",
-            "Famous incident: felled the sacred **Oak of Thor** at Geismar to demonstrate Christ's power over pagan gods",
-            "When Thor did not strike him dead, many pagans converted",
-            "Used the wood to build a **chapel dedicated to St. Peter**",
-            "Combined **preaching, baptizing, and organizing** churches and monasteries"
+            "Germanic kingdoms (Franks, Visigoths, Lombards, Anglo-Saxons) replaced Roman administration",
+            "Byzantine East and Islamic Caliphates dominated the Mediterranean",
+            "Carolingian Empire briefly united much of Western Europe under Charlemagne",
+            "Emergence of feudal kingdoms (France, England, the Holy Roman Empire) by 1000",
           ]
         },
         {
-          title: "Church Organization",
+          title: "The Church",
           points: [
-            "Created **diocesan structure** for the German church - bishoprics with defined territories",
-            "Founded or reformed major monasteries: **Fulda** became the most important",
-            "Established **schools** attached to monasteries and cathedrals",
-            "Reformed existing Frankish church, which had become **secularized and corrupt**",
-            "Held reforming **councils** (742-747) to impose discipline on clergy",
-            "Insisted on **clerical celibacy, orthodox doctrine, and moral standards**"
+            "Papacy slowly grew from one bishopric among many to the dominant Western institution",
+            "Monasticism preserved learning and Christianized Europe",
+            "Major reforms: Cluny, Gregorian, mendicant orders",
+            "Increasing tension between papal and royal power throughout the period",
           ]
         },
         {
-          title: "Alliance with Rome",
+          title: "Themes to Watch",
           points: [
-            "Boniface worked closely with **three successive popes**: Gregory II, Gregory III, Zacharias",
-            "Took an **oath of loyalty to Rome** - strengthening papal authority north of the Alps",
-            "Received the **pallium** (symbol of metropolitan authority) from the pope",
-            "His missions were **officially sanctioned** by Rome, not independent ventures",
-            "This papal connection became the model for **medieval church-state relations**"
+            "Christendom: society conceived as a single Christian commonwealth",
+            "Recovery of classical learning and rise of universities",
+            "Devotion to Mary and the saints; sacramental piety",
+            "Reform movements: every century produces calls to renew the church",
           ]
         },
-        {
-          title: "Alliance with the Franks",
-          points: [
-            "Gained support from Frankish rulers **Charles Martel** and **Pippin III**",
-            "The alliance benefited both: Boniface got **military protection**, Franks got **legitimacy**",
-            "Boniface may have **anointed Pippin III** as king (751), establishing a precedent",
-            "This alliance foreshadowed the **Carolingian-papal partnership** under Charlemagne",
-            "The German church became linked to both **Rome and the Frankish state**"
-          ]
-        },
-        {
-          title: "Martyrdom and Legacy",
-          points: [
-            "At nearly 80, Boniface returned to **Frisia** for one last mission",
-            "In **754 AD**, he and 52 companions were **martyred** by pagan raiders at Dokkum",
-            "Reportedly held up his Gospel book to block a sword blow",
-            "Buried at **Fulda**, which became a major pilgrimage site",
-            "Called the '**Apostle to the Germans**' - his work Christianized central Europe",
-            "His model of **papal-authorized, organized mission** became standard"
-          ]
-        }
       ]
     },
     quiz: [
       {
-        question: "What famous act demonstrated Boniface's confidence in Christ's power over pagan gods?",
-        type: "mc",
-        options: ["A) Healing a paralyzed man", "B) Felling the sacred Oak of Thor at Geismar", "C) Walking on water", "D) Surviving execution by fire"],
-        answer: "B) Felling the sacred Oak of Thor at Geismar",
-        explanation: "When Thor did not strike Boniface dead for cutting down his sacred tree, many pagans converted, and Boniface used the wood to build a chapel."
-      },
-      {
-        question: "How did Boniface's mission differ from earlier independent missionary efforts?",
+        question: "What are the three main divisions of the medieval period?",
         type: "short",
-        answer: "Boniface worked with official papal authorization, took an oath of loyalty to Rome, and received the pallium as metropolitan authority. His missions were sanctioned and organized by Rome, not independent ventures, establishing a model of papal-directed mission.",
-        explanation: "This papal connection strengthened Rome's authority north of the Alps and became the standard model."
+        answer: "Early Middle Ages (c. 500-1000), High Middle Ages (c. 1000-1300), and Late Middle Ages (c. 1300-1500).",
+        explanation: "These are conventional groupings; dates vary by historian and region."
       },
       {
-        question: "What important monastery did Boniface found that became a major center of learning?",
+        question: "Which empire briefly unified much of Western Europe around 800?",
         type: "mc",
-        options: ["A) Cluny", "B) Monte Cassino", "C) Fulda", "D) Canterbury"],
-        answer: "C) Fulda",
-        explanation: "Fulda became one of the most important monasteries in medieval Germany, a center of learning and pilgrimage to Boniface's tomb."
+        options: ["A) Byzantine Empire", "B) Holy Roman Empire under Otto", "C) Carolingian Empire under Charlemagne", "D) Norman Empire"],
+        answer: "C) Carolingian Empire under Charlemagne",
+        explanation: "Charlemagne's coronation by Pope Leo III in 800 marked a high point of early medieval Christendom."
       },
       {
-        question: "How did Boniface's alliance with the Frankish rulers benefit both parties?",
+        question: "Name one recurring theme of medieval church history.",
         type: "short",
-        answer: "Boniface received military protection and political support for his missions, while the Frankish rulers gained religious legitimacy and an organized church that helped unify their realm. This partnership foreshadowed the Carolingian-papal alliance.",
-        explanation: "The mutual benefits made this a model for medieval church-state relations."
-      }
+        answer: "Reform — every generation produced movements calling the church back to apostolic purity, whether monastic (Cluny), papal (Gregorian), mendicant (Franciscans, Dominicans), or dissident (Wycliffe, Hus).",
+        explanation: "Reform is not a Reformation invention but a medieval constant."
+      },
     ],
     keyTerms: [
-      { term: "Apostle to the Germans", definition: "Title for Boniface recognizing his role in Christianizing central Europe" },
-      { term: "Oak of Thor", definition: "Sacred pagan tree Boniface felled to demonstrate Christ's power; used the wood for a chapel" },
-      { term: "Pallium", definition: "Woolen vestment symbolizing metropolitan authority; granted by the pope to archbishops" },
-      { term: "Fulda", definition: "Monastery founded by Boniface that became a major center of learning and pilgrimage" },
-      { term: "Diocesan Structure", definition: "Organization of the church into territorial districts (dioceses) under bishops" }
+      { term: "Christendom", definition: "Medieval ideal of society as a unified Christian commonwealth" },
+      { term: "Early Middle Ages", definition: "c. 500-1000; era of barbarian kingdoms and monastic culture" },
+      { term: "High Middle Ages", definition: "c. 1000-1300; papal monarchy, crusades, universities" },
+      { term: "Late Middle Ages", definition: "c. 1300-1500; plague, schism, reform movements" },
+      { term: "Feudalism", definition: "Hierarchical system of land, loyalty, and military service" },
     ]
   },
   {
     id: 27,
-    title: "Charlemagne and the Carolingian Renaissance",
-    videoTitle: "Charlemagne",
+    videoId: "wXaN2vXEgwg",
+    title: "The Merovingians",
+    videoTitle: "The Merovingians",
+    duration: "~25 min",
+    objective: "Before Charlemagne, the Frankish kingdom was ruled by the long-haired Merovingian kings. This lecture traces their rise under Clovis, their conversion to Catholic Christianity, and the slow decline that opened the way for the Carolingians.",
+    notes: {
+      sections: [
+        {
+          title: "Clovis (c. 466-511)",
+          points: [
+            "King of the Salian Franks, founder of the Merovingian dynasty",
+            "Married Clotilde, a Catholic Burgundian princess",
+            "Converted to **Catholic** (not Arian) Christianity around 496/508",
+            "His baptism gave the Franks a powerful alliance with the Gallo-Roman bishops",
+          ]
+        },
+        {
+          title: "Catholic vs. Arian Kingdoms",
+          points: [
+            "Most Germanic kings (Visigoths, Ostrogoths, Vandals) were Arian Christians",
+            "Clovis's Catholic conversion aligned the Franks with the Roman population they ruled",
+            "It set the long-term religious shape of Western Europe",
+          ]
+        },
+        {
+          title: "Merovingian Society",
+          points: [
+            "Kingdom typically divided among the king's sons — endless family wars",
+            "Bishops often functioned as local civic leaders",
+            "Monasteries spread through Frankish lands; Irish missionaries (Columbanus) influential",
+          ]
+        },
+        {
+          title: "Decline and Mayors of the Palace",
+          points: [
+            "Later Merovingian kings were weak — called **rois fainéants** ('do-nothing kings')",
+            "Real power passed to the **mayors of the palace**, especially the Carolingian family",
+            "**Charles Martel** stopped the Muslim advance at Tours (732)",
+            "**Pippin III** deposed the last Merovingian in 751 with papal blessing, founding the Carolingian dynasty",
+          ]
+        },
+      ]
+    },
+    quiz: [
+      {
+        question: "Why was Clovis's conversion to Catholic Christianity historically important?",
+        type: "short",
+        answer: "It aligned the Franks with the Catholic Gallo-Roman population and the bishops of Gaul, instead of with the Arian Germanic kingdoms. This shaped the long-term Catholic identity of France and Western Europe.",
+        explanation: "It also created an early model of Christian kingship that Charlemagne would later inherit."
+      },
+      {
+        question: "Who were the 'mayors of the palace'?",
+        type: "mc",
+        options: ["A) The chief stewards who came to wield real royal power", "B) Roman governors of Gaul", "C) Papal legates", "D) Bishops of major sees"],
+        answer: "A) The chief stewards who came to wield real royal power",
+        explanation: "From the seventh century on, mayors of the palace effectively ruled while Merovingian kings were figureheads."
+      },
+      {
+        question: "How did the Carolingians replace the Merovingians?",
+        type: "short",
+        answer: "Pippin III asked Pope Zacharias whether the one with real power or the one with the royal title should be king. The pope endorsed him, and Pippin deposed Childeric III in 751, founding the Carolingian dynasty.",
+        explanation: "It tied royal legitimacy to papal sanction — a fateful precedent."
+      },
+    ],
+    keyTerms: [
+      { term: "Clovis", definition: "First Catholic king of the Franks; founded Merovingian dynasty" },
+      { term: "Merovingians", definition: "Frankish royal dynasty c. 481-751" },
+      { term: "Rois Fainéants", definition: "'Do-nothing kings'; later powerless Merovingian rulers" },
+      { term: "Mayor of the Palace", definition: "Chief steward who wielded real Merovingian power" },
+      { term: "Charles Martel", definition: "Mayor of the palace; defeated Muslims at Tours (732)" },
+      { term: "Pippin III", definition: "First Carolingian king; deposed last Merovingian in 751" },
+    ]
+  },
+{
+    id: 28,
+    videoId: "8yfhG547two",
+    title: "Who was Charlemagne?",
+    videoTitle: "Who was Charlemagne?",
     duration: "~35 min",
     objective: "This module examines Charlemagne's creation of a Christian empire, his coronation as Roman Emperor, and the cultural and religious revival known as the Carolingian Renaissance.",
     notes: {
@@ -2942,9 +2867,10 @@ const modules: Module[] = [
       { term: "Alcuin of York", definition: "English scholar who directed Charlemagne's palace school and educational reforms" }
     ]
   },
-  {
-    id: 28,
-    title: "The Vikings and Christianity",
+{
+    id: 29,
+    videoId: "5aGZRZgsq_4",
+    title: "The Vikings",
     videoTitle: "The Vikings",
     duration: "~30 min",
     objective: "This module examines the Viking Age and the gradual conversion of Scandinavia to Christianity, transforming raiders into participants in medieval Christian civilization.",
@@ -3050,339 +2976,243 @@ const modules: Module[] = [
     ]
   },
   {
-    id: 29,
-    title: "The Cluny Reform",
-    videoTitle: "Cluny Reform",
-    duration: "~25 min",
-    objective: "This module examines the monastic reform movement centered at Cluny, which revitalized Western monasticism and influenced the broader reform of the medieval church.",
-    notes: {
-      sections: [
-        {
-          title: "The Crisis in Monasticism",
-          points: [
-            "By the 9th-10th centuries, Western monasticism was in **serious decline**",
-            "Viking, Magyar, and Saracen raids had **destroyed many monasteries**",
-            "Lay lords controlled monasteries, appointing abbots and seizing revenues - **lay abbacy**",
-            "Monks often **ignored the Rule** - living comfortably, abandoning prayer schedules",
-            "Simony (buying church offices) and clerical marriage/concubinage were widespread",
-            "Reformers sought to restore **strict observance** of the Benedictine Rule"
-          ]
-        },
-        {
-          title: "The Foundation of Cluny (910)",
-          points: [
-            "**Duke William of Aquitaine** founded Cluny in Burgundy (910 AD)",
-            "Unique charter: Cluny was placed under **direct papal protection**, free from local lords and bishops",
-            "No lay lord or bishop could interfere with the monastery's **internal affairs**",
-            "William renounced all control - 'neither I nor my heirs shall have any authority over it'",
-            "This independence became the **key to Cluny's success** and reform efforts"
-          ]
-        },
-        {
-          title: "Cluniac Monasticism",
-          points: [
-            "Cluny emphasized the **Opus Dei** (Work of God) - elaborate liturgical prayer",
-            "Services became longer and more **magnificent** than in standard Benedictine houses",
-            "Less emphasis on manual labor; more on **prayer, scholarship, and charity**",
-            "Beautiful churches, vestments, and art reflected the **glory of worship**",
-            "Strict discipline maintained but adapted to emphasize prayer over labor"
-          ]
-        },
-        {
-          title: "The Cluniac System",
-          points: [
-            "Daughter houses were **dependent on Cluny**, not independent abbeys",
-            "All Cluniac houses owed obedience to the **Abbot of Cluny**",
-            "By c. 1100, over **1,000 monasteries** were under Cluniac direction",
-            "This created an **international network** of reformed monasteries",
-            "Successive great abbots led Cluny: **Odo, Majolus, Odilo, Hugh**",
-            "Their long tenures (Odilo: 54 years; Hugh: 60 years) provided stability"
-          ]
-        },
-        {
-          title: "Influence on Church Reform",
-          points: [
-            "Cluniacs became **advisors to popes and kings**",
-            "Several popes were former Cluniac monks, including **Gregory VII** (disputed)",
-            "Cluny promoted **Peace of God** and **Truce of God** movements limiting warfare",
-            "Influenced the broader **Gregorian Reform** of the 11th-century church",
-            "Opposed simony, lay investiture, and clerical marriage",
-            "Demonstrated that **reform was possible** through disciplined communities"
-          ]
-        },
-        {
-          title: "The Great Abbey Church",
-          points: [
-            "Cluny III, built under Abbot Hugh, was the **largest church in Christendom** until St. Peter's",
-            "Represented the wealth and prestige Cluny had achieved",
-            "Demonstrated **Romanesque architecture** at its grandest",
-            "Critics complained Cluny had become too **wealthy and worldly**",
-            "New reform movements (Cistercians) arose partly in reaction to Cluniac prosperity",
-            "Most of Cluny III was **destroyed after the French Revolution**"
-          ]
-        }
-      ]
-    },
-    quiz: [
-      {
-        question: "What made Cluny's founding charter unique and crucial to its reform success?",
-        type: "short",
-        answer: "Cluny was placed under direct papal protection, free from control by local lords and bishops. Duke William renounced all authority over it. This independence allowed Cluny to maintain strict discipline and resist secular interference that had corrupted other monasteries.",
-        explanation: "Freedom from lay control was the key to Cluny's ability to reform and maintain standards."
-      },
-      {
-        question: "How did the Cluniac system differ from traditional independent Benedictine abbeys?",
-        type: "mc",
-        options: ["A) Cluniacs rejected the Benedictine Rule entirely", "B) Daughter houses remained dependent on and obedient to the Abbot of Cluny", "C) Each Cluniac house elected its own independent abbot", "D) Cluniacs did not practice liturgical prayer"],
-        answer: "B) Daughter houses remained dependent on and obedient to the Abbot of Cluny",
-        explanation: "This created an international network of over 1,000 monasteries all under Cluny's direction, unlike the autonomous independence of traditional Benedictine houses."
-      },
-      {
-        question: "What was the 'Opus Dei' emphasized at Cluny?",
-        type: "mc",
-        options: ["A) Manual agricultural labor", "B) Elaborate liturgical prayer and worship", "C) Academic scholarship only", "D) Military service for the church"],
-        answer: "B) Elaborate liturgical prayer and worship",
-        explanation: "Cluniac monasticism emphasized magnificent, extended liturgical services as the primary 'Work of God,' with less emphasis on manual labor than traditional Benedictine practice."
-      },
-      {
-        question: "How did Cluny influence the broader reform of the medieval church?",
-        type: "short",
-        answer: "Cluniac monks became advisors to popes and kings; several popes had Cluniac backgrounds. Cluny promoted the Peace of God and Truce of God movements, influenced the Gregorian Reform, and opposed simony, lay investiture, and clerical marriage.",
-        explanation: "Cluny demonstrated that disciplined reform was achievable and provided personnel for wider church reform."
-      }
-    ],
-    keyTerms: [
-      { term: "Cluny", definition: "Reform monastery founded in 910 AD; center of monastic and church reform for two centuries" },
-      { term: "Lay Abbacy", definition: "Practice of lay lords appointing abbots and controlling monasteries; a chief abuse Cluny opposed" },
-      { term: "Opus Dei", definition: "'Work of God' - the liturgical prayer that was Cluny's primary focus" },
-      { term: "Peace of God", definition: "Movement protecting non-combatants (clergy, peasants) from warfare; promoted by Cluny" },
-      { term: "Truce of God", definition: "Movement prohibiting warfare on certain days (Sundays, holy days); promoted by Cluny" },
-      { term: "Romanesque", definition: "Architectural style of the 10th-12th centuries characterized by round arches and massive walls; Cluny III exemplified it" }
-    ]
-  },
-  {
     id: 30,
-    title: "The East-West Schism of 1054",
-    videoTitle: "The East-West Schism",
-    duration: "~30 min",
-    objective: "This module examines the Great Schism between Eastern Orthodox and Roman Catholic Christianity, tracing its theological, cultural, and political causes.",
+    videoId: "sXMONr3QmkU",
+    title: "Alfred the Great & the Anglo Saxons",
+    videoTitle: "Alfred the Great & the Anglo Saxons",
+    duration: "~25 min",
+    objective: "Alfred of Wessex (849-899) saved Anglo-Saxon England from the Vikings, promoted learning and law, and helped forge an English Christian identity. This lecture surveys the Anglo-Saxon church and Alfred's role in shaping it.",
     notes: {
       sections: [
         {
-          title: "A Long Process, Not a Single Event",
+          title: "Anglo-Saxon Christianity Before Alfred",
           points: [
-            "The **1054 schism** was not a sudden break but the culmination of centuries of **growing estrangement**",
-            "East and West had been drifting apart since the **division of the Roman Empire** (395 AD)",
-            "**Language barrier**: West spoke Latin; East spoke Greek; translations were imperfect",
-            "**Political division**: Western empire fell; East continued as Byzantine Empire",
-            "Different **cultural contexts** produced different theological emphases and practices"
+            "Roman mission to Kent under **Augustine of Canterbury** (597) from Pope Gregory the Great",
+            "Celtic mission from Iona/Lindisfarne under **Aidan** and others",
+            "**Synod of Whitby (664)**: chose Roman over Celtic practice on Easter dating and tonsure",
+            "Flourishing scholarship: **Bede**, **Alcuin**, illuminated manuscripts (Lindisfarne Gospels)",
           ]
         },
         {
-          title: "Theological Differences",
+          title: "The Viking Crisis",
           points: [
-            "**Filioque controversy**: West added 'and the Son' to Nicene Creed (Spirit proceeds from Father 'and the Son')",
-            "East objected: the addition was **unauthorized** (no ecumenical council approved it)",
-            "East also objected **theologically**: it distorts Trinitarian relations",
-            "**Papal primacy**: Rome claimed supreme jurisdiction; Constantinople saw Rome as first among equals",
-            "Different understandings of **original sin, purgatory, and other doctrines** developed"
+            "Raids began in 793 with the sack of Lindisfarne",
+            "By 870 most Anglo-Saxon kingdoms had fallen to the Great Heathen Army",
+            "Only Wessex, under young Alfred, held out",
           ]
         },
         {
-          title: "Liturgical and Disciplinary Differences",
+          title: "Alfred's Achievements",
           points: [
-            "**Leavened vs. unleavened bread** in the Eucharist (East used leavened; West unleavened)",
-            "**Clerical celibacy**: West required for all clergy; East allowed married priests (not bishops)",
-            "**Fasting practices** differed between East and West",
-            "**Confirmation**: performed by priests in the East; reserved to bishops in the West",
-            "These differences accumulated and hardened over centuries"
+            "Defeated the Danes at the **Battle of Edington (878)**",
+            "Treaty established the **Danelaw**; baptized the Danish king Guthrum",
+            "Built burhs (fortified towns), a navy, and a reformed army",
+            "Issued a law code rooted in biblical and earlier Anglo-Saxon law",
           ]
         },
         {
-          title: "The Events of 1054",
+          title: "Alfred the Scholar-King",
           points: [
-            "**Pope Leo IX** sent Cardinal **Humbert** to Constantinople to negotiate",
-            "Patriarch **Michael Cerularius** refused to yield on Eastern practices",
-            "Humbert placed a bull of **excommunication** on the altar of Hagia Sophia (July 16, 1054)",
-            "Cerularius then **excommunicated** the papal legates",
-            "Note: Leo IX had died before the excommunication - its validity was questionable",
-            "The excommunications were of **individuals**, not entire churches, technically"
+            "Lamented the collapse of Latin learning after the Viking wars",
+            "Sponsored translations of key works (Gregory's Pastoral Care, Boethius, Augustine) into Old English",
+            "Believed Christian rulers must be educated for wise government",
+            "His grandson Athelstan became the first king of a unified England",
           ]
         },
-        {
-          title: "Deepening of the Schism",
-          points: [
-            "The **Crusades** deepened hostility, especially the **Fourth Crusade (1204)**",
-            "Crusaders **sacked Constantinople**, installed a Latin emperor and patriarch",
-            "Byzantines never forgave this betrayal - it poisoned relations permanently",
-            "Attempts at reunion (**Council of Florence, 1439**) failed to stick",
-            "The **fall of Constantinople (1453)** ended Byzantine civilization but not the Orthodox Church"
-          ]
-        },
-        {
-          title: "Modern Developments",
-          points: [
-            "The mutual excommunications were **lifted in 1964** by Pope Paul VI and Patriarch Athenagoras",
-            "Significant **ecumenical dialogue** has occurred since then",
-            "However, the churches remain **separate** - full communion not restored",
-            "Differences over papal authority remain the **chief obstacle**",
-            "The schism divided Christianity's two oldest branches and endures nearly 1,000 years later"
-          ]
-        }
       ]
     },
     quiz: [
       {
-        question: "What is the 'Filioque' controversy that divided East and West?",
+        question: "What was decided at the Synod of Whitby?",
         type: "short",
-        answer: "The West added 'and the Son' (Filioque) to the Nicene Creed, saying the Holy Spirit proceeds from the Father 'and the Son.' The East objected that this was unauthorized (no council approved it) and theologically problematic (distorting the Father's unique role in the Trinity).",
-        explanation: "This seemingly technical dispute reflected deeper differences in authority and theology."
+        answer: "The Northumbrian church chose to follow Roman practice (over Celtic) regarding the dating of Easter and monastic tonsure. The decision aligned the English church more firmly with Rome.",
+        explanation: "It marked a turning point toward a unified English church under papal authority."
       },
       {
-        question: "What happened during the Fourth Crusade that permanently poisoned East-West relations?",
+        question: "Who defeated the Vikings at Edington in 878?",
         type: "mc",
-        options: ["A) Muslims conquered Constantinople", "B) Crusaders sacked Constantinople and installed a Latin emperor", "C) The pope excommunicated all Eastern Christians", "D) Byzantine armies attacked Rome"],
-        answer: "B) Crusaders sacked Constantinople and installed a Latin emperor",
-        explanation: "In 1204, Western Crusaders diverted to Constantinople, looted the Christian city, and established Latin rule - a betrayal the East never forgave."
+        options: ["A) Charles Martel", "B) Alfred the Great", "C) Charlemagne", "D) Athelstan"],
+        answer: "B) Alfred the Great",
+        explanation: "The victory saved Wessex and laid the foundation for the eventual unification of England."
       },
       {
-        question: "Were the 1054 excommunications between entire churches?",
-        type: "mc",
-        options: ["A) Yes, both churches officially excommunicated each other", "B) No, only individuals were excommunicated, not entire churches", "C) Only the East excommunicated the West", "D) There were no excommunications in 1054"],
-        answer: "B) No, only individuals were excommunicated, not entire churches",
-        explanation: "Technically, Cardinal Humbert excommunicated Patriarch Cerularius, who responded by excommunicating Humbert and his fellow legates - not entire communions."
-      },
-      {
-        question: "What remains the chief obstacle to reunification between Eastern Orthodox and Roman Catholic churches today?",
+        question: "Why did Alfred translate books into Old English?",
         type: "short",
-        answer: "Differences over papal authority remain the chief obstacle. The Catholic Church claims the pope has supreme jurisdiction over all Christians, while the Orthodox see him as first among equals without universal jurisdiction.",
-        explanation: "Though the 1054 excommunications were lifted in 1964, this fundamental ecclesiological difference persists."
-      }
+        answer: "He believed that wise Christian government required educated leaders, but after the Viking devastation few clergy could read Latin. Translating essential works into English would restore Christian learning across his kingdom.",
+        explanation: "It marks one of the earliest royal programs to put Christian classics into a vernacular language."
+      },
     ],
     keyTerms: [
-      { term: "Filioque", definition: "'And the Son' - Western addition to the Creed stating the Spirit proceeds from Father and Son; rejected by East" },
-      { term: "Great Schism (1054)", definition: "Formal break between Eastern Orthodox and Roman Catholic churches; excommunications between Humbert and Cerularius" },
-      { term: "Michael Cerularius", definition: "Patriarch of Constantinople who clashed with papal legates in 1054" },
-      { term: "Cardinal Humbert", definition: "Papal legate who placed excommunication on the altar of Hagia Sophia in 1054" },
-      { term: "Fourth Crusade", definition: "1204 crusade that sacked Constantinople instead of fighting Muslims; deepened the schism" },
-      { term: "Pentarchy", definition: "Eastern concept of church governance by five patriarchs (Rome, Constantinople, Alexandria, Antioch, Jerusalem)" }
+      { term: "Augustine of Canterbury", definition: "Roman missionary sent by Gregory the Great in 597" },
+      { term: "Bede", definition: "Eighth-century Anglo-Saxon monk; wrote 'Ecclesiastical History of the English People'" },
+      { term: "Synod of Whitby (664)", definition: "Council that aligned English church with Roman practice" },
+      { term: "Danelaw", definition: "Region of England under Danish (Viking) law after Alfred's treaty" },
+      { term: "Burh", definition: "Fortified town in Alfred's defensive system" },
+      { term: "Alfred the Great", definition: "King of Wessex (871-899) who saved Anglo-Saxon England and revived learning" },
     ]
   },
   {
     id: 31,
-    title: "The Investiture Controversy",
-    videoTitle: "The Investiture Controversy",
+    videoId: "A9kLhivu5Ug",
+    title: "Al Andalus Spain",
+    videoTitle: "Al Andalus Spain",
     duration: "~30 min",
-    objective: "This module examines the dramatic conflict between Pope Gregory VII and Emperor Henry IV over who controlled appointments to church offices - a struggle that reshaped medieval church-state relations.",
+    objective: "From 711 to 1492 much of the Iberian peninsula was under Muslim rule, creating Al-Andalus — a sophisticated society in which Muslims, Jews, and Christians lived together. This lecture surveys its rise, flourishing, and the slow Christian Reconquista.",
     notes: {
       sections: [
         {
-          title: "The Issue: Lay Investiture",
+          title: "The Muslim Conquest (711)",
           points: [
-            "**Lay investiture**: secular rulers appointing bishops and abbots, investing them with symbols of office",
-            "Kings granted bishops **ring and staff** (spiritual symbols) along with lands",
-            "This gave rulers control over the church in their territories",
-            "Bishops were both **spiritual leaders and feudal vassals** holding lands from the king",
-            "The practice was entangled with **simony** - offices often sold to the highest bidder"
+            "Arab and Berber forces crossed from North Africa, defeated the Visigothic king Roderic",
+            "Within a few years controlled most of Iberia; checked at Tours (732) by Charles Martel",
+            "Christian remnant survived in the Asturian mountains, north of the conquest",
           ]
         },
         {
-          title: "The Gregorian Reform",
+          title: "Umayyad Al-Andalus",
           points: [
-            "Reform movement aimed at freeing the church from secular control",
-            "Key goals: end simony, enforce clerical celibacy, eliminate lay investiture",
-            "**Pope Leo IX** (1049-1054) began aggressive reforms",
-            "Cardinal **Humbert** wrote 'Against Simoniacs' attacking lay control",
-            "**Pope Gregory VII** (1073-1085) brought the reform to its climax"
+            "**Abd al-Rahman I** founded the independent Emirate of Cordoba in 756",
+            "**Cordoba** became one of the great cities of Europe — libraries, mosques, irrigation",
+            "Tenth-century Caliphate of Cordoba: peak of culture, philosophy, and science",
           ]
         },
         {
-          title: "Gregory VII (Hildebrand)",
+          title: "Convivencia: Living Together",
           points: [
-            "**Gregory VII** (Hildebrand) was the most powerful reforming pope",
-            "His **Dictatus Papae** (1075) asserted unprecedented papal claims",
-            "Claimed the pope alone could depose emperors and bishops",
-            "Claimed the pope could release subjects from allegiance to wicked rulers",
-            "Banned lay investiture entirely in 1075",
-            "Gregory saw himself as fighting for the **'freedom of the church'**"
+            "Christians and Jews protected as *dhimmi* — subordinate but tolerated",
+            "Significant translation activity: Greek philosophy preserved and transmitted via Arabic",
+            "**Averroes (Ibn Rushd)** and **Maimonides** worked in this milieu",
+            "**Mozarabic Christians** kept their faith under Muslim rule, developing distinctive liturgy",
           ]
         },
         {
-          title: "The Conflict with Henry IV",
+          title: "The Reconquista",
           points: [
-            "**Emperor Henry IV** of Germany relied heavily on bishops as administrators",
-            "Henry continued appointing bishops despite Gregory's ban",
-            "Gregory threatened to **excommunicate** Henry (1076)",
-            "Henry called a synod that declared Gregory deposed: 'Descend, descend!'",
-            "Gregory excommunicated Henry; released his subjects from obedience",
-            "German nobles used this opportunity to **rebel against Henry**"
+            "Christian kingdoms (Asturias, Leon, Castile, Aragon) slowly pushed south",
+            "**Toledo recaptured in 1085**; became a major translation center",
+            "**Las Navas de Tolosa (1212)** decisively broke Muslim power",
+            "Reconquista completed with the fall of **Granada in 1492** under Ferdinand and Isabella",
           ]
         },
         {
-          title: "Canossa (1077)",
+          title: "Religious Legacy",
           points: [
-            "Facing rebellion, Henry needed the excommunication lifted",
-            "He crossed the Alps in winter to meet Gregory at **Canossa** castle in Italy",
-            "Henry stood **barefoot in the snow** for three days as a penitent",
-            "Gregory had to absolve him - a priest cannot refuse a penitent",
-            "**Symbolic victory for the papacy** - an emperor humbled before a pope",
-            "But Henry recovered politically; the struggle continued for decades"
+            "Arabic translations of Aristotle reached Latin Europe through Spain",
+            "Sparked the scholastic recovery of Greek philosophy in the 12th and 13th centuries",
+            "Reconquista shaped Spanish Catholic identity — and the Inquisition that followed",
           ]
         },
-        {
-          title: "Resolution: The Concordat of Worms (1122)",
-          points: [
-            "Neither Gregory nor Henry achieved clear victory; both died in exile",
-            "Final compromise reached at the **Concordat of Worms (1122)**",
-            "Bishops would be **elected by the church** (clergy), not appointed by rulers",
-            "The emperor could be present and invest the bishop with **secular** (not spiritual) authority",
-            "In practice, rulers retained significant influence",
-            "The controversy established the **distinction between spiritual and temporal power**"
-          ]
-        }
       ]
     },
     quiz: [
       {
-        question: "What was 'lay investiture' and why did reformers oppose it?",
+        question: "What is convivencia, and how complicated is the term?",
         type: "short",
-        answer: "Lay investiture was the practice of secular rulers (kings, emperors) appointing bishops and abbots and investing them with the symbols of spiritual office. Reformers opposed it because it gave secular powers control over the church and was entangled with simony (selling offices).",
-        explanation: "The struggle to end lay investiture was central to freeing the church from secular domination."
+        answer: "Convivencia means 'living together' and refers to the coexistence of Muslims, Jews, and Christians in medieval Iberia. It produced rich cultural exchange but was never equal — non-Muslims lived as second-class dhimmi and periods of persecution recurred.",
+        explanation: "Recent scholarship has questioned romanticized versions while still recognizing genuine cultural symbiosis."
       },
       {
-        question: "What was the significance of Henry IV's penance at Canossa in 1077?",
+        question: "Which event completed the Reconquista?",
         type: "mc",
-        options: ["A) It ended the Investiture Controversy permanently", "B) It was a symbolic victory showing papal power to humble an emperor", "C) Henry conquered the papacy", "D) Gregory surrendered to Henry"],
-        answer: "B) It was a symbolic victory showing papal power to humble an emperor",
-        explanation: "Though Henry politically recovered, the image of an emperor standing barefoot in snow seeking papal forgiveness demonstrated papal spiritual authority over secular rulers."
+        options: ["A) Battle of Tours (732)", "B) Fall of Toledo (1085)", "C) Las Navas de Tolosa (1212)", "D) Fall of Granada (1492)"],
+        answer: "D) Fall of Granada (1492)",
+        explanation: "The conquest of the last Muslim emirate by Ferdinand and Isabella ended nearly 800 years of Muslim rule in Iberia."
       },
       {
-        question: "What did Gregory VII's Dictatus Papae claim about papal authority?",
+        question: "How did Al-Andalus influence Christian theology in the West?",
         type: "short",
-        answer: "The Dictatus Papae (1075) claimed the pope alone could depose emperors and bishops, could release subjects from allegiance to wicked rulers, and that the Roman Church had never erred and never would. It asserted supreme papal authority over all earthly powers.",
-        explanation: "These unprecedented claims formed the ideological basis for Gregory's confrontation with Henry IV."
+        answer: "Through Spain, Latin Christians recovered Greek philosophy — especially Aristotle — via Arabic translations and commentaries (Averroes). This recovery transformed scholastic theology in the 12th-13th centuries.",
+        explanation: "Without Al-Andalus, the work of Aquinas would be unimaginable."
       },
-      {
-        question: "How did the Concordat of Worms (1122) resolve the Investiture Controversy?",
-        type: "mc",
-        options: ["A) The emperor gained complete control of church appointments", "B) The pope gained complete control with no royal involvement", "C) Bishops would be elected by the church, but emperors could invest them with secular authority", "D) Lay investiture was declared legitimate"],
-        answer: "C) Bishops would be elected by the church, but emperors could invest them with secular authority",
-        explanation: "This compromise distinguished between spiritual authority (church's domain) and temporal authority (ruler's domain) while allowing rulers continued influence."
-      }
     ],
     keyTerms: [
-      { term: "Lay Investiture", definition: "Practice of secular rulers appointing bishops and investing them with spiritual symbols of office" },
-      { term: "Dictatus Papae", definition: "Gregory VII's 1075 document asserting supreme papal authority over all earthly powers" },
-      { term: "Canossa", definition: "Castle where Henry IV did penance before Gregory VII in 1077; symbol of papal power over emperors" },
-      { term: "Concordat of Worms", definition: "1122 compromise ending the Investiture Controversy; distinguished spiritual and temporal investiture" },
-      { term: "Simony", definition: "Buying or selling church offices; closely associated with lay investiture" },
-      { term: "Gregorian Reform", definition: "11th-century movement to free the church from secular control and eliminate abuses" }
+      { term: "Al-Andalus", definition: "Muslim-ruled regions of the Iberian peninsula, 711-1492" },
+      { term: "Convivencia", definition: "Coexistence of Christians, Muslims, and Jews in medieval Spain" },
+      { term: "Reconquista", definition: "Centuries-long Christian reconquest of Iberia" },
+      { term: "Dhimmi", definition: "Protected but subordinate non-Muslim subjects under Islamic rule" },
+      { term: "Mozarabs", definition: "Iberian Christians living under Muslim rule" },
+      { term: "Averroes", definition: "Andalusian Muslim philosopher (1126-1198); transmitted Aristotle to the West" },
     ]
   },
   {
     id: 32,
-    title: "The Crusades - Part 1",
-    videoTitle: "The Crusades - Part 1",
+    videoId: "Z_ypna0s2II",
+    title: "Knights and Chivalry",
+    videoTitle: "Knights and Chivalry",
+    duration: "~25 min",
+    objective: "The mounted warrior was central to medieval society. This lecture traces how the church tried to Christianize knighthood through codes of chivalry, the Peace and Truce of God, and crusading ideology.",
+    notes: {
+      sections: [
+        {
+          title: "The Rise of the Knight",
+          points: [
+            "Stirrup, heavy cavalry, and feudal land grants created a warrior elite",
+            "By 1000, knights dominated warfare and politics in much of Europe",
+            "Their violence was a constant problem for villagers and clergy alike",
+          ]
+        },
+        {
+          title: "The Church's Response",
+          points: [
+            "**Peace of God (989)**: forbade attacks on clergy, women, peasants, churches",
+            "**Truce of God (early 11th c.)**: forbade fighting on Sundays, holy days, and during Lent",
+            "Bishops attempted to redirect knightly violence rather than abolish it",
+          ]
+        },
+        {
+          title: "Christianizing Knighthood",
+          points: [
+            "Ceremonies of dubbing acquired liturgical elements (blessing of the sword)",
+            "Knight ideally swore to protect the church, the weak, and the helpless",
+            "Crusading offered redirection of knightly aggression toward 'just' targets",
+          ]
+        },
+        {
+          title: "Chivalry as a Code",
+          points: [
+            "Combined Christian virtues, courtly manners, and warrior honor",
+            "Celebrated in Arthurian romances, troubadour poetry, and tales of the Holy Grail",
+            "Gap between the ideal and the actual behavior of knights was always large",
+            "Critics (St. Bernard, later Erasmus) lambasted knightly cruelty and pretense",
+          ]
+        },
+      ]
+    },
+    quiz: [
+      {
+        question: "What was the Peace of God?",
+        type: "short",
+        answer: "A church-led movement beginning in 989 that placed certain groups — clergy, women, peasants, pilgrims — under ecclesiastical protection and forbade armed attacks on them, with excommunication as the penalty.",
+        explanation: "It was one of the earliest attempts to limit violence by religious sanction."
+      },
+      {
+        question: "How did crusading relate to chivalry?",
+        type: "mc",
+        options: ["A) The two were unrelated", "B) Crusading offered a religiously sanctioned outlet for knightly violence", "C) Knights were forbidden to crusade", "D) Crusades replaced chivalry entirely"],
+        answer: "B) Crusading offered a religiously sanctioned outlet for knightly violence",
+        explanation: "Urban II's Crusade preaching explicitly framed Crusading as a holy alternative to fighting other Christians."
+      },
+      {
+        question: "Why is chivalry best described as an ideal rather than a description?",
+        type: "short",
+        answer: "Real medieval warfare was often brutal, with massacres, ransoming for profit, and pillage of civilians. Chivalric literature held up an ideal of mercy, courtesy, and Christian virtue that few knights consistently met.",
+        explanation: "Like any code, chivalry shaped behavior partially, not perfectly."
+      },
+    ],
+    keyTerms: [
+      { term: "Peace of God", definition: "Movement protecting non-combatants from knightly violence" },
+      { term: "Truce of God", definition: "Limits on when knights could fight (Sundays, holy days, Lent)" },
+      { term: "Chivalry", definition: "Code combining Christian virtues, honor, and courtly conduct" },
+      { term: "Dubbing", definition: "Ceremony making a man a knight, often with liturgical elements" },
+      { term: "Feudalism", definition: "System tying military service to land tenure" },
+      { term: "Just War", definition: "Theological framework limiting when Christians may fight" },
+    ]
+  },
+{
+    id: 33,
+    videoId: "7bGxMcSHOmI",
+    title: "The First Crusades (Part I)",
+    videoTitle: "The First Crusades (Part I)",
     duration: "~35 min",
     objective: "This module examines the origins and the First Crusade (1095-1099), including Pope Urban II's call, the motives of crusaders, and the capture of Jerusalem.",
     notes: {
@@ -3490,10 +3320,11 @@ const modules: Module[] = [
       { term: "Godfrey of Bouillon", definition: "Leader of the First Crusade; became 'Defender of the Holy Sepulchre' in Jerusalem" }
     ]
   },
-  {
-    id: 33,
-    title: "The Crusades - Part 2",
-    videoTitle: "The Crusades - Part 2",
+{
+    id: 34,
+    videoId: "ju0HLYU9Z7A",
+    title: "Crusades (Part II)",
+    videoTitle: "Crusades (Part II)",
     duration: "~30 min",
     objective: "This module examines the Crusader States, the Muslim response, and the Second and Third Crusades, including the rise of Saladin and the loss of Jerusalem.",
     notes: {
@@ -3599,120 +3430,1102 @@ const modules: Module[] = [
     ]
   },
   {
-    id: 34,
-    title: "The Crusades - Part 3",
-    videoTitle: "The Crusades - Part 3",
-    duration: "~30 min",
-    objective: "This module examines the later crusades, including the disastrous Fourth Crusade, the Children's Crusade, and the final fall of the Crusader States.",
+    id: 35,
+    videoId: "jI-zrOj-g-o",
+    title: "Life, Death, and Marriage in the Middle Ages",
+    videoTitle: "Life, Death, and Marriage in the Middle Ages",
+    duration: "~25 min",
+    objective: "What did ordinary medieval Christianity look like? This lecture surveys the church's role in birth, marriage, daily life, and death — the rhythms that shaped most people's experience of the faith.",
     notes: {
       sections: [
         {
-          title: "The Fourth Crusade (1202-1204)",
+          title: "Birth and Baptism",
           points: [
-            "Organized by Pope **Innocent III** to attack Egypt, the center of Muslim power",
-            "Crusaders contracted with **Venice** for transport but couldn't pay the full amount",
-            "Venetians diverted the crusade to **Zara** (a Christian city) to pay the debt",
-            "Then diverted to **Constantinople** to install a Byzantine claimant",
-            "When payment wasn't forthcoming, crusaders **sacked Constantinople** (1204)",
-            "Looting, murder, and destruction of the greatest Christian city - by Christians"
+            "High infant mortality made baptism urgent — often within days of birth",
+            "Midwives could perform emergency baptism if death was imminent",
+            "Godparents created spiritual kinship networks across families",
           ]
         },
         {
-          title: "Consequences of the Fourth Crusade",
+          title: "Marriage",
           points: [
-            "A **Latin Empire** established in Constantinople (1204-1261)",
-            "Byzantine Empire fragmented; never fully recovered",
-            "**Poisoned relations** between Eastern and Western Christianity permanently",
-            "Made future reunion attempts futile - Orthodox never forgot the betrayal",
-            "Demonstrated how crusading zeal could be **misdirected**",
-            "Innocent III was **horrified** but couldn't undo it"
+            "Originally a family contract; the church gradually defined it as a sacrament",
+            "**Fourth Lateran Council (1215)** required banns and church witnesses",
+            "Consent of the couple deemed essential — even against family wishes",
+            "Indissoluble in principle; annulment possible on narrow grounds",
           ]
         },
         {
-          title: "The Children's Crusade (1212)",
+          title: "Daily Religion",
           points: [
-            "Two movements, one in France, one in Germany, led by young people or shepherds",
-            "Believed that **innocent faith** would succeed where arms had failed",
-            "French group possibly sold into slavery; German group dispersed in Italy",
-            "May be **largely legendary** - sources are unclear and contradictory",
-            "Reflects the **popular religious enthusiasm** that crusading generated",
-            "Shows how crusade idealism could lead to disaster"
+            "Liturgical year structured daily life: feasts, fasts, saints' days",
+            "Parish church was the social as well as religious center",
+            "Pilgrimage to local and distant shrines a common practice",
+            "Confraternities (lay associations) supported devotions and works of mercy",
           ]
         },
         {
-          title: "The Fifth Crusade and Frederick II",
+          title: "Death and the Afterlife",
           points: [
-            "**Fifth Crusade** (1217-1221) attacked Egypt; took Damietta but then lost it",
-            "**Emperor Frederick II** (1228-1229) achieved Jerusalem through **diplomacy, not warfare**",
-            "Negotiated a 10-year treaty giving Christians Jerusalem, Bethlehem, Nazareth",
-            "Was **excommunicated** at the time - crowned himself in Jerusalem",
-            "Muslims retained the Dome of the Rock and Al-Aqsa Mosque",
-            "Many crusaders were outraged that he negotiated rather than fought"
+            "Sacrament of **extreme unction** (last rites) prepared the dying",
+            "Belief in **purgatory** formalized in the 12th-13th centuries",
+            "Masses for the dead, indulgences, and chantry chapels became prominent",
+            "**Memento mori** ('remember death') art — skulls, dance of death — pervaded late medieval piety",
+          ]
+        },
+      ]
+    },
+    quiz: [
+      {
+        question: "Why was infant baptism performed so quickly?",
+        type: "short",
+        answer: "High infant mortality and the belief that unbaptized infants could not enter heaven made parents anxious to baptize children immediately. Midwives were authorized to baptize in emergencies.",
+        explanation: "It shows how doctrine shaped intimate pastoral practice."
+      },
+      {
+        question: "What did Lateran IV require for marriage?",
+        type: "mc",
+        options: ["A) Royal approval", "B) Banns and church witnesses", "C) Two years of engagement", "D) A monastic vow"],
+        answer: "B) Banns and church witnesses",
+        explanation: "Public banns helped detect impediments like prior marriages or close kinship; church witnesses formalized consent."
+      },
+      {
+        question: "Why did purgatory loom large in late medieval piety?",
+        type: "short",
+        answer: "If most souls needed purification before heaven, then masses, prayers, almsgiving, and indulgences for the dead became urgent acts of love. A whole economy of devotion grew around shortening time in purgatory.",
+        explanation: "This system became a major target of Reformation critique."
+      },
+    ],
+    keyTerms: [
+      { term: "Banns", definition: "Public announcement of an intended marriage" },
+      { term: "Extreme Unction", definition: "Anointing of the dying; one of the seven sacraments" },
+      { term: "Purgatory", definition: "Intermediate state of purification before heaven" },
+      { term: "Confraternity", definition: "Lay association for devotion and mutual aid" },
+      { term: "Chantry", definition: "Endowed chapel for masses offered for the dead" },
+      { term: "Memento Mori", definition: "Artistic reminder of mortality common in late medieval piety" },
+    ]
+  },
+  {
+    id: 36,
+    videoId: "Yh_CZSLMxGo",
+    title: "Medieval Society",
+    videoTitle: "Medieval Society",
+    duration: "~25 min",
+    objective: "Medieval Christians inherited a sense that society was divided into three orders — those who pray, those who fight, and those who work. This lecture surveys how the church understood social order and how that order evolved.",
+    notes: {
+      sections: [
+        {
+          title: "The Three Orders",
+          points: [
+            "**Oratores** (those who pray): clergy and monastics",
+            "**Bellatores** (those who fight): nobles and knights",
+            "**Laboratores** (those who work): peasants and (later) townspeople",
+            "Each order was understood to serve the others within God's plan",
           ]
         },
         {
-          title: "Louis IX's Crusades",
+          title: "Peasants and the Manor",
           points: [
-            "**Louis IX of France** (St. Louis) led two crusades",
-            "**Seventh Crusade** (1248-1254): attacked Egypt, captured at Damietta, ransomed",
-            "**Eighth Crusade** (1270): attacked Tunis; Louis died of disease there",
-            "Louis was genuinely devout and later **canonized** as a saint",
-            "His crusades failed militarily but demonstrated continuing idealism",
-            "Last major crusading effort by a Western monarch"
+            "Most medieval Christians were peasants tied to manorial agriculture",
+            "Serfs owed labor and rents to their lord; free peasants paid only rent",
+            "Parish life rhythms — Sunday Mass, feast days, baptisms, funerals — provided cohesion",
           ]
         },
         {
-          title: "The Fall of the Crusader States",
+          title: "Towns and a New Order",
           points: [
-            "**Mamluks** (slave soldiers) took power in Egypt and proved formidable foes",
-            "Sultan **Baybars** systematically conquered Crusader fortresses (1260s-1270s)",
-            "**Acre**, the last major Crusader stronghold, fell in **1291**",
-            "The remaining coastal cities were evacuated or fell quickly",
-            "After nearly 200 years, the Crusader presence in the Holy Land **ended**",
-            "Crusading continued elsewhere (Spain, Baltic, against heretics) but not to the Holy Land"
+            "Eleventh-century revival of trade led to rapid urban growth",
+            "Townspeople did not fit neatly into the three orders",
+            "**Guilds** organized crafts; merchants accumulated wealth and influence",
+            "Universities, mendicant friars, and lay devotional movements thrived in towns",
+          ]
+        },
+        {
+          title: "Tensions and Reform",
+          points: [
+            "Wealth of the church became a target of criticism (Cathars, Waldensians)",
+            "Mendicant orders (Franciscans, Dominicans) sought to embody apostolic poverty",
+            "Peasant revolts (14th c.) protested taxation and serfdom in religious language",
+            "Late medieval society retained the language of three orders but no longer fit it",
+          ]
+        },
+      ]
+    },
+    quiz: [
+      {
+        question: "Name the three orders of medieval Christian society.",
+        type: "short",
+        answer: "Those who pray (oratores — clergy/monastics), those who fight (bellatores — nobles), and those who work (laboratores — peasants).",
+        explanation: "It was a theological vision more than an empirical description."
+      },
+      {
+        question: "Why did towns disrupt the three-order scheme?",
+        type: "mc",
+        options: ["A) Townspeople ignored Christianity", "B) Merchants and artisans did not fit the categories of prayer, war, or agriculture", "C) Towns were illegal", "D) Towns were only Jewish or Muslim"],
+        answer: "B) Merchants and artisans did not fit the categories of prayer, war, or agriculture",
+        explanation: "Urban wealth, guild structures, and lay piety created new social realities the old model could not contain."
+      },
+      {
+        question: "How did mendicants respond to wealth in the church?",
+        type: "short",
+        answer: "Francis and Dominic founded orders that renounced property and lived from alms, hoping to recover the apostolic life and answer popular movements that accused the church of betraying Christ's poverty.",
+        explanation: "Mendicants placed themselves where ordinary people lived: in growing cities."
+      },
+    ],
+    keyTerms: [
+      { term: "Oratores", definition: "Those who pray; clergy and monastics" },
+      { term: "Bellatores", definition: "Those who fight; nobles and knights" },
+      { term: "Laboratores", definition: "Those who work; peasants and townspeople" },
+      { term: "Manorialism", definition: "Economic system of medieval rural estates" },
+      { term: "Serfdom", definition: "Status of peasants bound to a particular lord's land" },
+      { term: "Guild", definition: "Sworn association of craftsmen or merchants regulating their trade" },
+    ]
+  },
+  {
+    id: 37,
+    videoId: "uvXPeZ1rTt0",
+    title: "Magna Carta",
+    videoTitle: "Magna Carta",
+    duration: "~25 min",
+    objective: "In 1215 English barons forced King John to seal a charter limiting royal power. Often hailed as a foundation of constitutional government, Magna Carta also illustrates the political role of medieval bishops and the church.",
+    notes: {
+      sections: [
+        {
+          title: "Background",
+          points: [
+            "King John (r. 1199-1216): military failures, heavy taxation, conflict with papacy and barons",
+            "Quarrel with Pope **Innocent III** over the see of Canterbury",
+            "Innocent placed England under interdict (1208) and excommunicated John (1209)",
+            "John submitted, surrendering England as a papal fief in 1213",
+          ]
+        },
+        {
+          title: "The Crisis of 1215",
+          points: [
+            "Barons rebelled over abuses of feudal rights, arbitrary taxation, and military demands",
+            "Met John at Runnymede in June 1215",
+            "Archbishop **Stephen Langton** played a central mediating role",
+          ]
+        },
+        {
+          title: "What Magna Carta Said",
+          points: [
+            "Confirmed traditional liberties of the church",
+            "Limited the king's ability to levy certain taxes without consent",
+            "Promised due process: no free man imprisoned 'except by the lawful judgment of his peers'",
+            "Established a council of barons to monitor compliance",
+          ]
+        },
+        {
+          title: "Aftermath and Legacy",
+          points: [
+            "John repudiated it almost immediately; Innocent III annulled it",
+            "Reissued by John's successors and woven into English law",
+            "Later generations invoked it as a charter of liberty, even far beyond its original meaning",
+            "Shows how church courts, bishops, and barons together restrained monarchical power",
+          ]
+        },
+      ]
+    },
+    quiz: [
+      {
+        question: "Why was Stephen Langton important?",
+        type: "short",
+        answer: "As Archbishop of Canterbury, Langton mediated between John and the rebellious barons, helped articulate the barons' demands, and shaped Magna Carta's final form. His involvement shows that bishops, not only barons, framed limits on royal power.",
+        explanation: "Langton himself had been the original cause of John's quarrel with Innocent III."
+      },
+      {
+        question: "What did Magna Carta promise about due process?",
+        type: "mc",
+        options: ["A) Trial by combat for all", "B) No free man imprisoned except by lawful judgment of his peers", "C) Immediate royal pardon for any accusation", "D) Confession by torture"],
+        answer: "B) No free man imprisoned except by lawful judgment of his peers",
+        explanation: "This clause became the seed of later constitutional protections in English-speaking law."
+      },
+      {
+        question: "Why did Pope Innocent III annul Magna Carta?",
+        type: "short",
+        answer: "John had become a papal vassal in 1213, so Innocent regarded the charter as extorted from his liege man and an offense against papal authority. The annulment failed politically, and Magna Carta endured.",
+        explanation: "It illustrates how tangled papal, royal, and baronial power had become."
+      },
+    ],
+    keyTerms: [
+      { term: "King John", definition: "English king (1199-1216) forced to seal Magna Carta" },
+      { term: "Innocent III", definition: "Powerful pope (1198-1216) who made England a papal fief" },
+      { term: "Stephen Langton", definition: "Archbishop of Canterbury; mediator at Runnymede" },
+      { term: "Runnymede", definition: "Meadow where Magna Carta was sealed in June 1215" },
+      { term: "Interdict", definition: "Papal sanction suspending most sacraments in a region" },
+      { term: "Magna Carta", definition: "'Great Charter' (1215) limiting royal power and securing liberties" },
+    ]
+  },
+  {
+    id: 38,
+    videoId: "rh6kDNVPk54",
+    title: "Black Death",
+    videoTitle: "Black Death",
+    duration: "~25 min",
+    objective: "The plague that struck Europe between 1347 and 1351 killed perhaps a third of the population. This lecture explores the religious responses to the catastrophe and its long-term effects on the medieval church.",
+    notes: {
+      sections: [
+        {
+          title: "The Plague Arrives",
+          points: [
+            "Likely **Yersinia pestis** carried by fleas on rats along trade routes",
+            "Entered Europe through Sicilian ports in 1347",
+            "Killed an estimated **30-50% of the European population** within four years",
+            "Recurred in waves for the next several centuries",
+          ]
+        },
+        {
+          title: "Religious Responses",
+          points: [
+            "Mass processions, penitential rites, and pilgrimages",
+            "**Flagellant** movements: groups whipped themselves publicly seeking divine mercy",
+            "Scapegoating of Jews, who were massacred in many cities",
+            "Many clergy died — sometimes ministering to the sick, sometimes fleeing",
+          ]
+        },
+        {
+          title: "Effects on the Church",
+          points: [
+            "Replacement clergy were often poorly trained, weakening pastoral care",
+            "Decline in clerical prestige; rise of anti-clerical sentiment",
+            "Wealth shifted as labor became scarce; serfdom weakened",
+            "Heightened focus on death, judgment, and the afterlife in art and devotion",
+          ]
+        },
+        {
+          title: "Theological Aftershocks",
+          points: [
+            "Why did God allow this? Renewed wrestling with theodicy",
+            "Surge of interest in mysticism (Eckhart, Tauler, Julian of Norwich)",
+            "Devotional intensity coexisted with cynicism about the institutional church",
+            "Contributed to the religious unrest that fed Wycliffe, Hus, and eventually the Reformation",
+          ]
+        },
+      ]
+    },
+    quiz: [
+      {
+        question: "What disease most likely caused the Black Death?",
+        type: "short",
+        answer: "Bubonic plague caused by Yersinia pestis, transmitted by fleas carried on rats. Some scholars argue for additional pneumonic forms that spread person-to-person.",
+        explanation: "The pace and lethality of the outbreak baffled medieval observers."
+      },
+      {
+        question: "Who were the flagellants?",
+        type: "mc",
+        options: ["A) Wandering scholars", "B) Groups who publicly whipped themselves seeking divine mercy", "C) A monastic order founded by Francis", "D) Heretical mystics in Spain"],
+        answer: "B) Groups who publicly whipped themselves seeking divine mercy",
+        explanation: "The movement was eventually condemned by Pope Clement VI as excessive and disruptive."
+      },
+      {
+        question: "How did the Black Death affect the late medieval church?",
+        type: "short",
+        answer: "It killed many clergy and weakened pastoral care, fueled anti-clericalism, intensified focus on death and salvation, and contributed to the religious instability that fed late medieval reform movements.",
+        explanation: "The plague did not cause the Reformation — but it deepened the cracks."
+      },
+    ],
+    keyTerms: [
+      { term: "Black Death", definition: "Plague pandemic in Europe, 1347-1351" },
+      { term: "Yersinia pestis", definition: "Bacterium that causes bubonic plague" },
+      { term: "Flagellants", definition: "Penitential movement using public self-scourging during the plague" },
+      { term: "Theodicy", definition: "Theological attempt to reconcile God's goodness with the existence of evil" },
+      { term: "Anti-clericalism", definition: "Hostility toward the clergy and church institutions" },
+      { term: "Memento Mori", definition: "Reminder of mortality; prominent in late medieval art" },
+    ]
+  },
+{
+    id: 39,
+    videoId: "Q_s9Rcsg5UI",
+    title: "Great Schism (1054)",
+    videoTitle: "Great Schism (1054)",
+    duration: "~30 min",
+    objective: "This module examines the Great Schism between Eastern Orthodox and Roman Catholic Christianity, tracing its theological, cultural, and political causes.",
+    notes: {
+      sections: [
+        {
+          title: "A Long Process, Not a Single Event",
+          points: [
+            "The **1054 schism** was not a sudden break but the culmination of centuries of **growing estrangement**",
+            "East and West had been drifting apart since the **division of the Roman Empire** (395 AD)",
+            "**Language barrier**: West spoke Latin; East spoke Greek; translations were imperfect",
+            "**Political division**: Western empire fell; East continued as Byzantine Empire",
+            "Different **cultural contexts** produced different theological emphases and practices"
+          ]
+        },
+        {
+          title: "Theological Differences",
+          points: [
+            "**Filioque controversy**: West added 'and the Son' to Nicene Creed (Spirit proceeds from Father 'and the Son')",
+            "East objected: the addition was **unauthorized** (no ecumenical council approved it)",
+            "East also objected **theologically**: it distorts Trinitarian relations",
+            "**Papal primacy**: Rome claimed supreme jurisdiction; Constantinople saw Rome as first among equals",
+            "Different understandings of **original sin, purgatory, and other doctrines** developed"
+          ]
+        },
+        {
+          title: "Liturgical and Disciplinary Differences",
+          points: [
+            "**Leavened vs. unleavened bread** in the Eucharist (East used leavened; West unleavened)",
+            "**Clerical celibacy**: West required for all clergy; East allowed married priests (not bishops)",
+            "**Fasting practices** differed between East and West",
+            "**Confirmation**: performed by priests in the East; reserved to bishops in the West",
+            "These differences accumulated and hardened over centuries"
+          ]
+        },
+        {
+          title: "The Events of 1054",
+          points: [
+            "**Pope Leo IX** sent Cardinal **Humbert** to Constantinople to negotiate",
+            "Patriarch **Michael Cerularius** refused to yield on Eastern practices",
+            "Humbert placed a bull of **excommunication** on the altar of Hagia Sophia (July 16, 1054)",
+            "Cerularius then **excommunicated** the papal legates",
+            "Note: Leo IX had died before the excommunication - its validity was questionable",
+            "The excommunications were of **individuals**, not entire churches, technically"
+          ]
+        },
+        {
+          title: "Deepening of the Schism",
+          points: [
+            "The **Crusades** deepened hostility, especially the **Fourth Crusade (1204)**",
+            "Crusaders **sacked Constantinople**, installed a Latin emperor and patriarch",
+            "Byzantines never forgave this betrayal - it poisoned relations permanently",
+            "Attempts at reunion (**Council of Florence, 1439**) failed to stick",
+            "The **fall of Constantinople (1453)** ended Byzantine civilization but not the Orthodox Church"
+          ]
+        },
+        {
+          title: "Modern Developments",
+          points: [
+            "The mutual excommunications were **lifted in 1964** by Pope Paul VI and Patriarch Athenagoras",
+            "Significant **ecumenical dialogue** has occurred since then",
+            "However, the churches remain **separate** - full communion not restored",
+            "Differences over papal authority remain the **chief obstacle**",
+            "The schism divided Christianity's two oldest branches and endures nearly 1,000 years later"
           ]
         }
       ]
     },
     quiz: [
       {
-        question: "Why did the Fourth Crusade attack Constantinople instead of the Holy Land?",
+        question: "What is the 'Filioque' controversy that divided East and West?",
         type: "short",
-        answer: "Crusaders couldn't pay Venice for transport, so they diverted first to Zara (to pay the debt) and then to Constantinople (to install a Byzantine claimant who promised payment). When payment failed, they sacked the city for plunder.",
-        explanation: "This disastrous diversion was driven by debt, Venetian commercial interests, and Byzantine politics rather than religious aims."
+        answer: "The West added 'and the Son' (Filioque) to the Nicene Creed, saying the Holy Spirit proceeds from the Father 'and the Son.' The East objected that this was unauthorized (no council approved it) and theologically problematic (distorting the Father's unique role in the Trinity).",
+        explanation: "This seemingly technical dispute reflected deeper differences in authority and theology."
       },
       {
-        question: "How did Frederick II acquire Jerusalem in 1229?",
+        question: "What happened during the Fourth Crusade that permanently poisoned East-West relations?",
         type: "mc",
-        options: ["A) By military conquest", "B) By diplomacy and negotiation with the sultan", "C) By purchasing it from the Templars", "D) By a papal decree"],
-        answer: "B) By diplomacy and negotiation with the sultan",
-        explanation: "Frederick negotiated a treaty that gave Christians Jerusalem without fighting - remarkable but controversial since he was excommunicated at the time."
+        options: ["A) Muslims conquered Constantinople", "B) Crusaders sacked Constantinople and installed a Latin emperor", "C) The pope excommunicated all Eastern Christians", "D) Byzantine armies attacked Rome"],
+        answer: "B) Crusaders sacked Constantinople and installed a Latin emperor",
+        explanation: "In 1204, Western Crusaders diverted to Constantinople, looted the Christian city, and established Latin rule - a betrayal the East never forgave."
       },
       {
-        question: "What happened at Acre in 1291?",
+        question: "Were the 1054 excommunications between entire churches?",
         type: "mc",
-        options: ["A) A major Crusader victory", "B) The fall of the last major Crusader stronghold to the Mamluks", "C) The founding of a new Crusader State", "D) A peace treaty was signed"],
-        answer: "B) The fall of the last major Crusader stronghold to the Mamluks",
-        explanation: "Acre's fall in 1291 effectively ended the Crusader presence in the Holy Land after nearly 200 years."
+        options: ["A) Yes, both churches officially excommunicated each other", "B) No, only individuals were excommunicated, not entire churches", "C) Only the East excommunicated the West", "D) There were no excommunications in 1054"],
+        answer: "B) No, only individuals were excommunicated, not entire churches",
+        explanation: "Technically, Cardinal Humbert excommunicated Patriarch Cerularius, who responded by excommunicating Humbert and his fellow legates - not entire communions."
       },
       {
-        question: "Why was the Fourth Crusade's sack of Constantinople so damaging to Christian unity?",
+        question: "What remains the chief obstacle to reunification between Eastern Orthodox and Roman Catholic churches today?",
         type: "short",
-        answer: "Western Crusaders destroyed the greatest Christian city, established a Latin Empire, and looted Byzantine treasures. The Orthodox East never forgave this betrayal by fellow Christians, poisoning relations and making future reunion attempts futile.",
-        explanation: "This event deepened the East-West Schism more than theological disagreements ever had."
+        answer: "Differences over papal authority remain the chief obstacle. The Catholic Church claims the pope has supreme jurisdiction over all Christians, while the Orthodox see him as first among equals without universal jurisdiction.",
+        explanation: "Though the 1054 excommunications were lifted in 1964, this fundamental ecclesiological difference persists."
       }
     ],
     keyTerms: [
-      { term: "Fourth Crusade", definition: "1202-1204 crusade that sacked Constantinople instead of fighting Muslims; established Latin Empire" },
-      { term: "Latin Empire", definition: "Crusader state in Constantinople 1204-1261; ended when Byzantines recaptured the city" },
-      { term: "Children's Crusade", definition: "1212 movements of young people/shepherds believing innocent faith would succeed; largely ended in disaster" },
-      { term: "Mamluks", definition: "Slave soldiers who took power in Egypt; eventually conquered all Crusader States" },
-      { term: "St. Louis (Louis IX)", definition: "French king who led two crusades (1248, 1270); died on crusade; canonized as a saint" },
-      { term: "Fall of Acre (1291)", definition: "Mamluk capture of the last major Crusader stronghold; ended Crusader presence in Holy Land" }
+      { term: "Filioque", definition: "'And the Son' - Western addition to the Creed stating the Spirit proceeds from Father and Son; rejected by East" },
+      { term: "Great Schism (1054)", definition: "Formal break between Eastern Orthodox and Roman Catholic churches; excommunications between Humbert and Cerularius" },
+      { term: "Michael Cerularius", definition: "Patriarch of Constantinople who clashed with papal legates in 1054" },
+      { term: "Cardinal Humbert", definition: "Papal legate who placed excommunication on the altar of Hagia Sophia in 1054" },
+      { term: "Fourth Crusade", definition: "1204 crusade that sacked Constantinople instead of fighting Muslims; deepened the schism" },
+      { term: "Pentarchy", definition: "Eastern concept of church governance by five patriarchs (Rome, Constantinople, Alexandria, Antioch, Jerusalem)" }
     ]
   },
   {
-    id: 35,
+    id: 40,
+    videoId: "uU7GSf35oSY",
+    title: "Avignon Papacy: When the Popes Moved to France",
+    videoTitle: "Avignon Papacy: When the Popes Moved to France",
+    duration: "~30 min",
+    objective: "From 1309 to 1377 the popes lived not in Rome but in Avignon under heavy French influence. The 'Babylonian Captivity of the Church' shook papal credibility and set up the Western Schism.",
+    notes: {
+      sections: [
+        {
+          title: "Why Avignon?",
+          points: [
+            "Conflict between Pope **Boniface VIII** and King **Philip IV of France** ended in Boniface's humiliation at Anagni (1303)",
+            "Boniface's successor died quickly; **Clement V** (a Frenchman) was elected in 1305",
+            "Italy was politically unstable; Clement moved the papal court to Avignon in 1309",
+          ]
+        },
+        {
+          title: "Life in Avignon",
+          points: [
+            "Seven successive popes — all French — ruled from Avignon",
+            "Built a vast new papal palace; expanded administration and finances",
+            "Heavy reliance on **annates**, **expectatives**, and other fiscal devices",
+            "Reputation for luxury, nepotism, and French political bias",
+          ]
+        },
+        {
+          title: "Critics",
+          points: [
+            "**Petrarch** denounced Avignon as a 'Babylon of the West'",
+            "**Catherine of Siena** urged the popes to return to Rome",
+            "**Marsilius of Padua** and **William of Ockham** developed theories limiting papal power",
+          ]
+        },
+        {
+          title: "Return and Schism",
+          points: [
+            "**Gregory XI** returned the papacy to Rome in 1377",
+            "On his death (1378), a contested conclave produced rival popes in Rome and Avignon",
+            "The **Western Schism** had begun — the direct fruit of the Avignon experiment",
+          ]
+        },
+      ]
+    },
+    quiz: [
+      {
+        question: "Why is the Avignon period called the 'Babylonian Captivity of the Church'?",
+        type: "short",
+        answer: "Critics, especially Petrarch, drew an analogy to the seventy-year exile of Israel in Babylon. They charged that the papacy had been taken from its rightful home in Rome and held under French influence for roughly seventy years (1309-1377).",
+        explanation: "The label stuck even though the analogy was inexact."
+      },
+      {
+        question: "Who finally returned the papacy to Rome?",
+        type: "mc",
+        options: ["A) Innocent III", "B) Boniface VIII", "C) Gregory XI", "D) Clement V"],
+        answer: "C) Gregory XI",
+        explanation: "Influenced by Catherine of Siena and political shifts in Italy, Gregory XI re-entered Rome in 1377."
+      },
+      {
+        question: "How did Avignon contribute to the Western Schism?",
+        type: "short",
+        answer: "Avignon entrenched a large French cardinalate and bureaucracy. When Gregory XI died in Rome, a tumultuous Roman conclave produced Urban VI; dissatisfied French cardinals then elected a rival, Clement VII, who returned to Avignon — opening the schism.",
+        explanation: "It set up a thirty-nine-year crisis of two and eventually three competing popes."
+      },
+    ],
+    keyTerms: [
+      { term: "Avignon Papacy", definition: "Period (1309-1377) when popes resided in Avignon" },
+      { term: "Boniface VIII", definition: "Pope humiliated at Anagni (1303); his death precipitated the move" },
+      { term: "Clement V", definition: "First Avignon pope; moved the court in 1309" },
+      { term: "Annates", definition: "First year's income from a benefice paid to the pope" },
+      { term: "Petrarch", definition: "Italian humanist who attacked Avignon as 'Babylon'" },
+      { term: "Catherine of Siena", definition: "Mystic and reformer who urged the papacy back to Rome" },
+      { term: "Gregory XI", definition: "Pope who returned to Rome in 1377" },
+    ]
+  },
+  {
+    id: 41,
+    videoId: "ckHJOeR0BBQ",
+    title: "100 Years War",
+    videoTitle: "100 Years War",
+    duration: "~25 min",
+    objective: "The Hundred Years' War (1337-1453) between England and France reshaped European politics, weakened papal credibility, and produced one of the most famous Christian figures of the late Middle Ages — Joan of Arc.",
+    notes: {
+      sections: [
+        {
+          title: "Causes",
+          points: [
+            "English kings held large French territories as vassals of the French crown",
+            "Edward III claimed the French throne through his mother in 1337",
+            "Economic conflict over Flanders and the wool trade",
+            "Long political and dynastic rivalry between the Plantagenets and Valois",
+          ]
+        },
+        {
+          title: "Three Phases",
+          points: [
+            "**Edwardian War (1337-1360)**: English victories at Crécy and Poitiers; longbow dominance",
+            "**Caroline War (1369-1389)**: French recovery under Charles V and Bertrand du Guesclin",
+            "**Lancastrian War (1415-1453)**: Henry V's victory at Agincourt; eventual French triumph",
+          ]
+        },
+        {
+          title: "Joan of Arc",
+          points: [
+            "Peasant girl from Domrémy; claimed visions of Saints Michael, Catherine, and Margaret",
+            "Persuaded the Dauphin to let her lead troops; lifted the siege of Orléans (1429)",
+            "Charles VII crowned at Reims with Joan present",
+            "Captured by Burgundians, sold to the English, tried by a French ecclesiastical court",
+            "Burned as a heretic in 1431 at age 19; rehabilitated in 1456; canonized in 1920",
+          ]
+        },
+        {
+          title: "Religious Effects",
+          points: [
+            "War unfolded during the Avignon Papacy and Western Schism — papal mediation impossible",
+            "Each side claimed divine favor and used the church for propaganda",
+            "Joan's trial illustrates how church courts could serve political ends",
+            "National Christian identities (English vs. French) deepened",
+          ]
+        },
+      ]
+    },
+    quiz: [
+      {
+        question: "How did the Hundred Years War interact with the Western Schism?",
+        type: "short",
+        answer: "The war and the schism overlapped, with England and France often supporting rival popes. The papacy could not impartially mediate, since each pope depended on royal allegiance, weakening the papal claim to spiritual authority over Christendom.",
+        explanation: "Politics fractured what was supposed to be a unified Christendom."
+      },
+      {
+        question: "Where was Joan of Arc condemned and executed?",
+        type: "mc",
+        options: ["A) Paris", "B) Rouen", "C) Orléans", "D) Reims"],
+        answer: "B) Rouen",
+        explanation: "She was tried by an English-aligned ecclesiastical court in Rouen and burned there in 1431."
+      },
+      {
+        question: "Why did the war strengthen national identities?",
+        type: "short",
+        answer: "Prolonged conflict, royal taxation, and propaganda fostered distinct senses of being 'English' or 'French.' Religious devotion increasingly took on national color, foreshadowing the national churches of the Reformation era.",
+        explanation: "Christendom remained the ideal; the nation-state was the rising reality."
+      },
+    ],
+    keyTerms: [
+      { term: "Hundred Years' War", definition: "Series of conflicts between England and France, 1337-1453" },
+      { term: "Edward III", definition: "English king who claimed the French throne in 1337" },
+      { term: "Agincourt (1415)", definition: "Decisive English victory under Henry V" },
+      { term: "Joan of Arc", definition: "Peasant visionary (1412-1431); helped turn the war for France" },
+      { term: "Dauphin", definition: "Title of the heir to the French throne (later Charles VII)" },
+      { term: "Rehabilitation", definition: "Posthumous overturning of Joan's heresy conviction in 1456" },
+    ]
+  },
+{
+    id: 42,
+    videoId: "ZDvmqpjkkxo",
+    title: "One Throne, Three Popes: The Great Western Schism",
+    videoTitle: "One Throne, Three Popes: The Great Western Schism",
+    duration: "~30 min",
+    objective: "This module examines the Great Western Schism (1378-1417) when rival popes divided Western Christianity and the conciliar movement attempted to heal the breach.",
+    notes: {
+      sections: [
+        {
+          title: "Background: The Avignon Papacy",
+          points: [
+            "After conflict with Philip IV, Pope **Clement V** moved the papal court to **Avignon** (1309)",
+            "Avignon was technically not French territory but was dominated by French influence",
+            "**Seven popes** reigned at Avignon (1309-1377) - all French",
+            "Critics called it the **'Babylonian Captivity'** of the church",
+            "Papal administration became more bureaucratic and fiscally aggressive",
+            "**Gregory XI** finally returned to Rome in 1377"
+          ]
+        },
+        {
+          title: "The Schism Begins (1378)",
+          points: [
+            "Gregory XI died shortly after returning to Rome (1378)",
+            "Roman mob demanded an Italian pope; cardinals elected **Urban VI**",
+            "Urban proved erratic, harsh, and possibly mentally unstable",
+            "French cardinals claimed the election was coerced; elected **Clement VII**",
+            "Clement returned to Avignon; Urban remained in Rome",
+            "Now two popes, each claiming legitimacy, each excommunicating the other"
+          ]
+        },
+        {
+          title: "Europe Divided",
+          points: [
+            "Nations aligned along political lines:",
+            "**Roman obedience**: England, Holy Roman Empire, most of Italy, Scandinavia",
+            "**Avignon obedience**: France, Scotland, Castile, Aragon, Naples",
+            "Each side elected successors when popes died - the schism perpetuated itself",
+            "Saints were divided: **Catherine of Siena** supported Rome; **Vincent Ferrer** supported Avignon",
+            "Ordinary Christians faced confusion: which pope guaranteed valid sacraments?"
+          ]
+        },
+        {
+          title: "The Council of Pisa (1409)",
+          points: [
+            "Cardinals from both sides met at **Pisa** to end the schism",
+            "Deposed both popes and elected **Alexander V** (soon succeeded by John XXIII)",
+            "Neither existing pope accepted deposition - now **three popes**",
+            "The attempted solution made things worse",
+            "Demonstrated the need for a stronger approach"
+          ]
+        },
+        {
+          title: "The Council of Constance (1414-1418)",
+          points: [
+            "Called by Emperor **Sigismund** to end the schism",
+            "Largest church council ever - thousands of participants",
+            "Deposed or received resignations from all three claimants",
+            "Elected **Martin V** (1417) as sole pope - schism ended",
+            "Also condemned **John Wycliffe** (posthumously) and burned **Jan Hus** for heresy",
+            "Issued **Frequens**: councils should meet regularly to govern the church"
+          ]
+        },
+        {
+          title: "Conciliarism and Its Defeat",
+          points: [
+            "**Conciliarism**: theory that a general council is superior to the pope",
+            "Seemed vindicated by Constance's success in ending the schism",
+            "The decree **Haec Sancta** (1415) claimed council authority over popes",
+            "Later popes rejected conciliarism and reasserted papal supremacy",
+            "**Council of Basel** (1431-1449) challenged Pope Eugene IV but eventually collapsed",
+            "Papal monarchy was restored, but prestige was permanently damaged"
+          ]
+        }
+      ]
+    },
+    quiz: [
+      {
+        question: "What caused the Great Schism to begin in 1378?",
+        type: "short",
+        answer: "After Gregory XI died in Rome, a Roman mob pressured cardinals to elect an Italian pope (Urban VI). When Urban proved erratic and harsh, French cardinals claimed the election was coerced, declared it invalid, and elected Clement VII, who returned to Avignon. Each pope excommunicated the other.",
+        explanation: "The schism resulted from a combination of Roman pressure, Urban's difficult personality, and French cardinals' desire to return to Avignon."
+      },
+      {
+        question: "What happened at the Council of Pisa (1409)?",
+        type: "mc",
+        options: ["A) The schism was successfully ended", "B) A third pope was elected, making three claimants", "C) The council was canceled", "D) All three popes reconciled"],
+        answer: "B) A third pope was elected, making three claimants",
+        explanation: "Pisa deposed both existing popes and elected a third, but neither existing pope accepted deposition - so now there were three rival popes."
+      },
+      {
+        question: "How did the Council of Constance (1414-1418) end the schism?",
+        type: "short",
+        answer: "The council obtained resignations from or deposed all three papal claimants and then elected Martin V as the single, universally recognized pope in 1417. The council's success demonstrated that conciliar action could solve problems the papacy alone could not.",
+        explanation: "Constance was the largest and one of the most successful medieval councils."
+      },
+      {
+        question: "What is 'conciliarism'?",
+        type: "mc",
+        options: ["A) The theory that the pope is supreme over councils", "B) The theory that a general council is superior to the pope", "C) The theory that councils should never meet", "D) The theory that only cardinals can govern the church"],
+        answer: "B) The theory that a general council is superior to the pope",
+        explanation: "Conciliarism held that the church's highest authority was a general council, which could judge and even depose popes - as demonstrated at Constance."
+      }
+    ],
+    keyTerms: [
+      { term: "Avignon Papacy", definition: "Period 1309-1377 when popes resided at Avignon under French influence; called 'Babylonian Captivity'" },
+      { term: "Great Western Schism", definition: "1378-1417 division when rival popes at Rome and Avignon (later three) claimed legitimacy" },
+      { term: "Council of Constance", definition: "1414-1418 council that ended the schism by deposing rival popes and electing Martin V" },
+      { term: "Conciliarism", definition: "Theory that a general council is superior to the pope and can judge him" },
+      { term: "Haec Sancta", definition: "1415 decree of Constance asserting council authority over popes; later rejected by popes" },
+      { term: "Frequens", definition: "Constance decree requiring regular councils; largely ignored by later popes" }
+    ]
+  },
+  {
+    id: 43,
+    videoId: "R7AhBEq4Gqs",
+    title: "Boethius and Christian Philosophy",
+    videoTitle: "Boethius and Christian Philosophy",
+    duration: "~25 min",
+    objective: "Boethius (c. 480-524) stood at the hinge between the ancient world and the medieval. Through his translations and his Consolation of Philosophy, he handed Greek learning to Latin Christendom.",
+    notes: {
+      sections: [
+        {
+          title: "Boethius the Man",
+          points: [
+            "Roman aristocrat; consul under the Ostrogothic king Theodoric",
+            "Falsely accused of treason and imprisoned",
+            "Wrote his masterpiece in prison while awaiting execution",
+            "Executed c. 524; venerated in some traditions as a martyr",
+          ]
+        },
+        {
+          title: "The Consolation of Philosophy",
+          points: [
+            "Dialogue between Boethius and Lady Philosophy",
+            "Wrestles with fortune, providence, free will, and the highest good",
+            "Notably does not quote Scripture — but is deeply compatible with Christian thought",
+            "Most read 'philosophy book' of the entire medieval period after the Bible",
+          ]
+        },
+        {
+          title: "Boethius the Translator",
+          points: [
+            "Project: translate all of Plato and Aristotle into Latin",
+            "Completed Aristotle's logical works (the *Organon*) before his death",
+            "These translations were almost the only Aristotle the Latin West had until 1100",
+            "Defined the technical vocabulary of medieval philosophy and theology",
+          ]
+        },
+        {
+          title: "Theological Tractates",
+          points: [
+            "Short treatises on the Trinity and on Christ's natures",
+            "Used Aristotelian categories to articulate orthodox doctrine",
+            "Pioneered the marriage of philosophy and theology that scholasticism would perfect",
+          ]
+        },
+      ]
+    },
+    quiz: [
+      {
+        question: "Why was Boethius so influential in the medieval West?",
+        type: "short",
+        answer: "Through his translations and commentaries on Aristotle's logic, he provided the West with most of its philosophical vocabulary and tools from c. 524 until the recovery of fuller Aristotle in the 12th century.",
+        explanation: "He was the bridge from antiquity to scholasticism."
+      },
+      {
+        question: "What is the literary form of The Consolation of Philosophy?",
+        type: "mc",
+        options: ["A) Sermon", "B) Dialogue between Boethius and Lady Philosophy", "C) Verse epic", "D) Catechism"],
+        answer: "B) Dialogue between Boethius and Lady Philosophy",
+        explanation: "It alternates prose and verse (a Menippean satire) as Lady Philosophy comforts the condemned man."
+      },
+      {
+        question: "How can the Consolation be Christian without quoting Scripture?",
+        type: "short",
+        answer: "It uses philosophical reasoning available to any human mind, but its conclusions on providence, the highest good, and the soul's destiny align with Christian convictions. The lack of Scripture made it readable and usable for many audiences.",
+        explanation: "Boethius shows how natural reason can support, not replace, revelation."
+      },
+    ],
+    keyTerms: [
+      { term: "Boethius", definition: "Late Roman philosopher (c. 480-524); bridge to medieval thought" },
+      { term: "Consolation of Philosophy", definition: "Boethius's dialogue on fortune, providence, and the good" },
+      { term: "Organon", definition: "Aristotle's logical works; translated by Boethius" },
+      { term: "Theodoric", definition: "Ostrogothic king under whom Boethius served and died" },
+      { term: "Theological Tractates", definition: "Boethius's short orthodox treatises on Trinity and Christology" },
+      { term: "Lady Philosophy", definition: "Allegorical figure who consoles Boethius in his cell" },
+    ]
+  },
+  {
+    id: 44,
+    videoId: "JeA7QPm8f8g",
+    title: "Aristotle and Scholasticism",
+    videoTitle: "Aristotle and Scholasticism",
+    duration: "~30 min",
+    objective: "Between 1100 and 1300 the recovery of Aristotle's full corpus transformed Western theology. This lecture explains scholasticism, its method, its institutions, and the controversies sparked by Aristotle's return.",
+    notes: {
+      sections: [
+        {
+          title: "The Recovery of Aristotle",
+          points: [
+            "Only Aristotle's logic was known in the early Middle Ages (via Boethius)",
+            "Twelfth century: translations of Aristotle's physics, metaphysics, ethics from Arabic and Greek",
+            "Centers like **Toledo** in Spain played a crucial role",
+            "Muslim commentators (especially **Averroes**) accompanied the text",
+          ]
+        },
+        {
+          title: "What Is Scholasticism?",
+          points: [
+            "Method of theology developed in medieval universities",
+            "Used dialectic: posing a question, listing objections, giving an answer, replying to objections",
+            "Aimed to reconcile authoritative texts (Scripture, Fathers, philosophers)",
+            "Best-known form: the **summa**, an organized synthesis of theology",
+          ]
+        },
+        {
+          title: "Universities",
+          points: [
+            "**Paris, Oxford, Bologna** emerged in the late 12th-13th centuries",
+            "Faculty of theology shaped doctrine; faculty of arts taught Aristotle",
+            "Mendicant friars (Dominicans, Franciscans) dominated theology faculties",
+          ]
+        },
+        {
+          title: "Controversies",
+          points: [
+            "Some Aristotelian doctrines (eternity of the world, mortality of the soul) conflicted with faith",
+            "**Condemnations of 1277** in Paris targeted radical Aristotelian propositions",
+            "**Aquinas** showed how Aristotle could be baptized into Christian theology",
+            "**Bonaventure** preferred a more Augustinian, less Aristotelian path",
+          ]
+        },
+      ]
+    },
+    quiz: [
+      {
+        question: "What is the typical scholastic method?",
+        type: "short",
+        answer: "Pose a question, list arguments on each side, state the author's answer (sed contra and respondeo), and reply to each opposing argument in turn. Aquinas's Summa Theologiae is the classic example.",
+        explanation: "It trained generations in disciplined argument that we still call 'academic.'"
+      },
+      {
+        question: "Who was Averroes?",
+        type: "mc",
+        options: ["A) A Dominican friar", "B) A Muslim philosopher whose Aristotle commentaries shaped scholasticism", "C) The first pope of Avignon", "D) A Byzantine emperor"],
+        answer: "B) A Muslim philosopher whose Aristotle commentaries shaped scholasticism",
+        explanation: "Latin scholastics often referred to him simply as 'the Commentator.'"
+      },
+      {
+        question: "Why were some Aristotelian ideas condemned in 1277?",
+        type: "short",
+        answer: "Radical Aristotelians taught propositions like the eternity of the world or the mortality of the individual soul, which conflict with Christian doctrine. Bishop Stephen Tempier of Paris condemned 219 such propositions to set boundaries on the use of Aristotle.",
+        explanation: "The condemnations show that scholasticism was not uncritical of its sources."
+      },
+    ],
+    keyTerms: [
+      { term: "Scholasticism", definition: "Medieval university theology using dialectic and Aristotelian categories" },
+      { term: "Summa", definition: "Comprehensive systematic theological work (e.g., Summa Theologiae)" },
+      { term: "Aristotle", definition: "Greek philosopher whose recovered works reshaped medieval theology" },
+      { term: "Averroes", definition: "Muslim Aristotle commentator influential on Latin scholastics" },
+      { term: "Sic et Non", definition: "Abelard's collection of contradictory authorities; scholastic method in seed" },
+      { term: "Condemnations of 1277", definition: "Paris condemnation of 219 radical Aristotelian propositions" },
+    ]
+  },
+  {
+    id: 45,
+    videoId: "hnL9x7DmLVo",
+    title: "Anselm on God: the Ontological Argument",
+    videoTitle: "Anselm on God: the Ontological Argument",
+    duration: "~25 min",
+    objective: "Anselm of Canterbury (1033-1109) is the first great theologian of the second Christian millennium. This lecture surveys his life, his famous ontological argument, and his model of 'faith seeking understanding.'",
+    notes: {
+      sections: [
+        {
+          title: "Anselm's Life",
+          points: [
+            "Born in Aosta (modern Italy); entered the abbey of **Bec** in Normandy",
+            "Became abbot of Bec, then **Archbishop of Canterbury (1093-1109)**",
+            "Twice exiled in disputes with English kings over investiture",
+          ]
+        },
+        {
+          title: "Fides Quaerens Intellectum",
+          points: [
+            "'**Faith seeking understanding**' — his theological motto",
+            "Believing is not a substitute for thinking; it makes deep thinking possible",
+            "Rational arguments serve, not replace, faith and prayer",
+          ]
+        },
+        {
+          title: "The Ontological Argument",
+          points: [
+            "Set out in the **Proslogion**",
+            "God = 'that than which nothing greater can be thought'",
+            "If God exists only in the mind, a greater being (one existing in reality) can be conceived — contradiction",
+            "Therefore God must exist in reality as well as in the mind",
+            "First major argument for God's existence based purely on the concept of God",
+          ]
+        },
+        {
+          title: "Cur Deus Homo",
+          points: [
+            "'Why the God-Man?' — Anselm's classic on the atonement",
+            "Human sin offends infinite divine honor; only an infinite person can make satisfaction",
+            "Only the God-Man can offer that satisfaction; hence the necessity of the Incarnation",
+            "Foundational for the **satisfaction theory** of atonement",
+          ]
+        },
+      ]
+    },
+    quiz: [
+      {
+        question: "State Anselm's ontological argument briefly.",
+        type: "short",
+        answer: "God is 'that than which nothing greater can be thought.' If God existed only in the mind, a greater being could be conceived — one existing in reality as well. Therefore God must exist in reality.",
+        explanation: "The argument tries to reason from the very concept of God to God's existence."
+      },
+      {
+        question: "What does *fides quaerens intellectum* mean?",
+        type: "mc",
+        options: ["A) Faith replacing understanding", "B) Faith seeking understanding", "C) Understanding without faith", "D) Faith opposed to reason"],
+        answer: "B) Faith seeking understanding",
+        explanation: "Anselm believes in order to understand; understanding deepens belief."
+      },
+      {
+        question: "Summarize the argument of Cur Deus Homo.",
+        type: "short",
+        answer: "Human sin dishonors the infinite God and demands satisfaction. Humans owe the satisfaction but cannot pay it; only God can pay it but does not owe it. Therefore the satisfaction must be made by one who is both God and man — hence the necessity of the Incarnation.",
+        explanation: "It became the dominant Western view of why Christ had to die."
+      },
+    ],
+    keyTerms: [
+      { term: "Anselm of Canterbury", definition: "Theologian (1033-1109); abbot of Bec, archbishop of Canterbury" },
+      { term: "Fides Quaerens Intellectum", definition: "'Faith seeking understanding'; Anselm's theological program" },
+      { term: "Ontological Argument", definition: "Argument from the concept of God to God's existence" },
+      { term: "Proslogion", definition: "Anselm's work containing the ontological argument" },
+      { term: "Cur Deus Homo", definition: "'Why the God-Man?'; Anselm's treatise on the atonement" },
+      { term: "Satisfaction Theory", definition: "View that Christ's death satisfies the demands of divine honor/justice" },
+    ]
+  },
+{
+    id: 46,
+    videoId: "MF_fOYbLVY4",
+    title: "Abelard on the Trinity",
+    videoTitle: "Abelard on the Trinity",
+    duration: "~25 min",
+    objective: "This module examines Peter Abelard, the brilliant and controversial philosopher-theologian whose dialectical method and tragic love affair shaped medieval intellectual history.",
+    notes: {
+      sections: [
+        {
+          title: "Life and Career",
+          points: [
+            "**Peter Abelard** (1079-1142) was born in Brittany to a minor noble family",
+            "Chose the life of a **scholar** over knighthood; studied under leading masters",
+            "Known for **defeating his teachers in debate** - arrogant but brilliant",
+            "Established his own school in Paris; attracted huge numbers of students",
+            "His teaching career was interrupted by scandal, condemnation, and monastic retreats"
+          ]
+        },
+        {
+          title: "Heloise and the Scandal",
+          points: [
+            "**Heloise** was the brilliant niece of Canon Fulbert of Notre Dame",
+            "Abelard became her tutor; they fell in love and had a secret affair",
+            "Heloise became pregnant; they secretly married despite her objections",
+            "Fulbert's men **castrated Abelard** in revenge",
+            "Both entered religious life: Abelard as a monk, Heloise as a nun",
+            "Their later **letters** are classics of medieval literature"
+          ]
+        },
+        {
+          title: "Theological Method: Sic et Non",
+          points: [
+            "Wrote **'Sic et Non'** ('Yes and No') - 158 theological questions with contradictory authorities",
+            "Showed that church fathers and Scripture sometimes **seem to contradict**",
+            "Did not resolve the contradictions - forced students to **think through** them",
+            "Method: gather authorities, note disagreements, seek **rational reconciliation**",
+            "This **dialectical method** became foundational for scholastic theology",
+            "Critics saw it as undermining authority; Abelard saw it as sharpening understanding"
+          ]
+        },
+        {
+          title: "Philosophical Contributions",
+          points: [
+            "Major figure in the **problem of universals**: are general concepts real or just names?",
+            "Developed **conceptualism**: universals exist as concepts in the mind, abstracted from particulars",
+            "This mediating position between realism and nominalism was influential",
+            "Applied **logic rigorously** to theological questions",
+            "His approach paved the way for the **scholastic method** of the universities"
+          ]
+        },
+        {
+          title: "Conflict with Bernard",
+          points: [
+            "**Bernard of Clairvaux** opposed Abelard's rationalistic approach to theology",
+            "Bernard believed faith should precede understanding; Abelard seemed to reverse this",
+            "At the **Council of Sens (1140)**, Bernard orchestrated Abelard's condemnation",
+            "Abelard appealed to Rome but was condemned by Pope Innocent II",
+            "**Peter the Venerable** of Cluny sheltered Abelard; reconciled him with Bernard",
+            "Abelard died at a Cluniac priory in 1142"
+          ]
+        },
+        {
+          title: "Legacy",
+          points: [
+            "His **dialectical method** shaped scholastic theology",
+            "His students included **Peter Lombard** (author of the Sentences) and several popes",
+            "The Abelard-Heloise story became a **romantic legend**",
+            "They are buried together in **Pere Lachaise Cemetery** in Paris",
+            "Represents the tension between **faith and reason** that defined medieval thought"
+          ]
+        }
+      ]
+    },
+    quiz: [
+      {
+        question: "What was the purpose of Abelard's 'Sic et Non' (Yes and No)?",
+        type: "short",
+        answer: "Sic et Non presented 158 theological questions with seemingly contradictory quotations from Scripture and church fathers. It forced students to think through the contradictions and seek rational reconciliation, establishing the dialectical method that became foundational for scholastic theology.",
+        explanation: "Abelard did not resolve the contradictions but taught students to wrestle with them intellectually."
+      },
+      {
+        question: "What position did Abelard take on the problem of universals?",
+        type: "mc",
+        options: ["A) Realism - universals exist independently", "B) Nominalism - universals are just names", "C) Conceptualism - universals exist as concepts in the mind", "D) He rejected all positions"],
+        answer: "C) Conceptualism - universals exist as concepts in the mind",
+        explanation: "Abelard's conceptualism mediated between extreme realism and nominalism, arguing that universal concepts are real in the mind though abstracted from particular things."
+      },
+      {
+        question: "Who orchestrated Abelard's condemnation at the Council of Sens?",
+        type: "mc",
+        options: ["A) Pope Innocent II", "B) Bernard of Clairvaux", "C) Peter the Venerable", "D) Heloise"],
+        answer: "B) Bernard of Clairvaux",
+        explanation: "Bernard opposed Abelard's rationalistic approach and orchestrated his condemnation at Sens in 1140, though Peter the Venerable later sheltered Abelard and reconciled him with Bernard."
+      },
+      {
+        question: "What tragic event interrupted Abelard's teaching career?",
+        type: "short",
+        answer: "After his secret affair and marriage to Heloise, her uncle Fulbert had Abelard castrated in revenge. Both then entered religious life - Abelard as a monk and Heloise as a nun, though they continued to correspond.",
+        explanation: "This scandal became one of the most famous love stories of the Middle Ages."
+      }
+    ],
+    keyTerms: [
+      { term: "Sic et Non", definition: "'Yes and No' - Abelard's work presenting contradictory authorities on theological questions to stimulate rational inquiry" },
+      { term: "Dialectical Method", definition: "Approach using logical analysis of contradictory authorities to reach understanding; foundational to scholasticism" },
+      { term: "Problem of Universals", definition: "Medieval debate over whether general concepts (like 'humanity') exist independently or only as names/concepts" },
+      { term: "Conceptualism", definition: "Abelard's position that universals exist as concepts in the mind, abstracted from particulars" },
+      { term: "Council of Sens", definition: "1140 council where Bernard orchestrated Abelard's condemnation for theological errors" },
+      { term: "Heloise", definition: "Abelard's student, lover, and wife; later abbess; their letters are literary classics" }
+    ]
+  },
+  {
+    id: 47,
+    videoId: "bMTryPruYh4",
+    title: "Abelard on the Cross",
+    videoTitle: "Abelard on the Cross",
+    duration: "~25 min",
+    objective: "Peter Abelard's reflections on the cross challenged Anselm's satisfaction theory and pioneered what is often called the 'moral influence' or 'exemplarist' view of the atonement.",
+    notes: {
+      sections: [
+        {
+          title: "The Context",
+          points: [
+            "Abelard (1079-1142): brilliant, controversial Parisian master",
+            "Anselm's satisfaction theory was becoming dominant",
+            "Abelard explored alternative ways to understand why Christ died",
+          ]
+        },
+        {
+          title: "Abelard's View",
+          points: [
+            "Christ's death is the supreme demonstration of God's love",
+            "By beholding such love, sinners are inspired to love God in return",
+            "Transformation flows from this awakened love, not from a transaction of satisfaction",
+            "Often labeled the **moral influence** or **exemplarist** theory",
+          ]
+        },
+        {
+          title: "Strengths and Criticisms",
+          points: [
+            "Captures genuine biblical themes: 'God shows his love for us…' (Romans 5:8)",
+            "Avoids any picture of God needing to be appeased by Christ",
+            "Critics (Bernard of Clairvaux) said it ignored sin, judgment, and propitiation",
+            "Many later theologians combine moral influence with satisfaction motifs",
+          ]
+        },
+        {
+          title: "Legacy",
+          points: [
+            "Condemned at the **Council of Sens (1141)** through Bernard's prosecution",
+            "Abelard reconciled to the church before his death",
+            "His atonement theology re-emerged powerfully in modern liberal Protestantism",
+            "Still discussed in contemporary atonement theology",
+          ]
+        },
+      ]
+    },
+    quiz: [
+      {
+        question: "In Abelard's view, how does the cross save?",
+        type: "short",
+        answer: "By revealing God's love so fully that it awakens responsive love in the sinner, transforming the heart. Salvation flows from this awakened love rather than from a satisfaction paid to divine justice.",
+        explanation: "Critics worried that this leaves sin and judgment without serious treatment."
+      },
+      {
+        question: "What is this view often called?",
+        type: "mc",
+        options: ["A) Penal substitution", "B) Moral influence (exemplarist) theory", "C) Christus Victor", "D) Ransom theory"],
+        answer: "B) Moral influence (exemplarist) theory",
+        explanation: "It emphasizes Christ as moral example whose self-giving love changes us."
+      },
+      {
+        question: "How might Anselm and Abelard be combined?",
+        type: "short",
+        answer: "Many theologians argue that Christ's death both satisfies divine justice (Anselm) and reveals divine love that transforms the sinner (Abelard). The two are not necessarily exclusive.",
+        explanation: "Most robust accounts of the atonement weave several biblical strands together."
+      },
+    ],
+    keyTerms: [
+      { term: "Peter Abelard", definition: "Parisian theologian (1079-1142); controversial logician" },
+      { term: "Moral Influence Theory", definition: "View that the cross saves by inspiring responsive love" },
+      { term: "Exemplarism", definition: "Synonym for moral influence; Christ as supreme example" },
+      { term: "Council of Sens (1141)", definition: "Council that condemned Abelard's teachings" },
+      { term: "Bernard of Clairvaux", definition: "Abelard's most powerful theological opponent" },
+      { term: "Atonement", definition: "Doctrine of how Christ's work reconciles God and humanity" },
+    ]
+  },
+{
+    id: 48,
+    videoId: "0zCUMgCTAF0",
     title: "Bernard of Clairvaux",
     videoTitle: "Bernard of Clairvaux",
     duration: "~25 min",
@@ -3824,451 +4637,85 @@ const modules: Module[] = [
     ]
   },
   {
-    id: 36,
-    title: "Peter Abelard",
-    videoTitle: "Peter Abelard",
+    id: 49,
+    videoId: "-Arj7yiDjLg",
+    title: "Duns Scotus",
+    videoTitle: "Duns Scotus",
     duration: "~25 min",
-    objective: "This module examines Peter Abelard, the brilliant and controversial philosopher-theologian whose dialectical method and tragic love affair shaped medieval intellectual history.",
+    objective: "John Duns Scotus (c. 1266-1308) — the 'Subtle Doctor' — was a Franciscan theologian whose precise distinctions shaped late medieval and modern thought, including the doctrine of Mary's Immaculate Conception.",
     notes: {
       sections: [
         {
-          title: "Life and Career",
+          title: "Scotus's Life",
           points: [
-            "**Peter Abelard** (1079-1142) was born in Brittany to a minor noble family",
-            "Chose the life of a **scholar** over knighthood; studied under leading masters",
-            "Known for **defeating his teachers in debate** - arrogant but brilliant",
-            "Established his own school in Paris; attracted huge numbers of students",
-            "His teaching career was interrupted by scandal, condemnation, and monastic retreats"
+            "Born in Scotland; entered the Franciscan order",
+            "Taught at Oxford, Paris, and Cologne",
+            "Died young in Cologne in 1308",
+            "Beatified in 1993 by John Paul II",
           ]
         },
         {
-          title: "Heloise and the Scandal",
+          title: "Univocity of Being",
           points: [
-            "**Heloise** was the brilliant niece of Canon Fulbert of Notre Dame",
-            "Abelard became her tutor; they fell in love and had a secret affair",
-            "Heloise became pregnant; they secretly married despite her objections",
-            "Fulbert's men **castrated Abelard** in revenge",
-            "Both entered religious life: Abelard as a monk, Heloise as a nun",
-            "Their later **letters** are classics of medieval literature"
+            "Against Aquinas, who held that 'being' is predicated of God and creatures **analogically**",
+            "Scotus argued for a **univocal** concept of being: same meaning, different degree, for God and creatures",
+            "Allows for clearer rational discourse about God",
+            "Profoundly influenced later philosophy and theology",
           ]
         },
         {
-          title: "Theological Method: Sic et Non",
+          title: "Will, Love, and the Primacy of the Will",
           points: [
-            "Wrote **'Sic et Non'** ('Yes and No') - 158 theological questions with contradictory authorities",
-            "Showed that church fathers and Scripture sometimes **seem to contradict**",
-            "Did not resolve the contradictions - forced students to **think through** them",
-            "Method: gather authorities, note disagreements, seek **rational reconciliation**",
-            "This **dialectical method** became foundational for scholastic theology",
-            "Critics saw it as undermining authority; Abelard saw it as sharpening understanding"
+            "Emphasized the **will** over the intellect in both God and humans",
+            "Love is the highest act; God acts freely, not by necessity",
+            "Contributed to a stronger doctrine of divine and human freedom",
           ]
         },
         {
-          title: "Philosophical Contributions",
+          title: "Immaculate Conception",
           points: [
-            "Major figure in the **problem of universals**: are general concepts real or just names?",
-            "Developed **conceptualism**: universals exist as concepts in the mind, abstracted from particulars",
-            "This mediating position between realism and nominalism was influential",
-            "Applied **logic rigorously** to theological questions",
-            "His approach paved the way for the **scholastic method** of the universities"
+            "Argued that Mary was preserved from original sin from the first moment of her conception",
+            "Doctrine of **prevenient redemption**: Christ saves Mary by preventing rather than removing sin",
+            "Long debated; finally defined as Catholic dogma by **Pius IX in 1854**",
           ]
         },
-        {
-          title: "Conflict with Bernard",
-          points: [
-            "**Bernard of Clairvaux** opposed Abelard's rationalistic approach to theology",
-            "Bernard believed faith should precede understanding; Abelard seemed to reverse this",
-            "At the **Council of Sens (1140)**, Bernard orchestrated Abelard's condemnation",
-            "Abelard appealed to Rome but was condemned by Pope Innocent II",
-            "**Peter the Venerable** of Cluny sheltered Abelard; reconciled him with Bernard",
-            "Abelard died at a Cluniac priory in 1142"
-          ]
-        },
-        {
-          title: "Legacy",
-          points: [
-            "His **dialectical method** shaped scholastic theology",
-            "His students included **Peter Lombard** (author of the Sentences) and several popes",
-            "The Abelard-Heloise story became a **romantic legend**",
-            "They are buried together in **Pere Lachaise Cemetery** in Paris",
-            "Represents the tension between **faith and reason** that defined medieval thought"
-          ]
-        }
       ]
     },
     quiz: [
       {
-        question: "What was the purpose of Abelard's 'Sic et Non' (Yes and No)?",
+        question: "What is the doctrine of the univocity of being?",
         type: "short",
-        answer: "Sic et Non presented 158 theological questions with seemingly contradictory quotations from Scripture and church fathers. It forced students to think through the contradictions and seek rational reconciliation, establishing the dialectical method that became foundational for scholastic theology.",
-        explanation: "Abelard did not resolve the contradictions but taught students to wrestle with them intellectually."
+        answer: "The view that 'being' has the same fundamental meaning when said of God and of creatures — though God is infinite being and creatures are finite. It contrasts with Aquinas's analogical view, in which 'being' applies to God and creatures only analogously.",
+        explanation: "Univocity gave Scotus a clearer logic for talk about God but later thinkers debated its theological cost."
       },
       {
-        question: "What position did Abelard take on the problem of universals?",
+        question: "Which doctrine did Scotus famously defend?",
         type: "mc",
-        options: ["A) Realism - universals exist independently", "B) Nominalism - universals are just names", "C) Conceptualism - universals exist as concepts in the mind", "D) He rejected all positions"],
-        answer: "C) Conceptualism - universals exist as concepts in the mind",
-        explanation: "Abelard's conceptualism mediated between extreme realism and nominalism, arguing that universal concepts are real in the mind though abstracted from particular things."
+        options: ["A) Predestination of all believers", "B) The Immaculate Conception of Mary", "C) Papal infallibility", "D) Universal salvation"],
+        answer: "B) The Immaculate Conception of Mary",
+        explanation: "His concept of prevenient redemption answered the standard objection that Mary, like all humans, needed Christ's saving work."
       },
       {
-        question: "Who orchestrated Abelard's condemnation at the Council of Sens?",
-        type: "mc",
-        options: ["A) Pope Innocent II", "B) Bernard of Clairvaux", "C) Peter the Venerable", "D) Heloise"],
-        answer: "B) Bernard of Clairvaux",
-        explanation: "Bernard opposed Abelard's rationalistic approach and orchestrated his condemnation at Sens in 1140, though Peter the Venerable later sheltered Abelard and reconciled him with Bernard."
-      },
-      {
-        question: "What tragic event interrupted Abelard's teaching career?",
+        question: "Why is Scotus called the 'Subtle Doctor'?",
         type: "short",
-        answer: "After his secret affair and marriage to Heloise, her uncle Fulbert had Abelard castrated in revenge. Both then entered religious life - Abelard as a monk and Heloise as a nun, though they continued to correspond.",
-        explanation: "This scandal became one of the most famous love stories of the Middle Ages."
-      }
+        answer: "Because of his extremely fine distinctions and the precision of his arguments. His writing is famously dense and technical, even among scholastics.",
+        explanation: "His influence on later thought was profound, especially through what is sometimes called 'Scotism.'"
+      },
     ],
     keyTerms: [
-      { term: "Sic et Non", definition: "'Yes and No' - Abelard's work presenting contradictory authorities on theological questions to stimulate rational inquiry" },
-      { term: "Dialectical Method", definition: "Approach using logical analysis of contradictory authorities to reach understanding; foundational to scholasticism" },
-      { term: "Problem of Universals", definition: "Medieval debate over whether general concepts (like 'humanity') exist independently or only as names/concepts" },
-      { term: "Conceptualism", definition: "Abelard's position that universals exist as concepts in the mind, abstracted from particulars" },
-      { term: "Council of Sens", definition: "1140 council where Bernard orchestrated Abelard's condemnation for theological errors" },
-      { term: "Heloise", definition: "Abelard's student, lover, and wife; later abbess; their letters are literary classics" }
+      { term: "Duns Scotus", definition: "Franciscan theologian (c. 1266-1308); 'Subtle Doctor'" },
+      { term: "Univocity of Being", definition: "View that 'being' has the same basic meaning for God and creatures" },
+      { term: "Primacy of the Will", definition: "Scotist emphasis on will over intellect" },
+      { term: "Immaculate Conception", definition: "Doctrine that Mary was preserved from original sin from conception" },
+      { term: "Prevenient Redemption", definition: "Scotus's idea that Christ saves Mary by preventing sin" },
+      { term: "Subtle Doctor", definition: "Honorific title given to Scotus for his precise distinctions" },
     ]
   },
-  {
-    id: 37,
-    title: "The Rise of the Universities",
-    videoTitle: "The Rise of the Universities",
-    duration: "~25 min",
-    objective: "This module examines the emergence of medieval universities, their organization, curriculum, and role in shaping Western intellectual life.",
-    notes: {
-      sections: [
-        {
-          title: "Origins of the University",
-          points: [
-            "**Universities** emerged in the 12th century from cathedral schools and informal gatherings",
-            "The word 'university' (universitas) originally meant a **guild or corporation** of masters or students",
-            "Three earliest: **Bologna** (law, c. 1088), **Paris** (theology, c. 1150), **Oxford** (c. 1167)",
-            "Arose from the **intellectual revival** of the 12th century",
-            "Recovery of **Aristotle's works** (via Arabic translations) created demand for advanced learning"
-          ]
-        },
-        {
-          title: "University Organization",
-          points: [
-            "Two models: **student-controlled** (Bologna) vs. **master-controlled** (Paris)",
-            "At Bologna, students hired and fired professors and set curriculum",
-            "At Paris, masters controlled admission, curriculum, and degrees",
-            "**Faculties** organized by subject: Arts, Theology, Law, Medicine",
-            "Faculty of **Arts** was foundational - students began there before specializing",
-            "Universities received **papal and royal charters** granting privileges and independence"
-          ]
-        },
-        {
-          title: "The Curriculum",
-          points: [
-            "**Arts faculty**: the seven liberal arts - trivium (grammar, rhetoric, logic) and quadrivium (arithmetic, geometry, music, astronomy)",
-            "**Logic** (dialectic) became central - tool for all other studies",
-            "**Theology** was the 'Queen of the Sciences' - highest faculty at Paris",
-            "**Law** was central at Bologna - both canon (church) and civil (Roman) law",
-            "**Medicine** was prominent at Salerno and Montpellier",
-            "Study took years: Arts (6 years), Theology (additional 8+ years)"
-          ]
-        },
-        {
-          title: "The Scholastic Method",
-          points: [
-            "**Scholasticism**: method of learning through dialectical reasoning",
-            "Based on the **quaestio** (question): state the question, give arguments pro and con, resolve",
-            "**Lectio** (lecture): master reads and comments on authoritative texts",
-            "**Disputatio** (disputation): formal debate to test and develop arguments",
-            "Goal: **synthesize** faith and reason, Scripture and philosophy",
-            "Key texts: Bible, Peter Lombard's **Sentences**, Aristotle's works"
-          ]
-        },
-        {
-          title: "Student Life",
-          points: [
-            "Students often young (14+) and far from home",
-            "Lived in **'nations'** - groups organized by geographic origin",
-            "Later, **colleges** provided housing, meals, and supervision (e.g., Sorbonne at Paris)",
-            "Life was often rowdy - conflicts with townspeople ('town and gown')",
-            "Students had **clerical status** - answerable to church courts, not civil",
-            "Latin was the universal language of instruction"
-          ]
-        },
-        {
-          title: "Impact and Legacy",
-          points: [
-            "Universities produced trained **lawyers, clergy, and administrators**",
-            "Created an **international intellectual community** linked by Latin",
-            "The degree system (BA, MA, doctorate) **originated here**",
-            "Established **academic freedom** as an ideal (sometimes violated)",
-            "Universities shaped **law, theology, medicine, and philosophy** for centuries",
-            "The modern university descends directly from these medieval institutions"
-          ]
-        }
-      ]
-    },
-    quiz: [
-      {
-        question: "What did the word 'university' (universitas) originally mean?",
-        type: "mc",
-        options: ["A) A place of universal knowledge", "B) A guild or corporation of masters or students", "C) A royal institution", "D) A monastery school"],
-        answer: "B) A guild or corporation of masters or students",
-        explanation: "Like other medieval guilds, universities were corporations that protected the interests and standards of their members."
-      },
-      {
-        question: "How did the Bologna and Paris models of university organization differ?",
-        type: "short",
-        answer: "Bologna was student-controlled: students hired professors, set curriculum, and ran the institution. Paris was master-controlled: faculty determined admission, curriculum, and degrees. Most northern universities followed Paris; Italian universities followed Bologna.",
-        explanation: "These two models represented different balances of power between teachers and learners."
-      },
-      {
-        question: "What was the 'quaestio' in scholastic method?",
-        type: "mc",
-        options: ["A) A type of examination", "B) A formal question with arguments pro and con, then resolution", "C) A prayer before lectures", "D) A student residence"],
-        answer: "B) A formal question with arguments pro and con, then resolution",
-        explanation: "The quaestio was the basic unit of scholastic inquiry - posing a question, presenting opposing arguments, and reaching a reasoned conclusion."
-      },
-      {
-        question: "Why was theology called the 'Queen of the Sciences'?",
-        type: "short",
-        answer: "Theology was considered the highest faculty because it dealt with the highest subject - God and salvation. Students had to complete years of Arts study before entering Theology, which then required 8+ additional years, reflecting its supreme status.",
-        explanation: "All other disciplines were ultimately in service to the knowledge of God."
-      }
-    ],
-    keyTerms: [
-      { term: "University (Universitas)", definition: "Medieval corporation or guild of masters and/or students; origin of modern universities" },
-      { term: "Scholasticism", definition: "Method of learning through dialectical reasoning, synthesizing authorities through logical analysis" },
-      { term: "Quaestio", definition: "Formal question structure: state question, give pro/con arguments, resolve; basic unit of scholastic method" },
-      { term: "Disputatio", definition: "Formal academic debate used to test and develop arguments" },
-      { term: "Seven Liberal Arts", definition: "Foundation curriculum: trivium (grammar, rhetoric, logic) and quadrivium (arithmetic, geometry, music, astronomy)" },
-      { term: "Peter Lombard's Sentences", definition: "Standard theological textbook organizing doctrine by topics; all theology students had to comment on it" }
-    ]
-  },
-  {
-    id: 38,
-    title: "Francis of Assisi",
-    videoTitle: "Francis of Assisi",
-    duration: "~30 min",
-    objective: "This module examines Francis of Assisi, whose radical embrace of poverty and joyful spirituality sparked one of the most influential religious movements in Christian history.",
-    notes: {
-      sections: [
-        {
-          title: "Early Life and Conversion",
-          points: [
-            "**Francis** (c. 1181-1226) was born Giovanni di Pietro di Bernardone in Assisi, Italy",
-            "Father was a wealthy **cloth merchant**; Francis enjoyed a privileged, carefree youth",
-            "Dreamed of **knightly glory** but was captured in battle and imprisoned for a year",
-            "After illness and a pilgrimage to Rome, began questioning his life's direction",
-            "At the church of **San Damiano**, heard Christ say: 'Francis, rebuild my church'",
-            "Initially took this literally; later understood it spiritually"
-          ]
-        },
-        {
-          title: "The Break with His Father",
-          points: [
-            "Francis began giving away his father's goods to the poor and church",
-            "His father **Pietro** was furious and dragged him before the bishop",
-            "Francis **stripped off his clothes**, returned them to his father, and declared God his only Father",
-            "The bishop covered him with his cloak; Francis became a beggar",
-            "This dramatic renunciation symbolized his **complete break** with wealth and family"
-          ]
-        },
-        {
-          title: "Lady Poverty",
-          points: [
-            "Francis embraced **radical poverty** - owning nothing, begging for food",
-            "Called poverty his '**Lady**' - he was wedded to her",
-            "Poverty was not grim asceticism but **joyful freedom** from possessions",
-            "Francis worked with his hands; when work wasn't available, he begged",
-            "He distinguished between **poverty** (voluntary) and **destitution** (involuntary)",
-            "His poverty was a witness against the wealth of the institutional church"
-          ]
-        },
-        {
-          title: "The Franciscan Order",
-          points: [
-            "Followers gathered; Francis wrote a simple **Rule** based on Gospel poverty",
-            "In 1209, Pope **Innocent III** gave verbal approval to the movement",
-            "The order grew rapidly - thousands joined within Francis's lifetime",
-            "**Clare of Assisi** founded the women's branch (Poor Clares) with Francis's guidance",
-            "A **Third Order** allowed laypeople to follow Franciscan ideals while remaining in the world",
-            "Formal Rule approved by Pope Honorius III in 1223"
-          ]
-        },
-        {
-          title: "Spirituality and Preaching",
-          points: [
-            "Francis emphasized **joy** - friars should be 'jongleurs' (jesters) of God",
-            "Preached to all - including **animals** (sermon to the birds; wolf of Gubbio)",
-            "Love of **nature** as God's creation - composed the 'Canticle of the Sun'",
-            "Attempted to convert the **Sultan of Egypt** during the Fifth Crusade (1219) - remarkably, they parted respectfully",
-            "His preaching was simple, emotional, and accessible to ordinary people"
-          ]
-        },
-        {
-          title: "The Stigmata and Death",
-          points: [
-            "In 1224, while praying on Mount La Verna, Francis received the **stigmata** - wounds of Christ in his hands, feet, and side",
-            "First recorded case of stigmata in Christian history",
-            "His health declined; he was nearly blind and in constant pain",
-            "Died on October 3, 1226, lying naked on the ground to die in poverty",
-            "**Canonized in 1228** - just two years after death",
-            "Buried in the **Basilica of San Francesco** in Assisi (against his wishes for a simple grave)"
-          ]
-        }
-      ]
-    },
-    quiz: [
-      {
-        question: "What dramatic action did Francis take when his father demanded he return what he had given away?",
-        type: "mc",
-        options: ["A) He fled the city", "B) He stripped naked, returned his clothes, and declared God his only Father", "C) He paid his father back with church funds", "D) He asked the bishop to mediate a compromise"],
-        answer: "B) He stripped naked, returned his clothes, and declared God his only Father",
-        explanation: "This public renunciation symbolized Francis's complete break with wealth, family, and his former life."
-      },
-      {
-        question: "What did Francis call poverty and why?",
-        type: "short",
-        answer: "Francis called poverty his 'Lady' - he was wedded to her as a knight to his beloved. Poverty was not grim asceticism but joyful freedom from possessions that allowed total dependence on God and solidarity with the poor.",
-        explanation: "This romantic language expressed Francis's passionate commitment to the poverty he saw in Christ's life."
-      },
-      {
-        question: "What were the stigmata that Francis received?",
-        type: "mc",
-        options: ["A) A papal blessing", "B) The wounds of Christ in his hands, feet, and side", "C) A mystical vision", "D) The gift of tongues"],
-        answer: "B) The wounds of Christ in his hands, feet, and side",
-        explanation: "Francis is the first recorded person to receive the stigmata (1224), physical wounds corresponding to Christ's crucifixion wounds."
-      },
-      {
-        question: "What was remarkable about Francis's meeting with the Sultan of Egypt?",
-        type: "short",
-        answer: "During the Fifth Crusade (1219), Francis crossed enemy lines to meet Sultan al-Kamil, hoping to convert him or achieve martyrdom. Though the sultan did not convert, they parted with mutual respect - remarkable given the wartime context.",
-        explanation: "This encounter showed Francis's commitment to peaceful witness and his willingness to engage even enemies."
-      }
-    ],
-    keyTerms: [
-      { term: "Lady Poverty", definition: "Francis's personification of poverty as his bride; expressed his passionate commitment to owning nothing" },
-      { term: "Stigmata", definition: "Wounds corresponding to Christ's crucifixion; Francis was the first recorded stigmatic (1224)" },
-      { term: "Poor Clares", definition: "Women's Franciscan order founded by Clare of Assisi with Francis's guidance" },
-      { term: "Third Order", definition: "Franciscan order for laypeople to follow Franciscan ideals while remaining in the world" },
-      { term: "Canticle of the Sun", definition: "Francis's famous prayer praising God through creation ('Brother Sun, Sister Moon')" },
-      { term: "San Damiano", definition: "Ruined church where Francis heard Christ say 'Rebuild my church'; he restored it literally" }
-    ]
-  },
-  {
-    id: 39,
-    title: "Dominic and the Dominicans",
-    videoTitle: "Dominic and the Dominicans",
-    duration: "~25 min",
-    objective: "This module examines Dominic de Guzman and the Order of Preachers, founded to combat heresy through preaching, education, and holy living.",
-    notes: {
-      sections: [
-        {
-          title: "Background: The Cathar Heresy",
-          points: [
-            "**Cathars** (Albigensians) were a dualist heresy flourishing in southern France",
-            "Taught that matter was evil, created by an evil god; only spirit was good",
-            "Rejected the Church, sacraments, marriage, and all material things",
-            "**Perfect** (perfecti) lived extreme asceticism; ordinary believers (credentes) lived normally",
-            "Their austere leaders contrasted sharply with wealthy, worldly Catholic clergy",
-            "The Church's initial response (Cistercian preachers) failed"
-          ]
-        },
-        {
-          title: "Dominic's Life and Calling",
-          points: [
-            "**Dominic de Guzman** (c. 1170-1221) was born in Castile, Spain",
-            "Became an **Augustinian canon** at Osma cathedral; known for learning and piety",
-            "While traveling through southern France (1203), encountered the Cathar heresy",
-            "Saw that Cistercian preachers failed because they traveled in **worldly style**",
-            "Convinced the bishop to try a different approach: **poverty and preaching**"
-          ]
-        },
-        {
-          title: "The New Approach",
-          points: [
-            "Dominic adopted **apostolic poverty** - traveling barefoot, begging for food",
-            "This matched the Cathar Perfect and **removed the excuse** of Catholic worldliness",
-            "Combined poverty with **learned preaching** - meeting heretics intellectually",
-            "Founded a community of **women converts** at Prouille (1206)",
-            "Spent years preaching in the Languedoc with limited but real success"
-          ]
-        },
-        {
-          title: "The Order of Preachers",
-          points: [
-            "In 1216, Pope **Honorius III** approved Dominic's Order of Preachers (Dominicans)",
-            "Unlike monks, Dominicans were **friars** - mobile, urban, active in the world",
-            "Their specific mission: **preaching and teaching** to defend the faith",
-            "Adopted **Augustinian Rule** with additions for their preaching mission",
-            "Combined **contemplation and action**: 'To contemplate and give to others the fruits of contemplation'"
-          ]
-        },
-        {
-          title: "Organization and Growth",
-          points: [
-            "**Democratic governance**: leaders elected; general chapters made decisions",
-            "Emphasis on **education**: every priory had a teacher; talented friars sent to universities",
-            "Dominicans became leading **university theologians**: Albertus Magnus, Thomas Aquinas",
-            "Also involved in the **Inquisition** - investigating and trying heresy",
-            "Spread rapidly across Europe; by Dominic's death (1221), 60 houses in 8 provinces"
-          ]
-        },
-        {
-          title: "Dominican Spirituality and Legacy",
-          points: [
-            "Motto: **'Veritas'** (Truth) - commitment to doctrinal orthodoxy",
-            "Called **'Domini canes'** (dogs of the Lord) - a pun on their name; watchdogs of faith",
-            "Balance of **study and prayer** - intellectual pursuit as worship",
-            "Dominic was canonized in 1234",
-            "Produced many saints, scholars, and missionaries",
-            "Remain active today in education, preaching, and mission"
-          ]
-        }
-      ]
-    },
-    quiz: [
-      {
-        question: "Why did Dominic believe earlier Catholic efforts against the Cathars had failed?",
-        type: "short",
-        answer: "Dominic observed that Cistercian preachers traveled in worldly style with entourages and fine horses, while Cathar Perfect lived in extreme poverty. He concluded that Catholic preachers needed to adopt apostolic poverty to remove the excuse of hypocrisy and match the Cathars' example.",
-        explanation: "Dominic's insight was that credible preaching required living what one preached."
-      },
-      {
-        question: "What is the distinctive mission of the Dominican Order?",
-        type: "mc",
-        options: ["A) Contemplative silence", "B) Agricultural labor", "C) Preaching and teaching to defend the faith", "D) Hospital work"],
-        answer: "C) Preaching and teaching to defend the faith",
-        explanation: "The Order of Preachers was founded specifically for learned preaching to combat heresy and spread truth."
-      },
-      {
-        question: "What is the Dominican motto?",
-        type: "mc",
-        options: ["A) Ora et Labora (Pray and Work)", "B) Veritas (Truth)", "C) Pax (Peace)", "D) Caritas (Love)"],
-        answer: "B) Veritas (Truth)",
-        explanation: "The commitment to Truth reflects the order's focus on doctrinal orthodoxy and intellectual pursuit of divine truth."
-      },
-      {
-        question: "How did the Dominicans differ from traditional monks?",
-        type: "short",
-        answer: "Dominicans were friars, not monks. Unlike monks who remained in monasteries, friars were mobile, urban, and active in the world. They did not take vows of stability to one place but traveled to preach, teach, and engage with society directly.",
-        explanation: "The mendicant (begging) orders represented a new form of religious life suited to the urban, mobile 13th century."
-      }
-    ],
-    keyTerms: [
-      { term: "Cathars/Albigensians", definition: "Dualist heresy teaching matter is evil; flourished in southern France; Dominic founded his order to combat them" },
-      { term: "Order of Preachers", definition: "Official name of the Dominican order; founded 1216 for preaching and teaching" },
-      { term: "Friars", definition: "Members of mendicant orders (Dominicans, Franciscans); mobile, urban, active in the world unlike cloistered monks" },
-      { term: "Veritas", definition: "'Truth' - Dominican motto expressing commitment to doctrinal orthodoxy" },
-      { term: "Domini Canes", definition: "'Dogs of the Lord' - punning nickname for Dominicans as watchdogs of the faith" },
-      { term: "Inquisition", definition: "Church institution for investigating heresy; Dominicans played a major role as inquisitors" }
-    ]
-  },
-  {
-    id: 40,
-    title: "Thomas Aquinas - Part 1",
-    videoTitle: "Thomas Aquinas - Part 1",
+{
+    id: 50,
+    videoId: "xri0AMiAKIo",
+    title: "Thomas Aquinas (part 1)",
+    videoTitle: "Thomas Aquinas (part 1)",
     duration: "~35 min",
     objective: "This module examines the life of Thomas Aquinas and his project of synthesizing Christian faith with Aristotelian philosophy.",
     notes: {
@@ -4376,10 +4823,11 @@ const modules: Module[] = [
       { term: "Scholastic Method", definition: "Academic method using question, objections, contrary authority, response, and replies to objections" }
     ]
   },
-  {
-    id: 41,
-    title: "Thomas Aquinas - Part 2",
-    videoTitle: "Thomas Aquinas - Part 2",
+{
+    id: 51,
+    videoId: "fPpugLKHQ6s",
+    title: "St. Thomas Aquinas (part 2)",
+    videoTitle: "St. Thomas Aquinas (part 2)",
     duration: "~30 min",
     objective: "This module examines Thomas Aquinas's teachings on key theological topics and his lasting influence on Christian thought.",
     notes: {
@@ -4485,228 +4933,84 @@ const modules: Module[] = [
     ]
   },
   {
-    id: 42,
-    title: "The Medieval Papacy",
-    videoTitle: "The Medieval Papacy",
+    id: 52,
+    videoId: "B6y-3tiwO5Y",
+    title: "William of Ockham",
+    videoTitle: "William of Ockham",
     duration: "~30 min",
-    objective: "This module examines the height of papal power in the High Middle Ages, focusing on Innocent III and the claims of papal supremacy over all earthly authority.",
+    objective: "William of Ockham (c. 1287-1347) is the most famous late-medieval nominalist. His razor, his theology of divine freedom, and his political writings against papal absolutism reshape the philosophical landscape of the late Middle Ages.",
     notes: {
       sections: [
         {
-          title: "The Development of Papal Power",
+          title: "Ockham's Life",
           points: [
-            "Papal authority grew steadily from **Late Antiquity** through the **High Middle Ages**",
-            "The **Gregorian Reform** (11th century) asserted papal supremacy over secular rulers",
-            "**Dictatus Papae** (1075) claimed the pope could depose emperors",
-            "The **Investiture Controversy** established papal independence from imperial control",
-            "By the 13th century, popes claimed authority over all earthly power"
+            "English Franciscan; studied at Oxford",
+            "Summoned to Avignon to answer charges of heresy",
+            "Fled to the protection of Emperor Louis IV in Munich (1328)",
+            "Spent his last years writing against papal claims",
           ]
         },
         {
-          title: "Innocent III: The Height of Papal Power",
+          title: "Nominalism and the Razor",
           points: [
-            "**Innocent III** (r. 1198-1216) was perhaps the most powerful pope in history",
-            "Trained canon lawyer; elected pope at only 37 years old",
-            "Called himself 'Vicar of Christ' (not just Vicar of Peter)",
-            "Claimed to stand **'between God and man, below God, above man'**",
-            "Used spiritual weapons (excommunication, interdict) to control secular rulers"
+            "**Nominalism**: universal concepts are mental names, not real things in the world",
+            "Reality consists of individual things, known by direct experience",
+            "**Ockham's Razor**: do not multiply entities beyond necessity",
+            "Simpler explanations are preferable when they fit the evidence",
           ]
         },
         {
-          title: "Innocent's Political Interventions",
+          title: "Theology of Divine Freedom",
           points: [
-            "Forced King **Philip II of France** to take back his wife through interdict on all France",
-            "Excommunicated King **John of England**; placed England under interdict; John submitted",
-            "Claimed right to judge between rival claimants to the **Holy Roman Empire**",
-            "Intervened in the succession disputes of many kingdoms",
-            "The Fourth Crusade (which sacked Constantinople) was launched under his auspices"
+            "**Potentia absoluta** vs. **potentia ordinata** — what God could do vs. what God has chosen to do",
+            "God's commands make actions right or wrong; morality grounded in divine will",
+            "Critics charged him with weakening the rational order of creation",
+            "Influenced Luther's teacher Gabriel Biel, and so indirectly Luther himself",
           ]
         },
         {
-          title: "Fourth Lateran Council (1215)",
+          title: "Political Writings",
           points: [
-            "Largest medieval church council; over **400 bishops** attended",
-            "Required annual **confession and communion** for all Christians",
-            "Defined **transubstantiation** as official doctrine",
-            "Jews and Muslims required to wear **distinctive clothing**",
-            "Condemned various heresies; authorized crusade against Albigensians",
-            "Established regulations for clerical behavior and church discipline"
+            "Defended **Franciscan poverty** against papal opposition",
+            "Argued the pope could err and could be resisted",
+            "Helped articulate limits on papal power and the rights of secular rulers",
           ]
         },
-        {
-          title: "The Theory of Papal Supremacy",
-          points: [
-            "**Two Swords theory**: pope holds both spiritual and temporal swords; lends temporal to kings",
-            "Pope **Boniface VIII** (1294-1303) issued **Unam Sanctam** (1302): submission to pope necessary for salvation",
-            "The pope was supreme judge, superior to all earthly authority",
-            "This theory reached its height just as papal power was about to decline",
-            "Conflict with **Philip IV of France** led to Boniface's humiliation at Anagni"
-          ]
-        },
-        {
-          title: "Seeds of Decline",
-          points: [
-            "Rising **national monarchies** (France, England) resisted papal claims",
-            "The **taxation** of clergy became a flashpoint of conflict",
-            "Phillip IV's conflict with Boniface showed limits of spiritual weapons",
-            "The **Avignon Papacy** (1309-1377) would subordinate popes to French kings",
-            "The **Great Schism** (1378-1417) would shatter papal prestige",
-            "The high medieval papacy's claims outstripped its actual power"
-          ]
-        }
       ]
     },
     quiz: [
       {
-        question: "Why is Innocent III considered the most powerful pope in history?",
+        question: "State Ockham's Razor.",
         type: "short",
-        answer: "Innocent III successfully used spiritual weapons (excommunication, interdict) to control kings across Europe, forcing Philip II of France and John of England to submit. He intervened in imperial elections, called the Fourth Crusade, and presided over the Fourth Lateran Council which legislated for all Christendom.",
-        explanation: "No pope before or after wielded such effective authority over secular rulers."
+        answer: "Entities should not be multiplied beyond necessity — the simplest explanation that fits the evidence is to be preferred.",
+        explanation: "It became a standard principle of philosophical and scientific economy."
       },
       {
-        question: "What was the 'Two Swords' theory of papal power?",
+        question: "What does nominalism deny?",
         type: "mc",
-        options: ["A) The pope and emperor shared equal power", "B) The pope holds both spiritual and temporal swords, lending the temporal to kings", "C) Church and state are completely separate", "D) Kings have authority over the church"],
-        answer: "B) The pope holds both spiritual and temporal swords, lending the temporal to kings",
-        explanation: "This theory meant all earthly power ultimately derived from and was accountable to the pope."
+        options: ["A) That individual things exist", "B) That universal concepts correspond to real shared natures outside the mind", "C) That God exists", "D) That language is meaningful"],
+        answer: "B) That universal concepts correspond to real shared natures outside the mind",
+        explanation: "For Ockham, 'humanity' is a name we apply to a collection of similar individuals — not a real thing in itself."
       },
       {
-        question: "What did Boniface VIII's Unam Sanctam (1302) claim?",
-        type: "mc",
-        options: ["A) All religions lead to salvation", "B) Submission to the Roman pontiff is necessary for salvation", "C) The pope should stay out of politics", "D) Emperors are equal to popes"],
-        answer: "B) Submission to the Roman pontiff is necessary for salvation",
-        explanation: "Unam Sanctam represented the most extreme statement of papal supremacy, issued just as that power was about to face serious challenges."
-      },
-      {
-        question: "What did the Fourth Lateran Council (1215) require of all Christians?",
+        question: "How did Ockham's theology influence later Reformers?",
         type: "short",
-        answer: "It required annual confession to a priest and reception of communion at least once a year (at Easter). It also defined transubstantiation as official doctrine and established many other regulations for Christian life and church discipline.",
-        explanation: "This council shaped Catholic practice for centuries and reflected the papacy's power to legislate for all Christians."
-      }
+        answer: "His stress on divine freedom and on Scripture as the test of all teaching shaped late medieval theology — including that of Luther's teacher Gabriel Biel. Luther absorbed and reacted against this tradition, especially its account of God's covenant with sinners.",
+        explanation: "Ockham did not anticipate the Reformation but helped form the ground on which it grew."
+      },
     ],
     keyTerms: [
-      { term: "Innocent III", definition: "Pope 1198-1216; arguably the most powerful pope in history; called Fourth Lateran Council" },
-      { term: "Vicar of Christ", definition: "Title Innocent III used for the pope, claiming to represent Christ's authority on earth" },
-      { term: "Fourth Lateran Council", definition: "1215 council that required annual confession/communion and defined transubstantiation" },
-      { term: "Two Swords Theory", definition: "Doctrine that the pope holds both spiritual and temporal authority, delegating the latter to kings" },
-      { term: "Unam Sanctam", definition: "Boniface VIII's 1302 bull claiming submission to the pope is necessary for salvation" },
-      { term: "Interdict", definition: "Ecclesiastical penalty suspending all church services in a territory; used to pressure rulers" }
+      { term: "William of Ockham", definition: "English Franciscan philosopher (c. 1287-1347)" },
+      { term: "Nominalism", definition: "View that universals are names; only individuals exist" },
+      { term: "Ockham's Razor", definition: "Principle: do not multiply entities beyond necessity" },
+      { term: "Potentia Absoluta", definition: "God's absolute power, what he could do" },
+      { term: "Potentia Ordinata", definition: "God's ordained power, what he has chosen to do" },
+      { term: "Divine Command", definition: "Ethical view grounding moral truth in God's will" },
     ]
   },
-  {
-    id: 43,
-    title: "The Great Papal Schism",
-    videoTitle: "The Great Papal Schism",
-    duration: "~30 min",
-    objective: "This module examines the Great Western Schism (1378-1417) when rival popes divided Western Christianity and the conciliar movement attempted to heal the breach.",
-    notes: {
-      sections: [
-        {
-          title: "Background: The Avignon Papacy",
-          points: [
-            "After conflict with Philip IV, Pope **Clement V** moved the papal court to **Avignon** (1309)",
-            "Avignon was technically not French territory but was dominated by French influence",
-            "**Seven popes** reigned at Avignon (1309-1377) - all French",
-            "Critics called it the **'Babylonian Captivity'** of the church",
-            "Papal administration became more bureaucratic and fiscally aggressive",
-            "**Gregory XI** finally returned to Rome in 1377"
-          ]
-        },
-        {
-          title: "The Schism Begins (1378)",
-          points: [
-            "Gregory XI died shortly after returning to Rome (1378)",
-            "Roman mob demanded an Italian pope; cardinals elected **Urban VI**",
-            "Urban proved erratic, harsh, and possibly mentally unstable",
-            "French cardinals claimed the election was coerced; elected **Clement VII**",
-            "Clement returned to Avignon; Urban remained in Rome",
-            "Now two popes, each claiming legitimacy, each excommunicating the other"
-          ]
-        },
-        {
-          title: "Europe Divided",
-          points: [
-            "Nations aligned along political lines:",
-            "**Roman obedience**: England, Holy Roman Empire, most of Italy, Scandinavia",
-            "**Avignon obedience**: France, Scotland, Castile, Aragon, Naples",
-            "Each side elected successors when popes died - the schism perpetuated itself",
-            "Saints were divided: **Catherine of Siena** supported Rome; **Vincent Ferrer** supported Avignon",
-            "Ordinary Christians faced confusion: which pope guaranteed valid sacraments?"
-          ]
-        },
-        {
-          title: "The Council of Pisa (1409)",
-          points: [
-            "Cardinals from both sides met at **Pisa** to end the schism",
-            "Deposed both popes and elected **Alexander V** (soon succeeded by John XXIII)",
-            "Neither existing pope accepted deposition - now **three popes**",
-            "The attempted solution made things worse",
-            "Demonstrated the need for a stronger approach"
-          ]
-        },
-        {
-          title: "The Council of Constance (1414-1418)",
-          points: [
-            "Called by Emperor **Sigismund** to end the schism",
-            "Largest church council ever - thousands of participants",
-            "Deposed or received resignations from all three claimants",
-            "Elected **Martin V** (1417) as sole pope - schism ended",
-            "Also condemned **John Wycliffe** (posthumously) and burned **Jan Hus** for heresy",
-            "Issued **Frequens**: councils should meet regularly to govern the church"
-          ]
-        },
-        {
-          title: "Conciliarism and Its Defeat",
-          points: [
-            "**Conciliarism**: theory that a general council is superior to the pope",
-            "Seemed vindicated by Constance's success in ending the schism",
-            "The decree **Haec Sancta** (1415) claimed council authority over popes",
-            "Later popes rejected conciliarism and reasserted papal supremacy",
-            "**Council of Basel** (1431-1449) challenged Pope Eugene IV but eventually collapsed",
-            "Papal monarchy was restored, but prestige was permanently damaged"
-          ]
-        }
-      ]
-    },
-    quiz: [
-      {
-        question: "What caused the Great Schism to begin in 1378?",
-        type: "short",
-        answer: "After Gregory XI died in Rome, a Roman mob pressured cardinals to elect an Italian pope (Urban VI). When Urban proved erratic and harsh, French cardinals claimed the election was coerced, declared it invalid, and elected Clement VII, who returned to Avignon. Each pope excommunicated the other.",
-        explanation: "The schism resulted from a combination of Roman pressure, Urban's difficult personality, and French cardinals' desire to return to Avignon."
-      },
-      {
-        question: "What happened at the Council of Pisa (1409)?",
-        type: "mc",
-        options: ["A) The schism was successfully ended", "B) A third pope was elected, making three claimants", "C) The council was canceled", "D) All three popes reconciled"],
-        answer: "B) A third pope was elected, making three claimants",
-        explanation: "Pisa deposed both existing popes and elected a third, but neither existing pope accepted deposition - so now there were three rival popes."
-      },
-      {
-        question: "How did the Council of Constance (1414-1418) end the schism?",
-        type: "short",
-        answer: "The council obtained resignations from or deposed all three papal claimants and then elected Martin V as the single, universally recognized pope in 1417. The council's success demonstrated that conciliar action could solve problems the papacy alone could not.",
-        explanation: "Constance was the largest and one of the most successful medieval councils."
-      },
-      {
-        question: "What is 'conciliarism'?",
-        type: "mc",
-        options: ["A) The theory that the pope is supreme over councils", "B) The theory that a general council is superior to the pope", "C) The theory that councils should never meet", "D) The theory that only cardinals can govern the church"],
-        answer: "B) The theory that a general council is superior to the pope",
-        explanation: "Conciliarism held that the church's highest authority was a general council, which could judge and even depose popes - as demonstrated at Constance."
-      }
-    ],
-    keyTerms: [
-      { term: "Avignon Papacy", definition: "Period 1309-1377 when popes resided at Avignon under French influence; called 'Babylonian Captivity'" },
-      { term: "Great Western Schism", definition: "1378-1417 division when rival popes at Rome and Avignon (later three) claimed legitimacy" },
-      { term: "Council of Constance", definition: "1414-1418 council that ended the schism by deposing rival popes and electing Martin V" },
-      { term: "Conciliarism", definition: "Theory that a general council is superior to the pope and can judge him" },
-      { term: "Haec Sancta", definition: "1415 decree of Constance asserting council authority over popes; later rejected by popes" },
-      { term: "Frequens", definition: "Constance decree requiring regular councils; largely ignored by later popes" }
-    ]
-  },
-  {
-    id: 44,
+{
+    id: 53,
+    videoId: "DtSgqKp5lfE",
     title: "John Wycliffe",
     videoTitle: "John Wycliffe",
     duration: "~25 min",
@@ -4814,10 +5118,11 @@ const modules: Module[] = [
       { term: "English Reformation", definition: "Later 16th-century religious change in England; Wycliffe's ideas about English Bibles influenced it" }
     ]
   },
-  {
-    id: 45,
-    title: "Jan Hus",
-    videoTitle: "Jan Hus",
+{
+    id: 54,
+    videoId: "FUnyz9qFqPg",
+    title: "Jan Hus: The Radical Reformer Who Faced the Fire",
+    videoTitle: "Jan Hus: The Radical Reformer Who Faced the Fire",
     duration: "~30 min",
     objective: "This module examines Jan Hus, the Bohemian reformer inspired by Wycliffe, whose martyrdom sparked the Hussite movement and anticipated Protestant concerns.",
     notes: {
@@ -4926,121 +5231,86 @@ const modules: Module[] = [
     ]
   },
   {
-    id: 46,
-    title: "The Renaissance Papacy",
-    videoTitle: "The Renaissance Papacy",
-    duration: "~30 min",
-    objective: "This module examines the Renaissance popes (1417-1521) who focused on art, politics, and power while church corruption deepened, setting the stage for the Reformation.",
+    id: 55,
+    videoId: "BDxtVGVeQQ8",
+    title: "Did Jan Hus Predict Martin Luther's Reformation?",
+    videoTitle: "Did Jan Hus Predict Martin Luther's Reformation?",
+    duration: "~20 min",
+    objective: "Tradition claims Jan Hus prophesied at his execution that a 'swan' would come who could not be silenced — and that Luther fulfilled the prophecy. This lecture examines the history, the legend, and the real lines of continuity between Hus and Luther.",
     notes: {
       sections: [
         {
-          title: "Context: The Papacy Restored",
+          title: "The Legendary Prophecy",
           points: [
-            "After the **Council of Constance** (1417), the papacy was restored but weakened",
-            "Popes reasserted authority against **conciliarism** and conciliar councils",
-            "The **Italian Renaissance** was flourishing; popes became major **patrons of art**",
-            "Popes were also **Italian princes** controlling the Papal States",
-            "This mixture of spiritual authority, art patronage, and worldly power defined the period"
+            "At his burning in 1415, Hus is said to have declared: 'Today you are roasting a goose (hus), but in a hundred years a swan will rise who will not be silenced'",
+            "The earliest sources for the saying are decades later, mostly Lutheran",
+            "Luther himself loved the story and embraced the image of the swan",
+            "Modern historians treat the literal prophecy as legendary",
           ]
         },
         {
-          title: "The Age of Art and Architecture",
+          title: "Real Continuities",
           points: [
-            "**Pope Nicholas V** (1447-1455) began the **renovation of St. Peter's Basilica**",
-            "Popes employed the greatest artists: **Raphael, Michelangelo, Botticelli, Brunelleschi**",
-            "The Vatican became a showcase of **Renaissance beauty and grandeur**",
-            "Michelangelo painted the **Sistine Chapel ceiling** under Pope Julius II",
-            "The **cost** of this artistic splendor was enormous",
-            "Art and architecture were justified as glorifying God; critics saw worldly excess"
+            "Hus and Luther both emphasized Scripture as the supreme authority",
+            "Both attacked clerical corruption, indulgences, and papal overreach",
+            "Both insisted on preaching to the people in their own language",
+            "Both communicated in both Latin and a vernacular (Czech / German)",
           ]
         },
         {
-          title: "Political Power and Intrigue",
+          title: "Real Differences",
           points: [
-            "Popes acted as **Italian princes**, making alliances and war",
-            "**Pope Julius II** (1503-1513) was called the 'Warrior Pope' - led armies in battle",
-            "Popes made appointments based on **family interests**, not merit - **nepotism** was rampant",
-            "The **Borgia family** produced several popes; they were notorious for corruption",
-            "**Pope Alexander VI** (a Borgia) fathered several children while pope",
-            "Spiritual leadership was often secondary to political ambition"
+            "Hus held most Catholic sacramental theology unchanged",
+            "Luther's doctrine of justification by faith alone is sharper than anything in Hus",
+            "Luther's break with Rome and theology of the church went further",
           ]
         },
         {
-          title: "Church Corruption",
+          title: "How Luther Read Hus",
           points: [
-            "The **sale of indulgences** became a major papal fundraising mechanism",
-            "**Indulgences** were supposed to reduce penance; they became commodities for money",
-            "The wealthy could buy their way to forgiveness; the poor could not",
-            "**Simony** (buying church offices) was widespread - priests bought their positions",
-            "Clergy were often **ignorant, worldly, and immoral**",
-            "Reformist critics like **Savonarola** called out clerical corruption from within"
+            "At the Leipzig Debate (1519), Luther was forced to admit he agreed with several of Hus's positions",
+            "He came to call himself a 'Hussite without knowing it'",
+            "Posthumous Lutheran publication of Hus's works strengthened the link",
+            "Reformation memory framed Hus as Luther's forerunner — partly history, partly hagiography",
           ]
         },
-        {
-          title: "Worldly Splendor vs. Spiritual Crisis",
-          points: [
-            "The contrast between **papal grandeur** and **evangelical poverty** was stark",
-            "Medieval ideals of asceticism and service were abandoned",
-            "The **Bible** was ignored in favor of **tradition** and **power**",
-            "Educated people (especially humanists) began to **criticize the church**",
-            "Yet most people still saw the pope as the **spiritual head of Christendom**",
-            "Few imagined the church's monopoly on Christian practice would soon shatter"
-          ]
-        },
-        {
-          title: "The Indulgence Crisis",
-          points: [
-            "Pope **Leo X** (1513-1521) needed funds for **St. Peter's completion**",
-            "He authorized the **sale of indulgences** on a massive scale",
-            "**Johann Tetzel** was sent to Germany as the papal indulgence salesman",
-            "Tetzel's aggressive marketing offended many faithful Christians",
-            "**Martin Luther's** protest against the indulgence system would trigger the Reformation",
-            "The Renaissance papacy's financial needs directly caused the Reformation crisis"
-          ]
-        }
       ]
     },
     quiz: [
       {
-        question: "How did Renaissance popes justify their patronage of art and architecture?",
+        question: "Did Jan Hus literally predict Martin Luther?",
         type: "short",
-        answer: "Renaissance popes argued that beautiful art and architecture glorified God and enhanced the splendor of the church. However, critics pointed out that the enormous cost of these projects (especially St. Peter's Basilica) represented worldly excess that contradicted Christ's example of poverty.",
-        explanation: "This tension between theological justification and practical criticism characterized the era."
+        answer: "Probably not. The famous goose-and-swan saying surfaces clearly only in Lutheran sources decades later. The real connection is theological and ecclesial, not a precise prophecy.",
+        explanation: "Legend often grows around founders and forerunners alike."
       },
       {
-        question: "Who was Pope Julius II and why is he notable?",
+        question: "Where did Luther publicly acknowledge agreement with Hus?",
         type: "mc",
-        options: ["A) He was a pacifist pope", "B) He was the 'Warrior Pope' who led armies in battle and employed Michelangelo", "C) He abolished papal armies", "D) He rejected Renaissance art"],
-        answer: "B) He was the 'Warrior Pope' who led armies in battle and employed Michelangelo",
-        explanation: "Julius II exemplified the warrior-prince pope who combined political power with artistic patronage."
+        options: ["A) Diet of Worms", "B) Leipzig Debate (1519)", "C) Marburg Colloquy", "D) Augsburg Confession"],
+        answer: "B) Leipzig Debate (1519)",
+        explanation: "Pressed by Johann Eck, Luther conceded that several of Hus's condemned positions were in fact biblical."
       },
       {
-        question: "What is simony in the context of Renaissance church corruption?",
-        type: "mc",
-        options: ["A) The sale of relics", "B) The purchase of church offices", "C) The use of indulgences", "D) The marriage of priests"],
-        answer: "B) The purchase of church offices",
-        explanation: "Simony meant that priests could buy their positions rather than earning them through merit or calling."
-      },
-      {
-        question: "How did the need to fund St. Peter's Basilica lead to the Reformation?",
+        question: "Name one theological emphasis Hus and Luther shared.",
         type: "short",
-        answer: "Pope Leo X authorized massive sales of indulgences to fund St. Peter's completion. Johann Tetzel aggressively marketed these indulgences in Germany. Martin Luther's protest against this system in 1517 triggered the Protestant Reformation.",
-        explanation: "Financial need and aggressive salesmanship created the spark that ignited religious revolution."
-      }
+        answer: "The supremacy of Scripture over church tradition; or vigorous opposition to indulgences and clerical corruption; or insistence on preaching in the people's language.",
+        explanation: "Continuity is real even if the famous prophecy is legendary."
+      },
     ],
     keyTerms: [
-      { term: "Indulgence Sale", definition: "Papal practice of selling remission of penance/punishment; major fundraising mechanism and corruption symbol" },
-      { term: "Nepotism", definition: "Practice of appointing family members to church positions; rampant among Renaissance popes" },
-      { term: "Simony", definition: "Practice of buying and selling church offices; widespread corruption in Renaissance church" },
-      { term: "Julius II", definition: "'Warrior Pope' who ruled 1503-1513; commissioned Sistine Chapel ceiling from Michelangelo" },
-      { term: "St. Peter's Basilica", definition: "Great church built in Rome; its cost funded by indulgence sales, triggering Reformation protest" },
-      { term: "Renaissance Patronage", definition: "Popes employing artists like Raphael and Michelangelo; created magnificent art at enormous expense" }
+      { term: "Jan Hus", definition: "Czech reformer (c. 1372-1415); burned at Constance" },
+      { term: "Goose and Swan", definition: "Legendary prophecy linking Hus to Luther" },
+      { term: "Leipzig Debate (1519)", definition: "Disputation where Luther acknowledged Hussite agreement" },
+      { term: "Sola Scriptura", definition: "Reformation principle of Scripture's supreme authority" },
+      { term: "Vernacular Preaching", definition: "Preaching and worship in the people's language" },
+      { term: "Hussites", definition: "Followers of Hus in Bohemia after his death" },
     ]
   },
-  {
-    id: 47,
-    title: "Erasmus",
-    videoTitle: "Erasmus",
+{
+    id: 56,
+    videoId: "qScDrsV1Wtw",
+    title: "Humanism",
+    videoTitle: "Humanism",
     duration: "~25 min",
     objective: "This module examines Desiderius Erasmus, the great Christian humanist scholar whose biblical studies and criticism of church corruption influenced the Reformation.",
     notes: {
@@ -5152,131 +5422,93 @@ const modules: Module[] = [
     ]
   },
   {
-    id: 48,
-    title: "On the Eve of the Reformation",
-    videoTitle: "On the Eve of the Reformation",
-    duration: "~30 min",
-    objective: "This module examines the religious, intellectual, and social conditions of late medieval Christendom that made the Reformation both possible and inevitable.",
+    id: 57,
+    videoId: "SCO0g8hoHuI",
+    title: "The Creed Nobody Wrote (And Why It's Still Used Today)",
+    videoTitle: "The Creed Nobody Wrote (And Why It's Still Used Today)",
+    duration: "~25 min",
+    objective: "The Athanasian Creed bears Athanasius's name but was not written by him. This lecture explores its origin, its uncompromising statements of Trinitarian and Christological orthodoxy, and why it has remained in Christian use for over a thousand years.",
     notes: {
       sections: [
         {
-          title: "Institutional Crisis and Loss of Credibility",
+          title: "What Is the Athanasian Creed?",
           points: [
-            "The **Great Schism** (1378-1417) had shattered confidence in papal leadership",
-            "The **Avignon Papacy** had shown papal dependence on secular powers",
-            "Councils like **Constance** had challenged papal supremacy but then popes reasserted it",
-            "The **sale of indulgences** and simony revealed systematic corruption",
-            "Yet most people still **believed in the church** and wanted it reformed, not destroyed",
-            "The institution had lost moral authority even as its claims remained unchanged"
+            "Also called the **Quicunque Vult** from its opening Latin words",
+            "Roughly 40 verses summarizing Trinity and Christology with great precision",
+            "Strong warnings: anyone who does not believe its content cannot be saved",
+            "Distinct from the Apostles' Creed and the Nicene Creed",
           ]
         },
         {
-          title: "Intellectual Ferment: Humanism and Scholasticism",
+          title: "Who Wrote It?",
           points: [
-            "**Renaissance humanism** valued Greek and Latin texts, emphasizing human dignity and reason",
-            "Medieval **scholasticism** still dominated universities but seemed increasingly sterile",
-            "The **printing press** (c. 1450) made books and ideas spread rapidly",
-            "**Erasmus, Valla, and other humanists** questioned church traditions through textual criticism",
-            "The **Bible** was being translated into **vernacular languages** despite church opposition",
-            "Educated people, especially humanists, were asking hard questions about church authority"
+            "Almost certainly **not Athanasius** — he died in 373",
+            "Originally written in **Latin**, not Greek",
+            "Most likely composed in southern Gaul, c. 500",
+            "Sometimes attributed to figures like Caesarius of Arles or Vincent of Lerins",
           ]
         },
         {
-          title: "Lay Piety and Mysticism",
+          title: "Content",
           points: [
-            "A growing movement of **lay piety** emphasized personal devotion over institutional mediation",
-            "The **Devotio Moderna** (Modern Devotion) stressed personal prayer and Bible reading",
-            "**Mystics** claimed direct encounter with God without priestly intermediary",
-            "The **imitation of Christ** through ascetic practice appealed to reformers",
-            "Yet **indulgences and masses** for the dead remained pervasive",
-            "A gap was opening between **popular piety** and **official church practice**"
+            "Trinity: 'we worship one God in Trinity and the Trinity in Unity'",
+            "Each Person is God, yet there are not three Gods",
+            "Christ is fully God and fully man, one person in two natures",
+            "Anchors orthodoxy against Arianism, modalism, Nestorianism, and monophysitism",
           ]
         },
         {
-          title: "Rising National Monarchies and Criticism of Papal Power",
+          title: "Liturgical Use and Legacy",
           points: [
-            "**National kings** (France, Spain, England, Germany) were increasingly powerful",
-            "Kings resisted **papal taxation** and claims to appoint bishops",
-            "The concept of **Christendom** (unified Christian empire) was breaking down",
-            "**Gallicanism** (French church independence), **Erastianism** (state control of church), emerged",
-            "Yet national rulers also wanted **religious legitimacy** from the church",
-            "This created tension: monarchs wanted reform that increased their power"
+            "Long used at Sunday Prime in the Western church",
+            "Retained by many Protestant traditions (Lutheran, Anglican, Reformed) at the Reformation",
+            "Featured in confessional documents like the Book of Concord",
+            "Modern liturgies often use it only on Trinity Sunday, if at all",
+            "Its anathemas are uncomfortable today but reflect the high stakes of Trinitarian truth",
           ]
         },
-        {
-          title: "Heretical Movements and Reform Impulses",
-          points: [
-            "**Wycliffe's Lollards** continued underground in England",
-            "**Hussite churches** thrived in Bohemia and influenced Central Europe",
-            "Radical groups like the **Brethren of the Common Life** advocated internal reform",
-            "Many wanted to **return to apostolic poverty** and biblical Christianity",
-            "The church condemned these movements as **heretical**",
-            "Yet their existence showed that **alternatives** to official Catholicism were imaginable"
-          ]
-        },
-        {
-          title: "The Crisis Awaiting Resolution",
-          points: [
-            "By 1500, **no one expected schism**; everyone assumed the church was eternal",
-            "Yet the combination of factors made **reform inevitable**:",
-            "**Institutional corruption** demanded purification",
-            "**Intellectual criticism** questioned traditional authorities",
-            "**Lay piety** wanted direct access to Scripture and God",
-            "**Political powers** resisted papal supremacy",
-            "All it needed was a **catalyst** - which came when **Martin Luther** posted his theses in 1517"
-          ]
-        }
       ]
     },
     quiz: [
       {
-        question: "How did the Great Schism and Avignon Papacy undermine the church's credibility before the Reformation?",
+        question: "Why is the Athanasian Creed called 'the creed nobody wrote'?",
         type: "short",
-        answer: "The Great Schism (1378-1417) with multiple rival popes showed that papal leadership was broken. The Avignon Papacy demonstrated papal dependence on secular rulers. Though councils like Constance temporarily restored order, popes quickly reasserted supremacy. This pattern of crisis and reasserted authority eroded confidence in the institution's spiritual leadership.",
-        explanation: "Loss of institutional credibility made people receptive to fundamental questioning of the church's authority."
+        answer: "Because the Athanasius traditionally credited with it almost certainly did not write it, and no single author can be securely identified. It seems to be a Latin compilation from c. 500 in Gaul.",
+        explanation: "The attribution to Athanasius reflects the creed's robust anti-Arian theology."
       },
       {
-        question: "How did the printing press contribute to conditions favoring reformation?",
+        question: "Which is NOT a topic of the Athanasian Creed?",
         type: "mc",
-        options: ["A) It increased papal authority", "B) It spread books, ideas, and criticism rapidly to a wider audience", "C) It had no significant impact", "D) It strengthened scholastic theology"],
-        answer: "B) It spread books, ideas, and criticism rapidly to a wider audience",
-        explanation: "The printing press democratized knowledge, allowing humanist critiques and biblical translations to reach far more people than manuscripts could."
+        options: ["A) The Trinity", "B) The two natures of Christ", "C) The threefold office of Christ", "D) Final judgment"],
+        answer: "C) The threefold office of Christ",
+        explanation: "The 'threefold office' (prophet, priest, king) is a later Reformation-era category."
       },
       {
-        question: "What was the Devotio Moderna and how did it contrast with official church practice?",
+        question: "Why has this creed remained in Christian use?",
         type: "short",
-        answer: "The Devotio Moderna emphasized personal prayer, Bible reading, and direct devotion to God without dependence on priestly mediation. Yet the official church still centered on indulgences, masses for the dead, and clerical authority. This gap between popular piety seeking direct access to God and official practice emphasized clerical power created tension.",
-        explanation: "Lay people were increasingly unwilling to accept that they needed priests as intermediaries for spiritual experience."
+        answer: "It states orthodox Trinitarian and Christological faith with unusual precision, summarizing the conclusions of Nicaea, Constantinople, Ephesus, and Chalcedon in a compact and memorable form. Many traditions value it as a doctrinal benchmark.",
+        explanation: "It is dense, but exact — useful when precision matters."
       },
-      {
-        question: "Why did national monarchies support some church criticism?",
-        type: "short",
-        answer: "National kings resisted papal taxation and claims to appoint bishops. They wanted to increase their own control over the church within their realms. While they still wanted religious legitimacy from the church, they supported criticism that weakened papal supremacy over secular rulers.",
-        explanation: "Political interests aligned with reformist goals, creating unlikely allies against papal claims."
-      }
     ],
     keyTerms: [
-      { term: "Institutional Crisis", definition: "Loss of credibility of the papal church through schism, corruption, and failed reform attempts" },
-      { term: "Devotio Moderna", definition: "Movement emphasizing personal piety, Bible reading, and direct devotion to God without priestly mediation" },
-      { term: "Christian Humanism", definition: "Intellectual movement combining classical learning with Christian faith; criticized church traditions" },
-      { term: "Textual Criticism", definition: "Method of analyzing ancient texts; humanists used it to challenge church traditions" },
-      { term: "Gallicanism", definition: "French church's assertion of independence from papal authority" },
-      { term: "Erastianism", definition: "Theory that the state should control the church rather than the reverse" },
-      { term: "Catalyst of Reform", definition: "The specific event (like Luther's theses) that triggers revolutionary change in a system already in crisis" }
+      { term: "Athanasian Creed", definition: "Latin creed (c. 500) summarizing Trinity and Christology" },
+      { term: "Quicunque Vult", definition: "'Whoever wishes [to be saved]'; opening of the Athanasian Creed" },
+      { term: "Anathema", definition: "Formal condemnation of those rejecting a defined truth" },
+      { term: "Trinity", definition: "One God in three coequal Persons: Father, Son, Spirit" },
+      { term: "Two Natures", definition: "Christ as fully God and fully man in one person" },
+      { term: "Book of Concord", definition: "Lutheran confessional collection that includes this creed" },
     ]
   }
 ]
 
-const remainingVideos = []
-
 function SpoilerAnswer({ answer, explanation }: { answer: string; explanation: string }) {
   const [revealed, setRevealed] = useState(false)
-  
+
   return (
     <div className="mt-2">
-      <Button 
-        variant="outline" 
-        size="sm" 
+      <Button
+        variant="outline"
+        size="sm"
         onClick={() => setRevealed(!revealed)}
         className="text-xs"
       >
@@ -5294,7 +5526,7 @@ function SpoilerAnswer({ answer, explanation }: { answer: string; explanation: s
 
 function ModuleCard({ module }: { module: Module }) {
   return (
-    <Card className="mb-8">
+    <Card className="mb-8" id={`module-${module.id}`}>
       <CardHeader className="bg-muted/50">
         <div className="flex items-center justify-between">
           <Badge variant="secondary" className="mb-2">Module {module.id}</Badge>
@@ -5307,6 +5539,15 @@ function ModuleCard({ module }: { module: Module }) {
         <p className="text-sm text-muted-foreground mt-2">{module.objective}</p>
       </CardHeader>
       <CardContent className="pt-6">
+        <div className="mb-6 aspect-video w-full overflow-hidden rounded-lg border bg-black">
+          <iframe
+            className="h-full w-full"
+            src={`https://www.youtube.com/embed/${module.videoId}`}
+            title={module.videoTitle}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
         <Tabs defaultValue="notes" className="w-full">
           <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="notes" className="text-xs sm:text-sm">
@@ -5322,7 +5563,7 @@ function ModuleCard({ module }: { module: Module }) {
               Terms
             </TabsTrigger>
           </TabsList>
-          
+
           <TabsContent value="notes" className="mt-4">
             <Accordion type="multiple" className="w-full">
               {module.notes.sections.map((section, idx) => (
@@ -5333,10 +5574,10 @@ function ModuleCard({ module }: { module: Module }) {
                   <AccordionContent>
                     <ul className="space-y-2 pl-4">
                       {section.points.map((point, pIdx) => (
-                        <li key={pIdx} className="text-sm text-muted-foreground list-disc" 
-                            dangerouslySetInnerHTML={{ 
-                              __html: point.replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground">$1</strong>') 
-                            }} 
+                        <li key={pIdx} className="text-sm text-muted-foreground list-disc"
+                            dangerouslySetInnerHTML={{
+                              __html: point.replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground">$1</strong>')
+                            }}
                         />
                       ))}
                     </ul>
@@ -5345,7 +5586,7 @@ function ModuleCard({ module }: { module: Module }) {
               ))}
             </Accordion>
           </TabsContent>
-          
+
           <TabsContent value="quiz" className="mt-4">
             <div className="space-y-6">
               {module.quiz.map((q, idx) => (
@@ -5368,7 +5609,7 @@ function ModuleCard({ module }: { module: Module }) {
               ))}
             </div>
           </TabsContent>
-          
+
           <TabsContent value="terms" className="mt-4">
             <div className="grid gap-3">
               {module.keyTerms.map((term, idx) => (
@@ -5388,33 +5629,56 @@ function ModuleCard({ module }: { module: Module }) {
 export function StudyGuide() {
   return (
     <div className="min-h-screen bg-background">
-  <header className="border-b bg-card sticky top-0 z-10">
-  <div className="container mx-auto px-4 py-6">
-  <div className="flex items-center justify-between">
-  <div className="flex items-center gap-3">
-  <GraduationCap className="h-8 w-8 text-primary" />
-  <div>
-  <h1 className="text-2xl font-bold text-foreground">Early Church History</h1>
-  <p className="text-sm text-muted-foreground">Comprehensive Study Guide - Ryan Reeves Lecture Series</p>
-  </div>
-  </div>
-  <ThemeToggle />
-  </div>
-  </div>
-  </header>
-      
+      <header className="border-b bg-card sticky top-0 z-10">
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <GraduationCap className="h-8 w-8 text-primary" />
+              <div>
+                <h1 className="text-2xl font-bold text-foreground">Early Church History</h1>
+                <p className="text-sm text-muted-foreground">Comprehensive Study Guide - Ryan Reeves Lecture Series</p>
+              </div>
+            </div>
+            <ThemeToggle />
+          </div>
+        </div>
+      </header>
+
       <main className="container mx-auto px-4 py-8 max-w-4xl">
         <Card className="mb-8 bg-primary/5 border-primary/20">
           <CardContent className="pt-6">
             <h2 className="font-semibold text-lg mb-2">Playlist Overview</h2>
             <p className="text-sm text-muted-foreground mb-4">
-              This study guide covers Ryan Reeves&apos; &quot;Early and Medieval Church History&quot; playlist (59 lectures). 
-              The modules below cover the Early Church period (c. 30-600 AD).
+              This study guide is aligned 1-to-1 with Ryan Reeves&apos; &quot;Early and Medieval Church History&quot; YouTube playlist.
+              Each module corresponds to one video, in playlist order.
             </p>
             <div className="flex flex-wrap gap-2">
-              <Badge>59 Total Videos</Badge>
-              <Badge variant="secondary">6 Modules Completed</Badge>
-              <Badge variant="outline">19 Early Church Videos Remaining</Badge>
+              <Badge>{modules.length} Videos</Badge>
+              <Badge variant="secondary">{modules.length} Modules</Badge>
+              <Badge variant="outline">Early &amp; Medieval Church</Badge>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle className="text-lg flex items-center gap-2">
+              <Youtube className="h-5 w-5 text-primary" />
+              Jump to Module
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+              {modules.map((m) => (
+                <a
+                  key={m.id}
+                  href={`#module-${m.id}`}
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <ChevronRight className="h-4 w-4 text-primary shrink-0" />
+                  <span className="truncate">{m.id}. {m.title}</span>
+                </a>
+              ))}
             </div>
           </CardContent>
         </Card>
@@ -5428,26 +5692,8 @@ export function StudyGuide() {
             <ModuleCard key={module.id} module={module} />
           ))}
         </section>
-
-        <section className="mb-12">
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-lg">Remaining Early Church Videos (Modules 7-25)</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {remainingVideos.map((video, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <ChevronRight className="h-4 w-4 text-primary" />
-                    <span>Module {idx + 7}: {video}</span>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </section>
       </main>
-      
+
       <footer className="border-t bg-card py-6">
         <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
           <p>Study guide based on Ryan Reeves&apos; Early and Medieval Church History lecture series</p>
